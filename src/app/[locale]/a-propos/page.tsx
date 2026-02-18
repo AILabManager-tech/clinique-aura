@@ -1,6 +1,11 @@
 import { getTranslations } from "next-intl/server";
-import { AboutContent } from "@/components/pages/AboutContent";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+
+const AboutContent = dynamic(
+  () => import("@/components/pages/AboutContent").then((m) => ({ default: m.AboutContent })),
+  { loading: () => <div className="min-h-screen" /> }
+);
 
 export async function generateMetadata({
   params,

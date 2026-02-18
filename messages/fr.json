@@ -257,44 +257,45 @@
     "physio": {
       "title": "Physiothérapie",
       "description": "Évaluation et traitement des blessures musculosquelettiques par une approche fondée sur les données probantes. Réadaptation personnalisée pour retrouver votre plein potentiel fonctionnel.",
-      "includes": "Ce que ça inclut",
-      "item1": "Évaluation biomécanique complète et diagnostic physio",
-      "item2": "Thérapie manuelle et mobilisations articulaires",
-      "item3": "Programme d'exercices thérapeutiques personnalisé",
-      "item4": "Électrothérapie, ultrasons et modalités complémentaires",
+      "includes_title": "Ce que ça inclut",
+      "inclusion_1": "Évaluation biomécanique complète et diagnostic physio",
+      "inclusion_2": "Thérapie manuelle et mobilisations articulaires",
+      "inclusion_3": "Programme d'exercices thérapeutiques personnalisé",
+      "inclusion_4": "Électrothérapie, ultrasons et modalités complémentaires",
+      "inclusion_5": "Plan de réadaptation progressif et suivi personnalisé",
       "duration": "45-60 minutes par séance",
       "result": "Réduction de la douleur, restauration de la mobilité et retour aux activités."
     },
     "osteo": {
       "title": "Ostéopathie",
       "description": "Approche holistique par manipulations manuelles douces visant à rétablir l'équilibre global du corps. L'ostéopathe traite les restrictions de mobilité et leurs compensations.",
-      "includes": "Approches utilisées",
-      "item1": "Techniques structurelles (articulations, muscles)",
-      "item2": "Approche crânio-sacrée et viscérale",
-      "item3": "Rééquilibrage fascial et tissulaire",
-      "item4": "Traitement adapté aux femmes enceintes et aux enfants",
+      "includes_title": "Approches utilisées",
+      "inclusion_1": "Techniques structurelles (articulations, muscles)",
+      "inclusion_2": "Approche crânio-sacrée et viscérale",
+      "inclusion_3": "Rééquilibrage fascial et tissulaire",
+      "inclusion_4": "Traitement adapté aux femmes enceintes et aux enfants",
       "duration": "50-60 minutes par séance",
       "result": "Soulagement des tensions profondes et amélioration de la mobilité globale."
     },
     "massage": {
       "title": "Massothérapie",
       "description": "Massage thérapeutique adapté à vos besoins : soulagement des tensions chroniques, récupération sportive ou simplement détente profonde pour rétablir l'équilibre corps-esprit.",
-      "includes": "Techniques offertes",
-      "item1": "Massage suédois de détente et massage thérapeutique",
-      "item2": "Relâchement myofascial et points gâchettes (trigger points)",
-      "item3": "Massage sportif pré et post-entraînement",
-      "item4": "Drainage lymphatique et massage prénatal",
+      "includes_title": "Techniques offertes",
+      "inclusion_1": "Massage suédois de détente et massage thérapeutique",
+      "inclusion_2": "Relâchement myofascial et points gâchettes (trigger points)",
+      "inclusion_3": "Massage sportif pré et post-entraînement",
+      "inclusion_4": "Drainage lymphatique et massage prénatal",
       "duration": "30, 60 ou 90 minutes au choix",
       "result": "Diminution des tensions musculaires, meilleure circulation et relaxation profonde."
     },
     "nutrition": {
       "title": "Nutrition / Diététique",
       "description": "Accompagnement nutritionnel personnalisé par une diététiste membre de l'Ordre. Plans alimentaires adaptés à vos objectifs de santé, vos intolérances et votre mode de vie.",
-      "includes": "Services offerts",
-      "item1": "Évaluation nutritionnelle complète et bilan alimentaire",
-      "item2": "Plan alimentaire personnalisé selon vos objectifs",
-      "item3": "Gestion du poids, diabète, allergies et intolérances",
-      "item4": "Nutrition sportive et optimisation de la performance",
+      "includes_title": "Services offerts",
+      "inclusion_1": "Évaluation nutritionnelle complète et bilan alimentaire",
+      "inclusion_2": "Plan alimentaire personnalisé selon vos objectifs",
+      "inclusion_3": "Gestion du poids, diabète, allergies et intolérances",
+      "inclusion_4": "Nutrition sportive et optimisation de la performance",
       "duration": "60 minutes (évaluation initiale), 30 minutes (suivis)",
       "result": "Habitudes alimentaires durables et amélioration mesurable de votre santé."
     },
@@ -350,6 +351,7 @@
     },
     "cta": {
       "title": "Prêt à prendre soin de vous?",
+      "subtitle": "Notre équipe multidisciplinaire est prête à vous accompagner vers un mieux-être durable.",
       "button": "Prendre rendez-vous"
     }
   },
@@ -366,7 +368,16 @@
       "name": "Votre nom complet",
       "email": "Courriel",
       "phone": "Téléphone",
+      "optional": "optionnel",
       "service": "Service souhaité",
+      "service_placeholder": "Choisir un service",
+      "services": {
+        "physio": "Physiothérapie",
+        "osteo": "Ostéopathie",
+        "massage": "Massothérapie",
+        "nutrition": "Nutrition / Diététique",
+        "autre": "Autre / Je ne sais pas"
+      },
       "service_options": {
         "physio": "Physiothérapie",
         "osteo": "Ostéopathie",
@@ -375,14 +386,17 @@
         "other": "Autre / Je ne sais pas"
       },
       "message": "Votre message",
+      "message_placeholder": "Décrivez votre situation ou votre demande...",
       "consent": "J'accepte que mes données soient utilisées pour traiter ma demande.",
       "consent_notice": "Vos renseignements personnels sont traités conformément à la Loi 25 du Québec.",
       "consent_link": "Politique de confidentialité",
+      "privacy_link": "Politique de confidentialité",
       "loi25_notice": "Conformément à la Loi 25 du Québec, vos renseignements personnels ne seront utilisés que pour répondre à votre demande et ne seront pas partagés avec des tiers sans votre consentement explicite.",
       "submit": "Envoyer le message",
       "sending": "Envoi en cours...",
       "success": "Message envoyé avec succès! Nous vous répondrons sous 24 heures.",
       "error": "Une erreur est survenue. Veuillez réessayer ou nous appeler directement.",
+      "response_time": "Nous répondons généralement dans un délai de 24 heures.",
       "errors": {
         "name_min": "Le nom doit contenir au moins 2 caractères.",
         "email": "Veuillez entrer une adresse courriel valide.",
@@ -395,12 +409,22 @@
     },
     "info": {
       "title": "Nos coordonnées",
+      "address_label": "Adresse",
       "address": "2500, rue King Ouest, bureau 300, Sherbrooke QC J1J 2E8",
+      "phone_label": "Téléphone",
       "phone": "(819) 555-0200",
+      "email_label": "Courriel",
       "email": "info@clinique-aura.ca",
+      "hours_label": "Heures d'ouverture",
       "hours": "Heures d'ouverture",
       "hours_weekday": "Lundi au vendredi : 8h00 - 18h00",
+      "hours_weekend": "Samedi : 9h00 - 13h00",
       "hours_saturday": "Samedi : 9h00 - 13h00"
+    },
+    "loi25": {
+      "title": "Protection de vos données (Loi 25)",
+      "notice": "Conformément à la Loi 25 du Québec, vos renseignements personnels ne seront utilisés que pour répondre à votre demande.",
+      "link": "Politique de confidentialité"
     }
   },
   "footer": {

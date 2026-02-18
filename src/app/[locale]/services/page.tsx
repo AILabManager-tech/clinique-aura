@@ -1,7 +1,12 @@
 import { getTranslations } from "next-intl/server";
-import { ServicesContent } from "@/components/pages/ServicesContent";
+import dynamic from "next/dynamic";
 import { JsonLd, buildServiceSchema, buildFaqSchema } from "@/components/seo/JsonLd";
 import type { Metadata } from "next";
+
+const ServicesContent = dynamic(
+  () => import("@/components/pages/ServicesContent").then((m) => ({ default: m.ServicesContent })),
+  { loading: () => <div className="min-h-screen" /> }
+);
 
 export async function generateMetadata({
   params,

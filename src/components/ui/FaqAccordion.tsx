@@ -59,7 +59,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
                 : "max-h-0 opacity-0"
             )}
           >
-            <p className="text-pearl-600 leading-relaxed">{item.answer}</p>
+            <p className="text-charcoal-light leading-relaxed">{item.answer}</p>
           </div>
         </div>
       ))}

@@ -8,8 +8,12 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ClientWidgets } from "@/components/layout/ClientWidgets";
 import { JsonLd, localBusinessSchema } from "@/components/seo/JsonLd";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "../globals.css";
+
+export const viewport: Viewport = {
+  themeColor: "#5BA4C9",
+};
 
 // NEXOS: Typographie sereine et lumineuse — Clinique Aura
 const outfit = Outfit({
@@ -56,7 +60,6 @@ export async function generateMetadata({
         en: "https://clinique-aura.vercel.app/en",
       },
     },
-    themeColor: "#5BA4C9",
     icons: { icon: "/favicon.ico" },
   };
 }

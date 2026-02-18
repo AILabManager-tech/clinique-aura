@@ -257,44 +257,45 @@
     "physio": {
       "title": "Physiotherapy",
       "description": "Assessment and treatment of musculoskeletal injuries through an evidence-based approach. Personalized rehabilitation to help you reach your full functional potential.",
-      "includes": "What's included",
-      "item1": "Complete biomechanical assessment and physiotherapy diagnosis",
-      "item2": "Manual therapy and joint mobilizations",
-      "item3": "Personalized therapeutic exercise program",
-      "item4": "Electrotherapy, ultrasound and complementary modalities",
+      "includes_title": "What's included",
+      "inclusion_1": "Complete biomechanical assessment and physiotherapy diagnosis",
+      "inclusion_2": "Manual therapy and joint mobilizations",
+      "inclusion_3": "Personalized therapeutic exercise program",
+      "inclusion_4": "Electrotherapy, ultrasound and complementary modalities",
+      "inclusion_5": "Progressive rehabilitation plan and personalized follow-up",
       "duration": "45-60 minutes per session",
       "result": "Pain reduction, mobility restoration and return to activities."
     },
     "osteo": {
       "title": "Osteopathy",
       "description": "A holistic approach through gentle manual manipulations aimed at restoring the body's overall balance. The osteopath treats mobility restrictions and their compensations.",
-      "includes": "Approaches used",
-      "item1": "Structural techniques (joints, muscles)",
-      "item2": "Craniosacral and visceral approach",
-      "item3": "Fascial and tissue rebalancing",
-      "item4": "Treatment adapted for pregnant women and children",
+      "includes_title": "Approaches used",
+      "inclusion_1": "Structural techniques (joints, muscles)",
+      "inclusion_2": "Craniosacral and visceral approach",
+      "inclusion_3": "Fascial and tissue rebalancing",
+      "inclusion_4": "Treatment adapted for pregnant women and children",
       "duration": "50-60 minutes per session",
       "result": "Relief of deep tensions and improved overall mobility."
     },
     "massage": {
       "title": "Massage Therapy",
       "description": "Therapeutic massage adapted to your needs: relief of chronic tensions, sports recovery or simply deep relaxation to restore body-mind balance.",
-      "includes": "Techniques offered",
-      "item1": "Swedish relaxation massage and therapeutic massage",
-      "item2": "Myofascial release and trigger point therapy",
-      "item3": "Pre and post-workout sports massage",
-      "item4": "Lymphatic drainage and prenatal massage",
+      "includes_title": "Techniques offered",
+      "inclusion_1": "Swedish relaxation massage and therapeutic massage",
+      "inclusion_2": "Myofascial release and trigger point therapy",
+      "inclusion_3": "Pre and post-workout sports massage",
+      "inclusion_4": "Lymphatic drainage and prenatal massage",
       "duration": "30, 60 or 90 minutes of your choice",
       "result": "Reduced muscle tension, improved circulation and deep relaxation."
     },
     "nutrition": {
       "title": "Nutrition / Dietetics",
       "description": "Personalized nutritional guidance from a registered dietitian. Meal plans tailored to your health goals, intolerances and lifestyle.",
-      "includes": "Services offered",
-      "item1": "Complete nutritional assessment and dietary review",
-      "item2": "Personalized meal plan based on your goals",
-      "item3": "Weight management, diabetes, allergies and intolerances",
-      "item4": "Sports nutrition and performance optimization",
+      "includes_title": "Services offered",
+      "inclusion_1": "Complete nutritional assessment and dietary review",
+      "inclusion_2": "Personalized meal plan based on your goals",
+      "inclusion_3": "Weight management, diabetes, allergies and intolerances",
+      "inclusion_4": "Sports nutrition and performance optimization",
       "duration": "60 minutes (initial assessment), 30 minutes (follow-ups)",
       "result": "Sustainable eating habits and measurable improvement in your health."
     },
@@ -350,6 +351,7 @@
     },
     "cta": {
       "title": "Ready to take care of yourself?",
+      "subtitle": "Our multidisciplinary team is ready to support you toward lasting well-being.",
       "button": "Book an appointment"
     }
   },
@@ -366,7 +368,16 @@
       "name": "Your full name",
       "email": "Email",
       "phone": "Phone",
+      "optional": "optional",
       "service": "Desired service",
+      "service_placeholder": "Choose a service",
+      "services": {
+        "physio": "Physiotherapy",
+        "osteo": "Osteopathy",
+        "massage": "Massage Therapy",
+        "nutrition": "Nutrition / Dietetics",
+        "autre": "Other / Not sure"
+      },
       "service_options": {
         "physio": "Physiotherapy",
         "osteo": "Osteopathy",
@@ -375,14 +386,17 @@
         "other": "Other / Not sure"
       },
       "message": "Your message",
+      "message_placeholder": "Describe your situation or request...",
       "consent": "I agree that my data may be used to process my request.",
       "consent_notice": "Your personal information is processed in accordance with Quebec's Law 25.",
       "consent_link": "Privacy Policy",
+      "privacy_link": "Privacy Policy",
       "loi25_notice": "In accordance with Quebec's Law 25, your personal information will only be used to respond to your request and will not be shared with third parties without your explicit consent.",
       "submit": "Send message",
       "sending": "Sending...",
       "success": "Message sent successfully! We will respond within 24 hours.",
       "error": "An error occurred. Please try again or call us directly.",
+      "response_time": "We typically respond within 24 hours.",
       "errors": {
         "name_min": "Name must be at least 2 characters.",
         "email": "Please enter a valid email address.",
@@ -395,12 +409,22 @@
     },
     "info": {
       "title": "Our contact information",
+      "address_label": "Address",
       "address": "2500 King Street West, Suite 300, Sherbrooke QC J1J 2E8",
+      "phone_label": "Phone",
       "phone": "(819) 555-0200",
+      "email_label": "Email",
       "email": "info@clinique-aura.ca",
+      "hours_label": "Business hours",
       "hours": "Business hours",
       "hours_weekday": "Monday to Friday: 8:00 AM - 6:00 PM",
+      "hours_weekend": "Saturday: 9:00 AM - 1:00 PM",
       "hours_saturday": "Saturday: 9:00 AM - 1:00 PM"
+    },
+    "loi25": {
+      "title": "Data Protection (Law 25)",
+      "notice": "In accordance with Quebec's Law 25, your personal information will only be used to respond to your request.",
+      "link": "Privacy Policy"
     }
   },
   "footer": {

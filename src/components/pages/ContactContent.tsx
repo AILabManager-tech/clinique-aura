@@ -303,13 +303,13 @@ export function ContactContent() {
             {/* --- Sidebar --- */}
             <AnimatedSection direction="right" delay={0.2} className="md:col-span-2">
               <div className="card-elevated !bg-sky-700 !border-sky-800 text-white">
-                <h3 className="mb-6 text-pearl-100 text-xl">{t("info.title")}</h3>
+                <h2 className="mb-6 text-pearl-100 text-xl">{t("info.title")}</h2>
                 <div className="space-y-6">
                   {/* Address */}
                   <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
+                    <MapPin className="h-5 w-5 text-sky-100 mt-0.5 shrink-0" strokeWidth={1.5} />
                     <div>
-                      <p className="text-sm font-medium text-sky-200">
+                      <p className="text-sm font-medium text-sky-100">
                         {t("info.address_label")}
                       </p>
                       <p className="text-pearl-100">
@@ -322,9 +322,9 @@ export function ContactContent() {
 
                   {/* Phone */}
                   <div className="flex items-start gap-3">
-                    <Phone className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
+                    <Phone className="h-5 w-5 text-sky-100 mt-0.5 shrink-0" strokeWidth={1.5} />
                     <div>
-                      <p className="text-sm font-medium text-sky-200">
+                      <p className="text-sm font-medium text-sky-100">
                         {t("info.phone_label")}
                       </p>
                       <a
@@ -338,9 +338,9 @@ export function ContactContent() {
 
                   {/* Email */}
                   <div className="flex items-start gap-3">
-                    <Mail className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
+                    <Mail className="h-5 w-5 text-sky-100 mt-0.5 shrink-0" strokeWidth={1.5} />
                     <div>
-                      <p className="text-sm font-medium text-sky-200">
+                      <p className="text-sm font-medium text-sky-100">
                         {t("info.email_label")}
                       </p>
                       <a
@@ -354,9 +354,9 @@ export function ContactContent() {
 
                   {/* Hours */}
                   <div className="flex items-start gap-3">
-                    <Clock className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
+                    <Clock className="h-5 w-5 text-sky-100 mt-0.5 shrink-0" strokeWidth={1.5} />
                     <div>
-                      <p className="text-sm font-medium text-sky-200">
+                      <p className="text-sm font-medium text-sky-100">
                         {t("info.hours_label")}
                       </p>
                       <p className="text-pearl-100">{t("info.hours_weekday")}</p>
@@ -368,9 +368,9 @@ export function ContactContent() {
 
               {/* Loi 25 notice */}
               <div className="mt-6 rounded-2xl border border-sky-200/50 bg-sky-50 p-6">
-                <h4 className="mb-2 font-heading text-sm font-semibold text-sky-700">
+                <h3 className="mb-2 font-heading text-sm font-semibold text-sky-700">
                   {t("loi25.title")}
-                </h4>
+                </h3>
                 <p className="text-sm text-charcoal-light leading-relaxed">
                   {t("loi25.notice")}{" "}
                   <Link

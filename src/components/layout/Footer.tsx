@@ -48,9 +48,9 @@ export function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
               Navigation
-            </h4>
+            </p>
             <div className="flex flex-col gap-2">
               <Link
                 href="/"
@@ -81,9 +81,9 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
               Contact
-            </h4>
+            </p>
             <div className="flex flex-col gap-2 text-sm text-pearl-400">
               <p>
                 2500, rue King Ouest, bureau 300
@@ -107,9 +107,9 @@ export function Footer() {
 
           {/* Hours */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
               {locale === "fr" ? "Heures d\u2019ouverture" : "Opening Hours"}
-            </h4>
+            </p>
             <div className="flex flex-col gap-1 text-sm text-pearl-400">
               <p>
                 {locale === "fr" ? "Lun\u2013Ven" : "Mon\u2013Fri"}{" "}

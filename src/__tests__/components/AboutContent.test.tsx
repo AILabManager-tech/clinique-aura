@@ -127,9 +127,9 @@ describe("AboutContent", () => {
     expect(screen.getByText("values.title")).toBeInTheDocument();
   });
 
-  it("renders value cards (benevolence, excellence, holistic)", () => {
+  it("renders value cards (wellness, excellence, holistic)", () => {
     render(<AboutContent />);
-    expect(screen.getByText("benevolence.title")).toBeInTheDocument();
+    expect(screen.getByText("wellness.title")).toBeInTheDocument();
     expect(screen.getByText("excellence.title")).toBeInTheDocument();
     expect(screen.getByText("holistic.title")).toBeInTheDocument();
   });

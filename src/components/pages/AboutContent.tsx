@@ -24,7 +24,7 @@ interface ValueDef {
 
 const valuesDefs: ValueDef[] = [
   {
-    key: "benevolence",
+    key: "wellness",
     Icon: ShieldCheck,
     accentBg: "bg-sky-50",
     accentText: "text-sky-600",

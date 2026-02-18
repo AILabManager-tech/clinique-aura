@@ -1,6 +1,11 @@
 import { getTranslations } from "next-intl/server";
-import { ContactContent } from "@/components/pages/ContactContent";
+import dynamic from "next/dynamic";
 import type { Metadata } from "next";
+
+const ContactContent = dynamic(
+  () => import("@/components/pages/ContactContent").then((m) => ({ default: m.ContactContent })),
+  { loading: () => <div className="min-h-screen" /> }
+);
 
 export async function generateMetadata({
   params,
