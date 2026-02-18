@@ -161,7 +161,6 @@ export function CookieConsent() {
           <button
             onClick={handleRejectAll}
             className="flex-1 rounded-xl bg-pearl-400 px-4 py-2.5 text-sm font-medium text-charcoal transition-colors hover:bg-pearl-500 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
-            aria-label="Refuser tous les témoins optionnels"
           >
             Tout refuser
           </button>
@@ -170,7 +169,6 @@ export function CookieConsent() {
             <button
               onClick={handleSavePreferences}
               className="flex-1 rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
-              aria-label="Sauvegarder mes préférences de témoins"
             >
               Sauvegarder mes choix
             </button>
@@ -178,7 +176,6 @@ export function CookieConsent() {
             <button
               onClick={() => setShowDetails(true)}
               className="flex-1 rounded-xl border border-sky-400 bg-transparent px-4 py-2.5 text-sm font-medium text-sky-700 transition-colors hover:bg-sky-50 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
-              aria-label="Personnaliser les préférences de témoins"
             >
               Personnaliser
             </button>
@@ -187,7 +184,6 @@ export function CookieConsent() {
           <button
             onClick={handleAcceptAll}
             className="flex-1 rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
-            aria-label="Accepter tous les témoins"
           >
             Tout accepter
           </button>
@@ -218,7 +214,6 @@ export function CookieSettingsButton() {
     <button
       onClick={handleOpen}
       className="text-sm text-pearl-500 underline transition-colors hover:text-pearl-200 focus:outline-none focus:ring-2 focus:ring-sky-400"
-      aria-label="Modifier mes préférences de témoins"
     >
       Gestion des témoins
     </button>
