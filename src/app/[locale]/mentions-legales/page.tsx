@@ -56,7 +56,7 @@ export default function LegalNoticePage() {
             </li>
             <li>
               <strong>{isFr ? "Courriel" : "Email"} :</strong>{" "}
-              <a href="mailto:info@clinique-aura.ca" className="text-sky-600 underline">
+              <a href="mailto:info@clinique-aura.ca" className="text-sky-700 underline">
                 info@clinique-aura.ca
               </a>
             </li>
@@ -112,7 +112,7 @@ export default function LegalNoticePage() {
             </li>
             <li>
               <strong>{isFr ? "Courriel" : "Email"} :</strong>{" "}
-              <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+              <a href="mailto:rpp@clinique-aura.ca" className="text-sky-700 underline">
                 rpp@clinique-aura.ca
               </a>
             </li>
@@ -181,7 +181,7 @@ export default function LegalNoticePage() {
             <br />
             (819) 555-0200
             <br />
-            <a href="mailto:info@clinique-aura.ca" className="text-sky-600 underline">
+            <a href="mailto:info@clinique-aura.ca" className="text-sky-700 underline">
               info@clinique-aura.ca
             </a>
           </p>

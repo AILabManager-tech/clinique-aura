@@ -116,7 +116,7 @@ export function CookieConsent() {
               />
               <div>
                 <span className="font-medium text-charcoal">Essentiels</span>
-                <span className="ml-2 text-xs text-charcoal/50">(toujours actifs)</span>
+                <span className="ml-2 text-xs text-charcoal/80">(toujours actifs)</span>
                 <p className="mt-1 text-xs text-charcoal/70">
                   Nécessaires au fonctionnement du site. Ne peuvent pas être désactivés.
                 </p>
@@ -193,11 +193,11 @@ export function CookieConsent() {
           </button>
         </div>
 
-        <p className="mt-3 text-center text-xs text-charcoal/50">
+        <p className="mt-3 text-center text-xs text-charcoal/80">
           Pour en savoir plus, consultez notre{" "}
           <Link
             href="/fr/politique-confidentialite"
-            className="underline hover:text-charcoal/70 focus:outline-none focus:ring-2 focus:ring-sky-400"
+            className="text-charcoal underline hover:text-charcoal/70 focus:outline-none focus:ring-2 focus:ring-sky-400"
           >
             politique de confidentialité
           </Link>

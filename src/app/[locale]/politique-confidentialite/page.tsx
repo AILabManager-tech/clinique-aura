@@ -66,7 +66,7 @@ export default function PrivacyPolicyPage() {
             </li>
             <li>
               <strong>{isFr ? "Courriel" : "Email"} :</strong>{" "}
-              <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+              <a href="mailto:rpp@clinique-aura.ca" className="text-sky-700 underline">
                 rpp@clinique-aura.ca
               </a>
             </li>
@@ -189,7 +189,7 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p className="mt-2">
             {isFr ? "Pour exercer ces droits : " : "To exercise these rights: "}
-            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-700 underline">
               rpp@clinique-aura.ca
             </a>
             {isFr ? ". Nous répondrons dans un délai de 30 jours." : ". We will respond within 30 days."}
@@ -275,7 +275,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <p>
             {isFr ? "Courriel de notification d'incident : " : "Incident notification email: "}
-            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-700 underline">
               rpp@clinique-aura.ca
             </a>
           </p>
@@ -297,7 +297,7 @@ export default function PrivacyPolicyPage() {
             <br />
             (819) 555-0200
             <br />
-            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-700 underline">
               rpp@clinique-aura.ca
             </a>
           </p>
