@@ -10,6 +10,9 @@ const nextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "sonner"],
+  },
 };
 
 export default withNextIntl(nextConfig);

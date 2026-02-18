@@ -1,8 +1,19 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { Toaster } from "sonner";
-import { ScrollToTop } from "@/components/ui/ScrollToTop";
+
+const Toaster = dynamic(
+  () => import("sonner").then((m) => ({ default: m.Toaster })),
+  { ssr: false, loading: () => null }
+);
+
+const ScrollToTop = dynamic(
+  () =>
+    import("@/components/ui/ScrollToTop").then((m) => ({
+      default: m.ScrollToTop,
+    })),
+  { ssr: false, loading: () => null }
+);
 
 const CookieConsent = dynamic(
   () =>
