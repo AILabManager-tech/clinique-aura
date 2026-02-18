@@ -7,7 +7,8 @@
     "home": "Accueil",
     "services": "Services",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cta": "Prendre rendez-vous"
   },
   "home": {
     "hero": {
@@ -15,12 +16,18 @@
       "title": "Votre bien-être, notre mission commune.",
       "subtitle": "Physiothérapie, ostéopathie, massothérapie et nutrition — quatre disciplines réunies sous un même toit pour une prise en charge globale.",
       "cta": "Prendre rendez-vous",
+      "cta_secondary": "Découvrir nos services",
       "stat1_value": "4",
       "stat1_label": "Disciplines complémentaires",
       "stat2_value": "15+",
       "stat2_label": "Années d'expérience combinée",
       "stat3_value": "2000+",
       "stat3_label": "Patients accompagnés"
+    },
+    "stats": {
+      "experience": "Années d'expérience combinée",
+      "patients": "Patients accompagnés",
+      "disciplines": "Disciplines complémentaires"
     },
     "services": {
       "title": "Nos services",
@@ -45,46 +52,120 @@
     "symptom_navigator": {
       "title": "Trouvez le soin adapté à vos symptômes",
       "subtitle": "Cliquez sur une zone du corps pour découvrir les symptômes courants et les traitements recommandés.",
+      "body_map_label": "Carte interactive du corps humain — cliquez sur une zone",
+      "placeholder_title": "Sélectionnez une zone du corps",
+      "placeholder_subtitle": "Cliquez sur la silhouette ou sur un bouton ci-dessous pour explorer les symptômes et traitements.",
+      "close": "Fermer",
+      "symptoms_title": "Symptômes courants",
+      "treatments_title": "Traitements recommandés",
       "zones": {
         "head": {
           "name": "Tête",
-          "symptoms": ["Maux de tête récurrents", "Migraines", "Tension crânienne", "Douleur à la mâchoire (ATM)"],
-          "treatments": ["Ostéopathie crânienne", "Massothérapie cervicale", "Physiothérapie ATM"]
+          "symptoms": {
+            "0": "Maux de tête récurrents",
+            "1": "Migraines et tension crânienne",
+            "2": "Douleur à la mâchoire (ATM)"
+          },
+          "treatments": {
+            "0": { "type": "osteo", "label": "Ostéopathie crânienne" },
+            "1": { "type": "massage", "label": "Massothérapie cervicale" }
+          }
         },
         "neck": {
           "name": "Cou",
-          "symptoms": ["Torticolis", "Raideur cervicale", "Douleur irradiante vers l'épaule", "Engourdissements dans les bras"],
-          "treatments": ["Physiothérapie cervicale", "Ostéopathie", "Massothérapie des tissus profonds"]
+          "symptoms": {
+            "0": "Torticolis et raideur cervicale",
+            "1": "Douleur irradiante vers l'épaule",
+            "2": "Engourdissements dans les bras"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie cervicale" },
+            "1": { "type": "massage", "label": "Massothérapie des tissus profonds" }
+          }
         },
         "shoulders": {
           "name": "Épaules",
-          "symptoms": ["Tendinite de la coiffe", "Bursite", "Épaule gelée", "Instabilité articulaire"],
-          "treatments": ["Physiothérapie de l'épaule", "Ostéopathie structurelle", "Exercices de renforcement"]
+          "symptoms": {
+            "0": "Tendinite de la coiffe des rotateurs",
+            "1": "Bursite et épaule gelée",
+            "2": "Instabilité articulaire"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie de l'épaule" },
+            "1": { "type": "osteo", "label": "Ostéopathie structurelle" }
+          }
         },
         "back": {
           "name": "Dos",
-          "symptoms": ["Lombalgie chronique", "Hernie discale", "Sciatalgie", "Posture inadéquate"],
-          "treatments": ["Physiothérapie rachidienne", "Ostéopathie viscérale", "Massothérapie profonde", "Conseils posturaux"]
+          "symptoms": {
+            "0": "Lombalgie chronique et hernie discale",
+            "1": "Sciatalgie",
+            "2": "Posture inadéquate"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie rachidienne" },
+            "1": { "type": "massage", "label": "Massothérapie profonde" }
+          }
         },
         "arms": {
           "name": "Bras / Coudes / Poignets",
-          "symptoms": ["Épicondylite (tennis elbow)", "Syndrome du canal carpien", "Tendinite", "Douleur au poignet"],
-          "treatments": ["Physiothérapie des membres supérieurs", "Ostéopathie", "Massothérapie ciblée"]
+          "symptoms": {
+            "0": "Épicondylite (tennis elbow)",
+            "1": "Syndrome du canal carpien",
+            "2": "Tendinite et douleur au poignet"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie des membres supérieurs" },
+            "1": { "type": "osteo", "label": "Ostéopathie structurelle" }
+          }
+        },
+        "hands": {
+          "name": "Mains",
+          "symptoms": {
+            "0": "Douleur articulaire aux doigts",
+            "1": "Syndrome du canal carpien",
+            "2": "Raideur et perte de préhension"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie de la main" },
+            "1": { "type": "osteo", "label": "Ostéopathie des membres supérieurs" }
+          }
         },
         "hips": {
           "name": "Hanches / Bassin",
-          "symptoms": ["Douleur à la hanche", "Bursite trochantérienne", "Dysfonction sacro-iliaque", "Douleur pelvienne"],
-          "treatments": ["Physiothérapie du bassin", "Ostéopathie pelvienne", "Exercices de stabilisation"]
+          "symptoms": {
+            "0": "Douleur à la hanche et bursite",
+            "1": "Dysfonction sacro-iliaque",
+            "2": "Douleur pelvienne"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie du bassin" },
+            "1": { "type": "osteo", "label": "Ostéopathie pelvienne" }
+          }
         },
         "legs": {
           "name": "Jambes / Genoux",
-          "symptoms": ["Entorse du genou", "Syndrome fémoro-patellaire", "Douleur au ménisque", "Crampes musculaires"],
-          "treatments": ["Physiothérapie du genou", "Ostéopathie des membres inférieurs", "Massothérapie sportive"]
+          "symptoms": {
+            "0": "Entorse du genou",
+            "1": "Syndrome fémoro-patellaire",
+            "2": "Crampes musculaires"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie du genou" },
+            "1": { "type": "massage", "label": "Massothérapie sportive" }
+          }
         },
         "feet": {
           "name": "Pieds / Chevilles",
-          "symptoms": ["Fasciite plantaire", "Entorse de la cheville", "Tendinite d'Achille", "Douleur au talon"],
-          "treatments": ["Physiothérapie du pied", "Ostéopathie", "Massothérapie plantaire"]
+          "symptoms": {
+            "0": "Fasciite plantaire",
+            "1": "Entorse de la cheville",
+            "2": "Tendinite d'Achille"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Physiothérapie du pied" },
+            "1": { "type": "massage", "label": "Massothérapie plantaire" }
+          }
         }
       },
       "cta": "Prendre rendez-vous pour une évaluation"
@@ -92,57 +173,75 @@
     "practitioners": {
       "title": "Notre équipe",
       "subtitle": "Des professionnels passionnés, dédiés à votre rétablissement.",
-      "members": [
-        {
-          "name": "Dre Sophie Lafleur",
-          "title": "Physiothérapeute, fondatrice",
-          "specialty": "Physiothérapie musculosquelettique",
-          "bio": "Fondatrice de Clinique Aura, Dre Lafleur cumule plus de 12 ans d'expérience en physiothérapie. Passionnée par l'approche multidisciplinaire, elle croit fermement que la collaboration entre professionnels est la clé d'un rétablissement optimal."
-        },
-        {
-          "name": "Marc-André Tremblay",
-          "title": "Ostéopathe D.O.",
-          "specialty": "Ostéopathie structurelle et crânienne",
-          "bio": "Diplômé du Collège d'Études Ostéopathiques de Montréal, Marc-André pratique une ostéopathie globale intégrant les approches structurelle, viscérale et crânienne. Il traite les patients de tous âges avec une attention particulière aux douleurs chroniques."
-        },
-        {
-          "name": "Camille Bergeron",
-          "title": "Massothérapeute agréée",
-          "specialty": "Massage thérapeutique et sportif",
-          "bio": "Camille possède une expertise en massage thérapeutique, sportif et de détente. Formée en kinésithérapie et en techniques de relâchement myofascial, elle adapte chaque séance aux besoins spécifiques du patient."
-        },
-        {
-          "name": "Nadia Khoury",
-          "title": "Nutritionniste Dt.P.",
-          "specialty": "Nutrition clinique et sportive",
-          "bio": "Membre de l'Ordre professionnel des diététistes du Québec, Nadia accompagne ses patients dans l'adoption de saines habitudes alimentaires. Elle s'intéresse particulièrement à la nutrition anti-inflammatoire et à la performance sportive."
+      "sophie_lafleur": {
+        "name": "Dre Sophie Lafleur",
+        "title": "Physiothérapeute, fondatrice",
+        "bio": "Fondatrice de Clinique Aura, Dre Lafleur cumule plus de 12 ans d'expérience en physiothérapie. Passionnée par l'approche multidisciplinaire, elle croit fermement que la collaboration entre professionnels est la clé d'un rétablissement optimal.",
+        "cta": "Prendre rendez-vous",
+        "specialties": {
+          "0": "Physiothérapie musculosquelettique",
+          "1": "Réadaptation fonctionnelle",
+          "2": "Thérapie manuelle"
         }
-      ]
+      },
+      "marc_andre_tremblay": {
+        "name": "Marc-André Tremblay",
+        "title": "Ostéopathe D.O.",
+        "bio": "Diplômé du Collège d'Études Ostéopathiques de Montréal, Marc-André pratique une ostéopathie globale intégrant les approches structurelle, viscérale et crânienne. Il traite les patients de tous âges avec une attention particulière aux douleurs chroniques.",
+        "cta": "Prendre rendez-vous",
+        "specialties": {
+          "0": "Ostéopathie structurelle",
+          "1": "Approche crânienne",
+          "2": "Douleurs chroniques"
+        }
+      },
+      "camille_bergeron": {
+        "name": "Camille Bergeron",
+        "title": "Massothérapeute agréée",
+        "bio": "Camille possède une expertise en massage thérapeutique, sportif et de détente. Formée en kinésithérapie et en techniques de relâchement myofascial, elle adapte chaque séance aux besoins spécifiques du patient.",
+        "cta": "Prendre rendez-vous",
+        "specialties": {
+          "0": "Massage thérapeutique",
+          "1": "Massage sportif",
+          "2": "Relâchement myofascial"
+        }
+      },
+      "nadia_khoury": {
+        "name": "Nadia Khoury",
+        "title": "Nutritionniste Dt.P.",
+        "bio": "Membre de l'Ordre professionnel des diététistes du Québec, Nadia accompagne ses patients dans l'adoption de saines habitudes alimentaires. Elle s'intéresse particulièrement à la nutrition anti-inflammatoire et à la performance sportive.",
+        "cta": "Prendre rendez-vous",
+        "specialties": {
+          "0": "Nutrition clinique",
+          "1": "Nutrition sportive",
+          "2": "Nutrition anti-inflammatoire"
+        }
+      }
     },
     "testimonials": {
       "title": "Ce que nos patients en disent",
-      "items": [
-        {
-          "name": "Marie-Claude T.",
-          "text": "Après des mois de douleurs lombaires, l'équipe de Clinique Aura m'a offert un plan de traitement combinant physiothérapie et massothérapie. En 6 semaines, j'ai retrouvé ma mobilité. L'approche multidisciplinaire fait toute la différence.",
-          "service": "Physiothérapie + Massothérapie"
-        },
-        {
-          "name": "Jean-François R.",
-          "text": "L'ostéopathie chez Clinique Aura a transformé ma qualité de vie. Marc-André a identifié des tensions que je traînais depuis des années. Combiné aux conseils nutritionnels de Nadia, je me sens mieux que jamais.",
-          "service": "Ostéopathie + Nutrition"
-        },
-        {
-          "name": "Stéphanie L.",
-          "text": "En tant que coureuse, j'avais besoin d'un suivi complet. Physiothérapie pour la rééducation, massothérapie pour la récupération, nutrition pour la performance. Clinique Aura offre tout sous un même toit. Recommandé sans hésitation!",
-          "service": "Physiothérapie + Massothérapie + Nutrition"
-        }
-      ]
+      "0": {
+        "quote": "Après des mois de douleurs lombaires, l'équipe de Clinique Aura m'a offert un plan de traitement combinant physiothérapie et massothérapie. En 6 semaines, j'ai retrouvé ma mobilité. L'approche multidisciplinaire fait toute la différence.",
+        "name": "Marie-Claude T.",
+        "role": "Physiothérapie + Massothérapie"
+      },
+      "1": {
+        "quote": "L'ostéopathie chez Clinique Aura a transformé ma qualité de vie. Marc-André a identifié des tensions que je traînais depuis des années. Combiné aux conseils nutritionnels de Nadia, je me sens mieux que jamais.",
+        "name": "Jean-François R.",
+        "role": "Ostéopathie + Nutrition"
+      },
+      "2": {
+        "quote": "En tant que coureuse, j'avais besoin d'un suivi complet. Physiothérapie pour la rééducation, massothérapie pour la récupération, nutrition pour la performance. Clinique Aura offre tout sous un même toit. Recommandé sans hésitation!",
+        "name": "Stéphanie L.",
+        "role": "Physiothérapie + Massothérapie + Nutrition"
+      }
     },
     "booking": {
       "title": "Prenez soin de vous dès aujourd'hui",
       "subtitle": "Réservez votre première consultation et commencez votre parcours vers un mieux-être global.",
       "phone": "(819) 555-0200",
+      "phone_display": "(819) 555-0200",
+      "phone_raw": "+18195550200",
       "cta": "Prendre rendez-vous"
     }
   },
@@ -306,6 +405,9 @@
   },
   "footer": {
     "description": "Clinique multidisciplinaire offrant physiothérapie, ostéopathie, massothérapie et nutrition à Sherbrooke.",
+    "tagline": "Votre bien-être, notre mission commune.",
+    "cta": "Prêt à prendre soin de vous?",
+    "cta_button": "Prendre rendez-vous",
     "nav_title": "Navigation",
     "legal_title": "Légal",
     "mentions": "Mentions légales",

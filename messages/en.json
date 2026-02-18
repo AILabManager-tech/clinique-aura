@@ -7,7 +7,8 @@
     "home": "Home",
     "services": "Services",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cta": "Book an appointment"
   },
   "home": {
     "hero": {
@@ -15,12 +16,18 @@
       "title": "Your well-being, our shared mission.",
       "subtitle": "Physiotherapy, osteopathy, massage therapy and nutrition — four disciplines united under one roof for comprehensive care.",
       "cta": "Book an appointment",
+      "cta_secondary": "Discover our services",
       "stat1_value": "4",
       "stat1_label": "Complementary disciplines",
       "stat2_value": "15+",
       "stat2_label": "Years of combined experience",
       "stat3_value": "2000+",
       "stat3_label": "Patients supported"
+    },
+    "stats": {
+      "experience": "Years of combined experience",
+      "patients": "Patients supported",
+      "disciplines": "Complementary disciplines"
     },
     "services": {
       "title": "Our services",
@@ -45,46 +52,120 @@
     "symptom_navigator": {
       "title": "Find the right care for your symptoms",
       "subtitle": "Click on a body area to discover common symptoms and recommended treatments.",
+      "body_map_label": "Interactive body map — click on a zone",
+      "placeholder_title": "Select a body area",
+      "placeholder_subtitle": "Click on the silhouette or a button below to explore symptoms and treatments.",
+      "close": "Close",
+      "symptoms_title": "Common symptoms",
+      "treatments_title": "Recommended treatments",
       "zones": {
         "head": {
           "name": "Head",
-          "symptoms": ["Recurring headaches", "Migraines", "Cranial tension", "Jaw pain (TMJ)"],
-          "treatments": ["Cranial osteopathy", "Cervical massage therapy", "TMJ physiotherapy"]
+          "symptoms": {
+            "0": "Recurring headaches",
+            "1": "Migraines and cranial tension",
+            "2": "Jaw pain (TMJ)"
+          },
+          "treatments": {
+            "0": { "type": "osteo", "label": "Cranial osteopathy" },
+            "1": { "type": "massage", "label": "Cervical massage therapy" }
+          }
         },
         "neck": {
           "name": "Neck",
-          "symptoms": ["Torticollis", "Cervical stiffness", "Pain radiating to the shoulder", "Arm numbness"],
-          "treatments": ["Cervical physiotherapy", "Osteopathy", "Deep tissue massage"]
+          "symptoms": {
+            "0": "Torticollis and cervical stiffness",
+            "1": "Pain radiating to the shoulder",
+            "2": "Arm numbness"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Cervical physiotherapy" },
+            "1": { "type": "massage", "label": "Deep tissue massage" }
+          }
         },
         "shoulders": {
           "name": "Shoulders",
-          "symptoms": ["Rotator cuff tendinitis", "Bursitis", "Frozen shoulder", "Joint instability"],
-          "treatments": ["Shoulder physiotherapy", "Structural osteopathy", "Strengthening exercises"]
+          "symptoms": {
+            "0": "Rotator cuff tendinitis",
+            "1": "Bursitis and frozen shoulder",
+            "2": "Joint instability"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Shoulder physiotherapy" },
+            "1": { "type": "osteo", "label": "Structural osteopathy" }
+          }
         },
         "back": {
           "name": "Back",
-          "symptoms": ["Chronic low back pain", "Herniated disc", "Sciatica", "Poor posture"],
-          "treatments": ["Spinal physiotherapy", "Visceral osteopathy", "Deep tissue massage", "Postural advice"]
+          "symptoms": {
+            "0": "Chronic low back pain and herniated disc",
+            "1": "Sciatica",
+            "2": "Poor posture"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Spinal physiotherapy" },
+            "1": { "type": "massage", "label": "Deep tissue massage" }
+          }
         },
         "arms": {
           "name": "Arms / Elbows / Wrists",
-          "symptoms": ["Epicondylitis (tennis elbow)", "Carpal tunnel syndrome", "Tendinitis", "Wrist pain"],
-          "treatments": ["Upper limb physiotherapy", "Osteopathy", "Targeted massage therapy"]
+          "symptoms": {
+            "0": "Epicondylitis (tennis elbow)",
+            "1": "Carpal tunnel syndrome",
+            "2": "Tendinitis and wrist pain"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Upper limb physiotherapy" },
+            "1": { "type": "osteo", "label": "Structural osteopathy" }
+          }
+        },
+        "hands": {
+          "name": "Hands",
+          "symptoms": {
+            "0": "Finger joint pain",
+            "1": "Carpal tunnel syndrome",
+            "2": "Stiffness and grip loss"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Hand physiotherapy" },
+            "1": { "type": "osteo", "label": "Upper limb osteopathy" }
+          }
         },
         "hips": {
           "name": "Hips / Pelvis",
-          "symptoms": ["Hip pain", "Trochanteric bursitis", "Sacroiliac dysfunction", "Pelvic pain"],
-          "treatments": ["Pelvic physiotherapy", "Pelvic osteopathy", "Stabilization exercises"]
+          "symptoms": {
+            "0": "Hip pain and bursitis",
+            "1": "Sacroiliac dysfunction",
+            "2": "Pelvic pain"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Pelvic physiotherapy" },
+            "1": { "type": "osteo", "label": "Pelvic osteopathy" }
+          }
         },
         "legs": {
           "name": "Legs / Knees",
-          "symptoms": ["Knee sprain", "Patellofemoral syndrome", "Meniscus pain", "Muscle cramps"],
-          "treatments": ["Knee physiotherapy", "Lower limb osteopathy", "Sports massage"]
+          "symptoms": {
+            "0": "Knee sprain",
+            "1": "Patellofemoral syndrome",
+            "2": "Muscle cramps"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Knee physiotherapy" },
+            "1": { "type": "massage", "label": "Sports massage" }
+          }
         },
         "feet": {
           "name": "Feet / Ankles",
-          "symptoms": ["Plantar fasciitis", "Ankle sprain", "Achilles tendinitis", "Heel pain"],
-          "treatments": ["Foot physiotherapy", "Osteopathy", "Plantar massage therapy"]
+          "symptoms": {
+            "0": "Plantar fasciitis",
+            "1": "Ankle sprain",
+            "2": "Achilles tendinitis"
+          },
+          "treatments": {
+            "0": { "type": "physio", "label": "Foot physiotherapy" },
+            "1": { "type": "massage", "label": "Plantar massage therapy" }
+          }
         }
       },
       "cta": "Book an assessment appointment"
@@ -92,57 +173,75 @@
     "practitioners": {
       "title": "Our team",
       "subtitle": "Passionate professionals dedicated to your recovery.",
-      "members": [
-        {
-          "name": "Dr. Sophie Lafleur",
-          "title": "Physiotherapist, Founder",
-          "specialty": "Musculoskeletal physiotherapy",
-          "bio": "Founder of Clinique Aura, Dr. Lafleur has over 12 years of experience in physiotherapy. Passionate about the multidisciplinary approach, she firmly believes that collaboration between professionals is the key to optimal recovery."
-        },
-        {
-          "name": "Marc-Andre Tremblay",
-          "title": "Osteopath D.O.",
-          "specialty": "Structural and cranial osteopathy",
-          "bio": "A graduate of the College of Osteopathic Studies of Montreal, Marc-Andre practices comprehensive osteopathy integrating structural, visceral and cranial approaches. He treats patients of all ages with particular attention to chronic pain."
-        },
-        {
-          "name": "Camille Bergeron",
-          "title": "Registered Massage Therapist",
-          "specialty": "Therapeutic and sports massage",
-          "bio": "Camille has expertise in therapeutic, sports and relaxation massage. Trained in kinesiotherapy and myofascial release techniques, she adapts each session to the specific needs of the patient."
-        },
-        {
-          "name": "Nadia Khoury",
-          "title": "Registered Dietitian",
-          "specialty": "Clinical and sports nutrition",
-          "bio": "A member of the Ordre professionnel des dietetistes du Quebec, Nadia helps her patients adopt healthy eating habits. She has a particular interest in anti-inflammatory nutrition and sports performance."
+      "sophie_lafleur": {
+        "name": "Dr. Sophie Lafleur",
+        "title": "Physiotherapist, Founder",
+        "bio": "Founder of Clinique Aura, Dr. Lafleur has over 12 years of experience in physiotherapy. Passionate about the multidisciplinary approach, she firmly believes that collaboration between professionals is the key to optimal recovery.",
+        "cta": "Book an appointment",
+        "specialties": {
+          "0": "Musculoskeletal physiotherapy",
+          "1": "Functional rehabilitation",
+          "2": "Manual therapy"
         }
-      ]
+      },
+      "marc_andre_tremblay": {
+        "name": "Marc-Andre Tremblay",
+        "title": "Osteopath D.O.",
+        "bio": "A graduate of the College of Osteopathic Studies of Montreal, Marc-Andre practices comprehensive osteopathy integrating structural, visceral and cranial approaches. He treats patients of all ages with particular attention to chronic pain.",
+        "cta": "Book an appointment",
+        "specialties": {
+          "0": "Structural osteopathy",
+          "1": "Cranial approach",
+          "2": "Chronic pain"
+        }
+      },
+      "camille_bergeron": {
+        "name": "Camille Bergeron",
+        "title": "Registered Massage Therapist",
+        "bio": "Camille has expertise in therapeutic, sports and relaxation massage. Trained in kinesiotherapy and myofascial release techniques, she adapts each session to the specific needs of the patient.",
+        "cta": "Book an appointment",
+        "specialties": {
+          "0": "Therapeutic massage",
+          "1": "Sports massage",
+          "2": "Myofascial release"
+        }
+      },
+      "nadia_khoury": {
+        "name": "Nadia Khoury",
+        "title": "Registered Dietitian",
+        "bio": "A member of the Ordre professionnel des dietetistes du Quebec, Nadia helps her patients adopt healthy eating habits. She has a particular interest in anti-inflammatory nutrition and sports performance.",
+        "cta": "Book an appointment",
+        "specialties": {
+          "0": "Clinical nutrition",
+          "1": "Sports nutrition",
+          "2": "Anti-inflammatory nutrition"
+        }
+      }
     },
     "testimonials": {
       "title": "What our patients say",
-      "items": [
-        {
-          "name": "Marie-Claude T.",
-          "text": "After months of lower back pain, the Clinique Aura team gave me a treatment plan combining physiotherapy and massage therapy. Within 6 weeks, I regained my mobility. The multidisciplinary approach makes all the difference.",
-          "service": "Physiotherapy + Massage Therapy"
-        },
-        {
-          "name": "Jean-Francois R.",
-          "text": "Osteopathy at Clinique Aura transformed my quality of life. Marc-Andre identified tensions I had been carrying for years. Combined with Nadia's nutritional advice, I feel better than ever.",
-          "service": "Osteopathy + Nutrition"
-        },
-        {
-          "name": "Stephanie L.",
-          "text": "As a runner, I needed comprehensive care. Physiotherapy for rehabilitation, massage therapy for recovery, nutrition for performance. Clinique Aura offers everything under one roof. Highly recommended!",
-          "service": "Physiotherapy + Massage Therapy + Nutrition"
-        }
-      ]
+      "0": {
+        "quote": "After months of lower back pain, the Clinique Aura team gave me a treatment plan combining physiotherapy and massage therapy. Within 6 weeks, I regained my mobility. The multidisciplinary approach makes all the difference.",
+        "name": "Marie-Claude T.",
+        "role": "Physiotherapy + Massage Therapy"
+      },
+      "1": {
+        "quote": "Osteopathy at Clinique Aura transformed my quality of life. Marc-Andre identified tensions I had been carrying for years. Combined with Nadia's nutritional advice, I feel better than ever.",
+        "name": "Jean-Francois R.",
+        "role": "Osteopathy + Nutrition"
+      },
+      "2": {
+        "quote": "As a runner, I needed comprehensive care. Physiotherapy for rehabilitation, massage therapy for recovery, nutrition for performance. Clinique Aura offers everything under one roof. Highly recommended!",
+        "name": "Stephanie L.",
+        "role": "Physiotherapy + Massage Therapy + Nutrition"
+      }
     },
     "booking": {
       "title": "Start taking care of yourself today",
       "subtitle": "Book your first consultation and begin your journey toward holistic well-being.",
       "phone": "(819) 555-0200",
+      "phone_display": "(819) 555-0200",
+      "phone_raw": "+18195550200",
       "cta": "Book an appointment"
     }
   },
@@ -306,6 +405,9 @@
   },
   "footer": {
     "description": "Multidisciplinary clinic offering physiotherapy, osteopathy, massage therapy and nutrition in Sherbrooke.",
+    "tagline": "Your well-being, our shared mission.",
+    "cta": "Ready to take care of yourself?",
+    "cta_button": "Book an appointment",
     "nav_title": "Navigation",
     "legal_title": "Legal",
     "mentions": "Legal Notice",
