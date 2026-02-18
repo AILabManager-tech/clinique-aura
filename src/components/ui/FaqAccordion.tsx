@@ -26,7 +26,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="divide-y divide-cream-400">
+    <div className="divide-y divide-pearl-400">
       {items.map((item, index) => (
         <div key={index}>
           <button
@@ -43,7 +43,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
             </span>
             <ChevronDown
               className={clsx(
-                "h-5 w-5 shrink-0 text-sage-500 transition-transform",
+                "h-5 w-5 shrink-0 text-sky-500 transition-transform",
                 openIndex === index && "rotate-180"
               )}
             />
@@ -59,7 +59,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
                 : "max-h-0 opacity-0"
             )}
           >
-            <p className="text-taupe leading-relaxed">{item.answer}</p>
+            <p className="text-pearl-600 leading-relaxed">{item.answer}</p>
           </div>
         </div>
       ))}

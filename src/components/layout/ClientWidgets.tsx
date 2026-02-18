@@ -4,14 +4,6 @@ import dynamic from "next/dynamic";
 import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 
-const ChatWidget = dynamic(
-  () =>
-    import("@/components/interactive/ChatWidget").then((m) => ({
-      default: m.ChatWidget,
-    })),
-  { ssr: false, loading: () => null }
-);
-
 const CookieConsent = dynamic(
   () =>
     import("@/components/legal/CookieConsent").then((m) => ({
@@ -21,8 +13,9 @@ const CookieConsent = dynamic(
 );
 
 /**
- * Client-side wrapper for lazy-loaded widgets (ChatWidget + CookieConsent + ScrollToTop).
+ * Client-side wrapper for lazy-loaded widgets (CookieConsent + ScrollToTop + Toaster).
  * Keeps the root layout a Server Component while deferring heavy client JS.
+ * No ChatWidget for Clinique Aura — appointments handled via contact page.
  *
  * @component
  * @example
@@ -31,7 +24,6 @@ const CookieConsent = dynamic(
 export function ClientWidgets() {
   return (
     <>
-      <ChatWidget />
       <CookieConsent />
       <ScrollToTop />
       <Toaster richColors position="top-right" />

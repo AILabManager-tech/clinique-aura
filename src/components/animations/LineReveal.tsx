@@ -15,12 +15,12 @@ interface LineRevealProps {
  * @component
  * @example
  * ```tsx
- * <LineReveal color="bg-terracotta-400" delay={0.2} />
+ * <LineReveal color="bg-sky-400" delay={0.2} />
  * ```
  */
 export function LineReveal({
   className,
-  color = "bg-terracotta-400",
+  color = "bg-sky-400",
   delay = 0,
 }: LineRevealProps) {
   const ref = useRef(null);

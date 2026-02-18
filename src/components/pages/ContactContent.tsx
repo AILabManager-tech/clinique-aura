@@ -1,76 +1,150 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { z } from "zod";
 import { toast } from "sonner";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AuroraBackground } from "@/components/animations/AuroraBackground";
+import { TextReveal } from "@/components/animations/TextReveal";
+import { LineReveal } from "@/components/animations/LineReveal";
+
+/* ------------------------------------------------------------------ */
+/*  Zod schema                                                         */
+/* ------------------------------------------------------------------ */
+
+const serviceOptions = [
+  "physio",
+  "osteo",
+  "massage",
+  "nutrition",
+  "autre",
+] as const;
+
+const contactSchema = z.object({
+  name: z.string().min(2, { message: "Le nom doit contenir au moins 2 caracteres." }),
+  email: z.string().email({ message: "Adresse courriel invalide." }),
+  phone: z.string().optional(),
+  service: z.enum(serviceOptions, { message: "Veuillez choisir un service." }),
+  message: z.string().min(10, { message: "Le message doit contenir au moins 10 caracteres." }),
+  consent: z.literal(true, { message: "Vous devez accepter la politique de confidentialite." }),
+});
+
+/* ------------------------------------------------------------------ */
+/*  Form field error display                                           */
+/* ------------------------------------------------------------------ */
+
+function FieldError({ errors, field }: { errors: Record<string, string>; field: string }) {
+  const msg = errors[field];
+  if (!msg) return null;
+  return (
+    <p className="mt-1 text-xs text-red-500" role="alert">
+      {msg}
+    </p>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Main export                                                        */
+/* ------------------------------------------------------------------ */
 
 /**
- * Contact page content with inquiry form and business contact information.
+ * ContactContent — Contact page for Clinique Aura with a validated
+ * form (Zod), service selection, Loi 25 consent checkbox, and an
+ * information sidebar displaying address, phone, email, and hours.
  *
  * @component
  * @example
+ * ```tsx
  * <ContactContent />
+ * ```
  */
 export function ContactContent() {
   const t = useTranslations("contact");
-  const locale = useLocale();
   const [sending, setSending] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setErrors({});
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const raw: Record<string, unknown> = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone") || undefined,
+      service: formData.get("service"),
+      message: formData.get("message"),
+      consent: formData.get("consent") === "on" ? true : false,
+    };
+
+    const result = contactSchema.safeParse(raw);
+
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      for (const issue of result.error.issues) {
+        const key = issue.path[0];
+        if (key && typeof key === "string" && !fieldErrors[key]) {
+          fieldErrors[key] = issue.message;
+        }
+      }
+      setErrors(fieldErrors);
+      return;
+    }
+
     setSending(true);
 
-    // Simulate API call (replace with real API later)
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      toast.success(t("form.success") || "Message envoyé avec succès !");
-      (e.target as HTMLFormElement).reset();
+      toast.success(t("form.success"));
+      form.reset();
+      setErrors({});
     } catch {
-      toast.error(t("form.error") || "Une erreur est survenue. Veuillez réessayer.");
+      toast.error(t("form.error"));
     } finally {
       setSending(false);
     }
   }
 
+  /* Shared input classes */
+  const inputClass =
+    "w-full rounded-xl border border-pearl-400 bg-white/80 px-4 py-3 text-charcoal transition-all focus:border-sky-500 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:bg-white";
+
   return (
     <main>
-      {/* Hero */}
-      <section className="relative min-h-[40vh] flex items-center overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1920&q=80&auto=format"
-          alt="Professionnels discutant dans un bureau moderne"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 hero-image-overlay" />
+      {/* ============================================================ */}
+      {/*  1. Hero — AuroraBackground                                  */}
+      {/* ============================================================ */}
+      <section className="relative flex min-h-[40vh] items-center overflow-hidden bg-sky-800">
         <AuroraBackground />
+        <div className="absolute inset-0 grid-overlay opacity-20" />
         <div className="container-narrow text-center relative z-10 section-padding">
-          <AnimatedSection direction="none">
-            <h1 className="mb-4 !text-white">{t("hero.title")}</h1>
-            <p className="text-lg text-cream-300/90 md:text-xl">
+          <TextReveal className="mb-4 !text-white">{t("hero.title")}</TextReveal>
+          <AnimatedSection delay={0.4} direction="none">
+            <p className="text-lg text-pearl-300/90 md:text-xl">
               {t("hero.subtitle")}
             </p>
           </AnimatedSection>
+          <LineReveal className="mx-auto mt-8 w-24" delay={0.6} />
         </div>
       </section>
 
-      {/* Form + Info */}
+      {/* ============================================================ */}
+      {/*  2. Form + sidebar                                            */}
+      {/* ============================================================ */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh-bg" />
         <div className="container-wide relative z-10">
           <div className="grid gap-12 md:grid-cols-5">
-            {/* Formulaire */}
+            {/* --- Form --- */}
             <AnimatedSection direction="left" className="md:col-span-3">
-              <form
-                className="card-elevated space-y-5"
-                onSubmit={handleSubmit}
-              >
+              <form className="card-elevated space-y-5" onSubmit={handleSubmit} noValidate>
+                {/* Name + Email */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label
@@ -84,8 +158,9 @@ export function ContactContent() {
                       name="name"
                       type="text"
                       required
-                      className="w-full rounded-xl border border-cream-400 bg-white/80 px-4 py-3 text-charcoal transition-all focus:border-sage-500 focus:outline-none focus:ring-2 focus:ring-sage-500/20 focus:bg-white"
+                      className={inputClass}
                     />
+                    <FieldError errors={errors} field="name" />
                   </div>
                   <div>
                     <label
@@ -99,145 +174,212 @@ export function ContactContent() {
                       name="email"
                       type="email"
                       required
-                      className="w-full rounded-xl border border-cream-400 bg-white/80 px-4 py-3 text-charcoal transition-all focus:border-sage-500 focus:outline-none focus:ring-2 focus:ring-sage-500/20 focus:bg-white"
+                      className={inputClass}
                     />
+                    <FieldError errors={errors} field="email" />
                   </div>
                 </div>
 
+                {/* Phone + Service */}
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label
-                      htmlFor="company"
+                      htmlFor="phone"
                       className="mb-1.5 block text-sm font-medium text-charcoal"
                     >
-                      {t("form.company")}
+                      {t("form.phone")}{" "}
+                      <span className="text-charcoal-light text-xs">
+                        ({t("form.optional")})
+                      </span>
                     </label>
                     <input
-                      id="company"
-                      name="company"
-                      type="text"
-                      className="w-full rounded-xl border border-cream-400 bg-white/80 px-4 py-3 text-charcoal transition-all focus:border-sage-500 focus:outline-none focus:ring-2 focus:ring-sage-500/20 focus:bg-white"
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      className={inputClass}
                     />
                   </div>
                   <div>
                     <label
-                      htmlFor="employees"
+                      htmlFor="service"
                       className="mb-1.5 block text-sm font-medium text-charcoal"
                     >
-                      {t("form.employees")}
+                      {t("form.service")}
                     </label>
-                    <input
-                      id="employees"
-                      name="employees"
-                      type="text"
-                      className="w-full rounded-xl border border-cream-400 bg-white/80 px-4 py-3 text-charcoal transition-all focus:border-sage-500 focus:outline-none focus:ring-2 focus:ring-sage-500/20 focus:bg-white"
-                    />
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      className={inputClass}
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        {t("form.service_placeholder")}
+                      </option>
+                      {serviceOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {t(`form.services.${opt}`)}
+                        </option>
+                      ))}
+                    </select>
+                    <FieldError errors={errors} field="service" />
                   </div>
                 </div>
 
+                {/* Message */}
                 <div>
                   <label
-                    htmlFor="challenge"
+                    htmlFor="message"
                     className="mb-1.5 block text-sm font-medium text-charcoal"
                   >
-                    {t("form.challenge")}
+                    {t("form.message")}
                   </label>
                   <textarea
-                    id="challenge"
-                    name="challenge"
+                    id="message"
+                    name="message"
                     rows={5}
                     required
-                    placeholder={t("form.challenge_placeholder")}
-                    className="w-full rounded-xl border border-cream-400 bg-white/80 px-4 py-3 text-charcoal transition-all focus:border-sage-500 focus:outline-none focus:ring-2 focus:ring-sage-500/20 focus:bg-white"
+                    placeholder={t("form.message_placeholder")}
+                    className={inputClass}
                   />
+                  <FieldError errors={errors} field="message" />
                 </div>
 
+                {/* Loi 25 consent */}
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input
                     type="checkbox"
                     name="consent"
                     required
-                    className="mt-1 h-4 w-4 rounded border-cream-400 text-sage-500 focus:ring-sage-500/20"
+                    className="mt-1 h-4 w-4 rounded border-pearl-400 text-sky-500 focus:ring-sky-500/20"
                   />
-                  <span className="text-sm text-taupe">
-                    {t("form.consent_notice")}
+                  <span className="text-sm text-charcoal-light">
+                    {t("form.consent_notice")}{" "}
+                    <Link
+                      href="/politique-confidentialite"
+                      className="text-sky-600 underline underline-offset-2 hover:text-sky-700"
+                    >
+                      {t("form.privacy_link")}
+                    </Link>
                   </span>
                 </label>
+                <FieldError errors={errors} field="consent" />
 
-                <Button type="submit" size="lg" disabled={sending}>
+                {/* Submit */}
+                <Button type="submit" size="lg" variant="primary" disabled={sending}>
                   {sending ? (
                     <span className="flex items-center gap-2">
-                      <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      <svg
+                        className="h-4 w-4 animate-spin"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                        />
                       </svg>
-                      {t("form.sending") || "Envoi..."}
+                      {t("form.sending")}
                     </span>
                   ) : (
                     t("form.submit")
                   )}
                 </Button>
 
-                <p className="text-sm text-taupe">{t("form.response_time")}</p>
+                <p className="text-sm text-charcoal-light">{t("form.response_time")}</p>
               </form>
             </AnimatedSection>
 
-            {/* Info */}
-            <AnimatedSection
-              direction="right"
-              delay={0.2}
-              className="md:col-span-2"
-            >
-              <div className="card-elevated !bg-sage-600 !border-sage-700 text-white">
-                <h3 className="mb-6 text-cream-100 text-xl">Prenons contact</h3>
+            {/* --- Sidebar --- */}
+            <AnimatedSection direction="right" delay={0.2} className="md:col-span-2">
+              <div className="card-elevated !bg-sky-700 !border-sky-800 text-white">
+                <h3 className="mb-6 text-pearl-100 text-xl">{t("info.title")}</h3>
                 <div className="space-y-6">
+                  {/* Address */}
                   <div className="flex items-start gap-3">
-                    <svg className="h-5 w-5 text-sage-200 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                    </svg>
+                    <MapPin className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
                     <div>
-                      <p className="text-sm font-medium text-sage-200">
+                      <p className="text-sm font-medium text-sky-200">
+                        {t("info.address_label")}
+                      </p>
+                      <p className="text-pearl-100">
+                        2500, rue King Ouest, bureau 300
+                        <br />
+                        Sherbrooke QC J1J 2E8
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="flex items-start gap-3">
+                    <Phone className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
+                    <div>
+                      <p className="text-sm font-medium text-sky-200">
+                        {t("info.phone_label")}
+                      </p>
+                      <a
+                        href="tel:+18195550200"
+                        className="text-pearl-100 transition-colors hover:text-white"
+                      >
+                        (819) 555-0200
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-start gap-3">
+                    <Mail className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
+                    <div>
+                      <p className="text-sm font-medium text-sky-200">
                         {t("info.email_label")}
                       </p>
                       <a
-                        href="mailto:info@emiliepoirierrh.ca"
-                        className="text-cream-100 transition-colors hover:text-white"
+                        href="mailto:info@clinique-aura.ca"
+                        className="text-pearl-100 transition-colors hover:text-white"
                       >
-                        info@emiliepoirierrh.ca
+                        info@clinique-aura.ca
                       </a>
                     </div>
                   </div>
+
+                  {/* Hours */}
                   <div className="flex items-start gap-3">
-                    <svg className="h-5 w-5 text-sage-200 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                    </svg>
+                    <Clock className="h-5 w-5 text-sky-200 mt-0.5 shrink-0" strokeWidth={1.5} />
                     <div>
-                      <p className="text-sm font-medium text-sage-200">
-                        {t("info.location_label")}
+                      <p className="text-sm font-medium text-sky-200">
+                        {t("info.hours_label")}
                       </p>
-                      <p className="text-cream-100">{t("info.location")}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <svg className="h-5 w-5 text-sage-200 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                    <div>
-                      <p className="text-sm font-medium text-sage-200">
-                        {t("info.linkedin")}
-                      </p>
-                      <a
-                        href="https://linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-cream-100 transition-colors hover:text-white"
-                      >
-                        {locale === "fr" ? "L'Usine RH" : "HR Factory"}
-                      </a>
+                      <p className="text-pearl-100">{t("info.hours_weekday")}</p>
+                      <p className="text-pearl-100">{t("info.hours_weekend")}</p>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Loi 25 notice */}
+              <div className="mt-6 rounded-2xl border border-sky-200/50 bg-sky-50 p-6">
+                <h4 className="mb-2 font-heading text-sm font-semibold text-sky-700">
+                  {t("loi25.title")}
+                </h4>
+                <p className="text-sm text-charcoal-light leading-relaxed">
+                  {t("loi25.notice")}{" "}
+                  <Link
+                    href="/politique-confidentialite"
+                    className="text-sky-600 underline underline-offset-2 hover:text-sky-700"
+                  >
+                    {t("loi25.link")}
+                  </Link>
+                </p>
               </div>
             </AnimatedSection>
           </div>

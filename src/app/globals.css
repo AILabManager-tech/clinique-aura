@@ -3,16 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #FAF8F5;
-  --foreground: #3D3D35;
-  --sage: #87947A;
-  --sage-dark: #6B7A5E;
-  --terracotta: #C4785B;
-  --gold: #D4AF37;
-  --cream: #FAF8F5;
-  --cream-dark: #F0EBE3;
-  --charcoal: #3D3D35;
-  --taupe: #6B6560;
+  --background: #FAFCFD;
+  --foreground: #2D3436;
+  --sky: #5BA4C9;
+  --sky-light: #8DCFEA;
+  --sage: #A8C5A0;
+  --peach: #F4B183;
+  --pearl: #FAFCFD;
+  --pearl-dark: #F0F5F7;
+  --charcoal: #2D3436;
 }
 
 @layer base {
@@ -21,7 +20,7 @@
   }
 
   body {
-    @apply bg-cream-200 text-charcoal font-body antialiased;
+    @apply bg-pearl-200 text-charcoal font-body antialiased;
     font-size: 16px;
     line-height: 1.7;
   }
@@ -48,7 +47,7 @@
   }
 
   ::selection {
-    @apply bg-sage-200 text-charcoal;
+    @apply bg-sky-200 text-charcoal;
   }
 }
 
@@ -75,14 +74,9 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, var(--sage) 0%, var(--terracotta) 50%, var(--gold) 100%);
+    background-image: linear-gradient(135deg, var(--sky) 0%, var(--sage) 50%, var(--peach) 100%);
     background-size: 200% 200%;
     animation: gradient-shift 8s ease infinite;
-  }
-
-  .text-gradient-warm {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C4785B 0%, #D4AF37 100%);
   }
 
   .card-elevated {
@@ -90,7 +84,7 @@
   }
 
   .card-elevated:hover {
-    @apply shadow-xl -translate-y-2 border-sage-200/50;
+    @apply shadow-xl -translate-y-2 border-sky-200/50;
   }
 
   .section-divider {
@@ -100,87 +94,32 @@
 
   .gradient-mesh-bg {
     background:
-      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(135,148,122,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 20%, rgba(196,120,91,0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 50% 60% at 50% 80%, rgba(212,175,55,0.06) 0%, transparent 50%);
+      radial-gradient(ellipse 80% 50% at 20% 40%, rgba(91,164,201,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 20%, rgba(168,197,160,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 60% at 50% 80%, rgba(244,177,131,0.06) 0%, transparent 50%);
   }
 
   .grid-overlay {
     background-image:
-      linear-gradient(rgba(135,148,122,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(135,148,122,0.06) 1px, transparent 1px);
+      linear-gradient(rgba(91,164,201,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,164,201,0.05) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .hero-image-overlay {
     background: linear-gradient(
       135deg,
-      rgba(42,48,35,0.92) 0%,
-      rgba(61,61,53,0.85) 30%,
-      rgba(107,122,94,0.75) 60%,
-      rgba(196,120,91,0.65) 100%
+      rgba(91,164,201,0.88) 0%,
+      rgba(168,197,160,0.75) 40%,
+      rgba(244,177,131,0.55) 100%
     );
   }
 
+  .glow-sky {
+    box-shadow: 0 0 40px rgba(91,164,201,0.3), 0 0 80px rgba(91,164,201,0.1);
+  }
+
   .glow-sage {
-    box-shadow: 0 0 40px rgba(135,148,122,0.3), 0 0 80px rgba(135,148,122,0.1);
+    box-shadow: 0 0 40px rgba(168,197,160,0.3), 0 0 80px rgba(168,197,160,0.1);
   }
-
-  .glow-terracotta {
-    box-shadow: 0 0 40px rgba(196,120,91,0.3), 0 0 80px rgba(196,120,91,0.1);
-  }
-}
-
-/* Range slider styles */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 6px;
-  border-radius: 3px;
-  outline: none;
-  cursor: pointer;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
-  transition: transform 0.15s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-}
-
-.slider-sage {
-  background: linear-gradient(to right, #D1D8C9, #87947A);
-}
-
-.slider-sage::-webkit-slider-thumb {
-  background: #87947A;
-}
-
-.slider-terracotta {
-  background: linear-gradient(to right, #F0C9B5, #C4785B);
-}
-
-.slider-terracotta::-webkit-slider-thumb {
-  background: #C4785B;
-}
-
-/* Shimmer effect for loading / accent lines */
-.shimmer-line {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(135,148,122,0.3) 50%,
-    transparent 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
 }

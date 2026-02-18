@@ -11,13 +11,13 @@ export async function generateMetadata({
     title: locale === "fr" ? "Politique de confidentialité" : "Privacy Policy",
     description:
       locale === "fr"
-        ? "Politique de confidentialité de L'Usine RH — conforme à la Loi 25 du Québec."
-        : "HR Factory privacy policy — compliant with Quebec's Law 25.",
+        ? "Politique de confidentialité de Clinique Aura inc. — conforme à la Loi 25 du Québec. Protection des données de santé."
+        : "Clinique Aura Inc. privacy policy — compliant with Quebec's Law 25. Health data protection.",
     alternates: {
-      canonical: `https://emiliepoirierrh.ca/${locale}/politique-confidentialite`,
+      canonical: `https://clinique-aura.vercel.app/${locale}/politique-confidentialite`,
       languages: {
-        fr: "https://emiliepoirierrh.ca/fr/politique-confidentialite",
-        en: "https://emiliepoirierrh.ca/en/politique-confidentialite",
+        fr: "https://clinique-aura.vercel.app/fr/politique-confidentialite",
+        en: "https://clinique-aura.vercel.app/en/politique-confidentialite",
       },
     },
   };
@@ -44,8 +44,8 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             {isFr
-              ? "L'Usine RH (ci-après « nous ») s'engage à protéger les renseignements personnels de ses utilisateurs conformément à la Loi 25 du Québec (Loi modernisant des dispositions législatives en matière de protection des renseignements personnels)."
-              : "HR Factory (hereinafter \"we\") is committed to protecting the personal information of its users in accordance with Quebec's Law 25 (Act to modernize legislative provisions regarding the protection of personal information)."}
+              ? "Clinique Aura inc. (ci-après « nous ») s'engage à protéger les renseignements personnels de ses patients et utilisateurs conformément à la Loi 25 du Québec (Loi modernisant des dispositions législatives en matière de protection des renseignements personnels). En tant que clinique de santé, nous accordons une attention particulière à la protection des données de santé."
+              : "Clinique Aura Inc. (hereinafter \"we\") is committed to protecting the personal information of its patients and users in accordance with Quebec's Law 25 (Act to modernize legislative provisions regarding the protection of personal information). As a health clinic, we pay particular attention to the protection of health data."}
           </p>
         </section>
 
@@ -58,16 +58,16 @@ export default function PrivacyPolicyPage() {
           </h2>
           <ul className="list-none space-y-1 pl-0">
             <li>
-              <strong>{isFr ? "Nom" : "Name"} :</strong> Émilie Poirier
+              <strong>{isFr ? "Nom" : "Name"} :</strong> Dre Sophie Lafleur
             </li>
             <li>
               <strong>{isFr ? "Titre" : "Title"} :</strong>{" "}
-              {isFr ? "Propriétaire et consultante RH" : "Owner and HR Consultant"}
+              {isFr ? "Physiothérapeute, fondatrice" : "Physiotherapist, Founder"}
             </li>
             <li>
               <strong>{isFr ? "Courriel" : "Email"} :</strong>{" "}
-              <a href="mailto:info@emiliepoirierrh.ca" className="text-sage-600 underline">
-                info@emiliepoirierrh.ca
+              <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+                rpp@clinique-aura.ca
               </a>
             </li>
           </ul>
@@ -78,15 +78,23 @@ export default function PrivacyPolicyPage() {
           <h2 className="font-heading text-xl font-semibold text-charcoal">
             {isFr ? "3. Renseignements personnels collectés" : "3. Personal information collected"}
           </h2>
+          <p>
+            {isFr
+              ? "Nous collectons les renseignements suivants dans le cadre de nos activités :"
+              : "We collect the following information as part of our activities:"}
+          </p>
+          <h3 className="font-heading text-lg font-medium text-charcoal">
+            {isFr ? "Via le site web" : "Via the website"}
+          </h3>
           <ul className="list-disc space-y-1 pl-6">
             <li>{isFr ? "Nom et prénom" : "First and last name"}</li>
             <li>{isFr ? "Adresse courriel" : "Email address"}</li>
-            <li>{isFr ? "Nom de l'entreprise" : "Company name"}</li>
-            <li>{isFr ? "Nombre d'employés" : "Number of employees"}</li>
+            <li>{isFr ? "Numéro de téléphone" : "Phone number"}</li>
+            <li>{isFr ? "Service souhaité" : "Desired service"}</li>
             <li>
               {isFr
-                ? "Messages envoyés via le formulaire de contact ou le clavardage"
-                : "Messages sent via the contact form or chatbot"}
+                ? "Messages envoyés via le formulaire de contact"
+                : "Messages sent via the contact form"}
             </li>
             <li>
               {isFr
@@ -94,6 +102,14 @@ export default function PrivacyPolicyPage() {
                 : "Browsing data (via analytics cookies, if consented)"}
             </li>
           </ul>
+          <h3 className="mt-4 font-heading text-lg font-medium text-charcoal">
+            {isFr ? "Dossiers professionnels (en clinique)" : "Professional records (in clinic)"}
+          </h3>
+          <p>
+            {isFr
+              ? "Les dossiers de santé tenus par nos professionnels (physiothérapeute, ostéopathe, massothérapeute, nutritionniste) sont régis par les lois et règlements applicables à chaque profession, incluant le Code des professions du Québec. Ces dossiers sont conservés de manière confidentielle et sécurisée, séparément des données du site web."
+              : "Health records maintained by our professionals (physiotherapist, osteopath, massage therapist, nutritionist) are governed by the laws and regulations applicable to each profession, including Quebec's Professional Code. These records are kept confidentially and securely, separately from website data."}
+          </p>
         </section>
 
         {/* 4. Finalités */}
@@ -102,10 +118,11 @@ export default function PrivacyPolicyPage() {
             {isFr ? "4. Finalités de la collecte" : "4. Purposes of collection"}
           </h2>
           <ul className="list-disc space-y-1 pl-6">
-            <li>{isFr ? "Répondre à vos demandes de consultation" : "Respond to your consultation requests"}</li>
-            <li>{isFr ? "Fournir nos services de consultation RH" : "Provide our HR consulting services"}</li>
+            <li>{isFr ? "Répondre à vos demandes de rendez-vous" : "Respond to your appointment requests"}</li>
+            <li>{isFr ? "Fournir nos services de santé multidisciplinaires" : "Provide our multidisciplinary health services"}</li>
             <li>{isFr ? "Améliorer l'expérience de navigation sur le site" : "Improve the browsing experience on the site"}</li>
-            <li>{isFr ? "Communiquer avec vous au sujet de nos services" : "Communicate with you about our services"}</li>
+            <li>{isFr ? "Communiquer avec vous au sujet de vos rendez-vous et traitements" : "Communicate with you about your appointments and treatments"}</li>
+            <li>{isFr ? "Respecter nos obligations légales et professionnelles" : "Meet our legal and professional obligations"}</li>
           </ul>
         </section>
 
@@ -128,8 +145,13 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             {isFr
-              ? "Vos renseignements personnels sont conservés pendant 24 mois après votre dernière interaction avec nous. Après cette période, ils sont détruits de manière sécurisée conformément à l'article 23 de la Loi 25."
-              : "Your personal information is retained for 24 months after your last interaction with us. After this period, it is securely destroyed in accordance with Section 23 of Law 25."}
+              ? "Les données collectées via le site web sont conservées pendant 24 mois après votre dernière interaction avec nous. Après cette période, elles sont détruites de manière sécurisée conformément à l'article 23 de la Loi 25."
+              : "Data collected via the website is retained for 24 months after your last interaction with us. After this period, it is securely destroyed in accordance with Section 23 of Law 25."}
+          </p>
+          <p>
+            {isFr
+              ? "Les dossiers professionnels de santé sont conservés selon les durées prescrites par les ordres professionnels et la législation applicable (généralement 5 ans minimum après le dernier service rendu)."
+              : "Professional health records are retained according to the periods prescribed by professional orders and applicable legislation (generally a minimum of 5 years after the last service rendered)."}
           </p>
         </section>
 
@@ -167,8 +189,8 @@ export default function PrivacyPolicyPage() {
           </ul>
           <p className="mt-2">
             {isFr ? "Pour exercer ces droits : " : "To exercise these rights: "}
-            <a href="mailto:info@emiliepoirierrh.ca" className="text-sage-600 underline">
-              info@emiliepoirierrh.ca
+            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+              rpp@clinique-aura.ca
             </a>
             {isFr ? ". Nous répondrons dans un délai de 30 jours." : ". We will respond within 30 days."}
           </p>
@@ -184,9 +206,6 @@ export default function PrivacyPolicyPage() {
               <strong>Vercel</strong> — {isFr ? "Hébergement du site" : "Website hosting"} (USA)
             </li>
             <li>
-              <strong>Anthropic (Claude)</strong> — {isFr ? "Clavardage IA" : "AI chatbot"} (USA)
-            </li>
-            <li>
               <strong>Google Analytics</strong> —{" "}
               {isFr ? "Statistiques de navigation (si consentement)" : "Browsing analytics (if consented)"} (USA)
             </li>
@@ -200,8 +219,8 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             {isFr
-              ? "Certains services tiers (Vercel, Anthropic, Google) sont situés aux États-Unis. En utilisant notre site et en consentant aux témoins analytiques, vous acceptez que certaines données puissent être traitées aux États-Unis. Ces fournisseurs s'engagent à protéger vos données conformément à leurs politiques de confidentialité respectives."
-              : "Some third-party services (Vercel, Anthropic, Google) are located in the United States. By using our site and consenting to analytical cookies, you agree that some data may be processed in the United States. These providers are committed to protecting your data in accordance with their respective privacy policies."}
+              ? "Certains services tiers (Vercel, Google) sont situés aux États-Unis. En utilisant notre site et en consentant aux témoins analytiques, vous acceptez que certaines données de navigation puissent être traitées aux États-Unis. Ces fournisseurs s'engagent à protéger vos données conformément à leurs politiques de confidentialité respectives. Les données de santé collectées en clinique ne sont jamais transférées hors du Québec."
+              : "Some third-party services (Vercel, Google) are located in the United States. By using our site and consenting to analytical cookies, you agree that some browsing data may be processed in the United States. These providers are committed to protecting your data in accordance with their respective privacy policies. Health data collected in clinic is never transferred outside of Quebec."}
           </p>
         </section>
 
@@ -239,8 +258,8 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             {isFr
-              ? "Nous mettons en place des mesures de sécurité raisonnables : chiffrement HTTPS, headers de sécurité HTTP complets, aucune clé API exposée côté client."
-              : "We implement reasonable security measures: HTTPS encryption, complete HTTP security headers, no API keys exposed client-side."}
+              ? "Nous mettons en place des mesures de sécurité raisonnables : chiffrement HTTPS, headers de sécurité HTTP complets, aucune clé API exposée côté client. Les dossiers de santé en clinique sont protégés par des mesures de sécurité physiques et numériques conformes aux exigences des ordres professionnels."
+              : "We implement reasonable security measures: HTTPS encryption, complete HTTP security headers, no API keys exposed client-side. In-clinic health records are protected by physical and digital security measures in compliance with professional order requirements."}
           </p>
         </section>
 
@@ -251,13 +270,13 @@ export default function PrivacyPolicyPage() {
           </h2>
           <p>
             {isFr
-              ? "En cas d'incident de confidentialité présentant un risque de préjudice sérieux, nous nous engageons à aviser la Commission d'accès à l'information du Québec (CAI) et les personnes concernées, et à tenir un registre des incidents."
-              : "In the event of a privacy incident presenting a risk of serious harm, we commit to notifying the Commission d'accès à l'information du Québec (CAI) and affected individuals, and to maintaining a register of incidents."}
+              ? "En cas d'incident de confidentialité présentant un risque de préjudice sérieux, nous nous engageons à aviser la Commission d'accès à l'information du Québec (CAI) et les personnes concernées, et à tenir un registre des incidents conformément à l'article 3.5 de la Loi 25."
+              : "In the event of a privacy incident presenting a risk of serious harm, we commit to notifying the Commission d'accès à l'information du Québec (CAI) and affected individuals, and to maintaining a register of incidents in accordance with Section 3.5 of Law 25."}
           </p>
           <p>
             {isFr ? "Courriel de notification d'incident : " : "Incident notification email: "}
-            <a href="mailto:info@emiliepoirierrh.ca" className="text-sage-600 underline">
-              info@emiliepoirierrh.ca
+            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+              rpp@clinique-aura.ca
             </a>
           </p>
         </section>
@@ -268,14 +287,18 @@ export default function PrivacyPolicyPage() {
             {isFr ? "13. Contact" : "13. Contact"}
           </h2>
           <p>
-            <strong>{isFr ? "L'Usine RH" : "HR Factory"}</strong>
+            <strong>Clinique Aura inc.</strong>
             <br />
-            Émilie Poirier
+            Dre Sophie Lafleur, RPP
             <br />
-            Québec, QC
+            2500, rue King Ouest, bureau 300
             <br />
-            <a href="mailto:info@emiliepoirierrh.ca" className="text-sage-600 underline">
-              info@emiliepoirierrh.ca
+            Sherbrooke, QC J1J 2E8
+            <br />
+            (819) 555-0200
+            <br />
+            <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+              rpp@clinique-aura.ca
             </a>
           </p>
         </section>

@@ -3,7 +3,8 @@ import { Link } from "@/i18n/routing";
 import { CookieSettingsButton } from "@/components/legal/CookieConsent";
 
 /**
- * Site footer with navigation links, contact info, and legal links.
+ * Site footer for Clinique Aura with navigation links, contact info, hours, and legal links.
+ * Sky-900 background with pearl/sage accents.
  *
  * @component
  * @example
@@ -16,20 +17,19 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-charcoal-dark text-cream-400">
+    <footer className="relative overflow-hidden bg-sky-900 text-pearl-300">
       {/* Gradient accent line at top */}
-      <div className="h-1 bg-gradient-to-r from-sage-500 via-terracotta-400 to-gold-400" />
+      <div className="h-1 bg-gradient-to-r from-sky-500 via-sage-400 to-peach-400" />
 
       {/* Mini CTA bar */}
-      <div className="relative border-b border-charcoal bg-gradient-to-r from-charcoal-dark via-charcoal to-charcoal-dark px-6 py-10 text-center">
-        <div className="absolute inset-0 grid-overlay opacity-10" />
+      <div className="relative border-b border-sky-800 bg-gradient-to-r from-sky-900 via-sky-800 to-sky-900 px-6 py-10 text-center">
         <div className="relative z-10">
-          <p className="mb-5 font-heading text-2xl font-semibold text-cream-200">
+          <p className="mb-5 font-heading text-2xl font-semibold text-pearl-100">
             {t("cta")}
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-xl bg-terracotta-500 px-8 py-3 font-medium text-white transition-all hover:bg-terracotta-600 hover:scale-[1.02] hover:shadow-lg hover:shadow-terracotta-500/20"
+            className="inline-flex items-center justify-center rounded-xl bg-peach-400 px-8 py-3 font-medium text-charcoal transition-all hover:bg-peach-500 hover:scale-[1.02] hover:shadow-lg hover:shadow-peach-400/30"
           >
             {t("cta_button")}
           </Link>
@@ -37,78 +37,135 @@ export function Footer() {
       </div>
 
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
           <div>
-            <p className="font-heading text-xl font-semibold text-cream-200">
-              {locale === "fr" ? "L'Usine" : "HR Factory"}
-              {locale === "fr" && <span className="text-gradient-warm"> RH</span>}
+            <p className="font-heading text-xl font-semibold text-pearl-100">
+              Clinique <span className="text-sky-400">Aura</span>
             </p>
-            <p className="mt-2 text-sm text-cream-400">{t("tagline")}</p>
+            <p className="mt-2 text-sm text-pearl-400">{t("tagline")}</p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-cream-500">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
               Navigation
             </h4>
             <div className="flex flex-col gap-2">
-              <Link href="/" className="text-sm text-cream-500 transition-colors hover:text-cream-200">
+              <Link
+                href="/"
+                className="text-sm text-pearl-400 transition-colors hover:text-pearl-100"
+              >
                 {nav("home")}
               </Link>
-              <Link href="/services" className="text-sm text-cream-500 transition-colors hover:text-cream-200">
+              <Link
+                href="/services"
+                className="text-sm text-pearl-400 transition-colors hover:text-pearl-100"
+              >
                 {nav("services")}
               </Link>
-              <Link href="/a-propos" className="text-sm text-cream-500 transition-colors hover:text-cream-200">
+              <Link
+                href="/a-propos"
+                className="text-sm text-pearl-400 transition-colors hover:text-pearl-100"
+              >
                 {nav("about")}
               </Link>
-              <Link href="/contact" className="text-sm text-cream-500 transition-colors hover:text-cream-200">
+              <Link
+                href="/contact"
+                className="text-sm text-pearl-400 transition-colors hover:text-pearl-100"
+              >
                 {nav("contact")}
               </Link>
             </div>
           </div>
 
-          {/* Contact + Social */}
+          {/* Contact */}
           <div>
-            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-cream-500">
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
               Contact
             </h4>
-            <div className="flex flex-col gap-2 text-sm text-cream-500">
-              <p>Quebec, QC</p>
+            <div className="flex flex-col gap-2 text-sm text-pearl-400">
+              <p>
+                2500, rue King Ouest, bureau 300
+                <br />
+                Sherbrooke (QC)&nbsp;J1J&nbsp;2E8
+              </p>
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 transition-colors hover:text-cream-200"
+                href="tel:+18195550200"
+                className="transition-colors hover:text-pearl-100"
               >
-                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-                LinkedIn
+                (819)&nbsp;555-0200
               </a>
+              <a
+                href="mailto:info@clinique-aura.ca"
+                className="transition-colors hover:text-pearl-100"
+              >
+                info@clinique-aura.ca
+              </a>
+            </div>
+          </div>
+
+          {/* Hours */}
+          <div>
+            <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-sky-400">
+              {locale === "fr" ? "Heures d\u2019ouverture" : "Opening Hours"}
+            </h4>
+            <div className="flex flex-col gap-1 text-sm text-pearl-400">
+              <p>
+                {locale === "fr" ? "Lun\u2013Ven" : "Mon\u2013Fri"}{" "}
+                <span className="text-pearl-200">8h00 \u2013 18h00</span>
+              </p>
+              <p>
+                {locale === "fr" ? "Sam" : "Sat"}{" "}
+                <span className="text-pearl-200">9h00 \u2013 13h00</span>
+              </p>
+              <p>
+                {locale === "fr" ? "Dim" : "Sun"}{" "}
+                <span className="text-pearl-500">
+                  {locale === "fr" ? "Ferm\u00e9" : "Closed"}
+                </span>
+              </p>
             </div>
           </div>
         </div>
 
+        {/* Divider */}
+        <div className="mt-10 mb-6 h-px bg-sky-700/60" />
+
         {/* Legal links */}
-        <div className="section-divider mt-10 mb-6 opacity-20" />
         <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-6">
           <Link
-            href="/politique-confidentialite"
-            className="text-xs text-cream-400 transition-colors hover:text-cream-200"
+            href="/mentions-legales"
+            className="text-xs text-pearl-500 transition-colors hover:text-pearl-200"
           >
-            {locale === "fr" ? "Politique de confidentialité" : "Privacy Policy"}
+            {locale === "fr" ? "Mentions l\u00e9gales" : "Legal Notice"}
           </Link>
           <Link
-            href="/mentions-legales"
-            className="text-xs text-cream-400 transition-colors hover:text-cream-200"
+            href="/politique-confidentialite"
+            className="text-xs text-pearl-500 transition-colors hover:text-pearl-200"
           >
-            {locale === "fr" ? "Mentions légales" : "Legal Notice"}
+            {locale === "fr" ? "Politique de confidentialit\u00e9" : "Privacy Policy"}
           </Link>
           <CookieSettingsButton />
         </div>
-        <div className="mt-4 text-center text-xs text-cream-500">
-          &copy; {year} {t("copyright")}
+
+        {/* RPP + Copyright */}
+        <div className="mt-4 text-center text-xs text-pearl-500">
+          <p>
+            {locale === "fr"
+              ? "Responsable de la protection des renseignements personnels : Dre Sophie Lafleur"
+              : "Privacy Officer: Dr. Sophie Lafleur"}{" "}
+            &mdash;{" "}
+            <a
+              href="mailto:rpp@clinique-aura.ca"
+              className="underline transition-colors hover:text-pearl-200"
+            >
+              rpp@clinique-aura.ca
+            </a>
+          </p>
+          <p className="mt-2">
+            &copy; {year} Clinique Aura. {locale === "fr" ? "Tous droits r\u00e9serv\u00e9s." : "All rights reserved."}
+          </p>
         </div>
       </div>
     </footer>

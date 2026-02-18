@@ -1,322 +1,330 @@
 {
   "meta": {
-    "title": "HR Factory — HR Consultant for Industrial SMBs",
-    "description": "Organizational diagnostics, HR process implementation and management coaching for SMBs of 10 to 50 employees — industrial, manufacturing, construction sectors."
+    "title": "Clinique Aura — Multidisciplinary Clinic, Sherbrooke",
+    "description": "Clinique Aura: physiotherapy, osteopathy, massage therapy and nutrition in Sherbrooke. A holistic approach to your well-being, all under one roof."
   },
   "nav": {
     "home": "Home",
     "services": "Services",
     "about": "About",
-    "contact": "Contact",
-    "cta": "Book a consultation"
+    "contact": "Contact"
   },
   "home": {
     "hero": {
-      "title": "HR, forged to last.",
-      "subtitle": "I diagnose. I implement. I coach. So your team holds strong.",
-      "cta": "Book a free discovery call",
-      "cta_secondary": "Explore my services"
-    },
-    "stats": {
-      "experience": "Years of experience",
-      "clients": "SMBs supported",
-      "employees": "Employees / company"
-    },
-    "pain": {
-      "title": "Navigating HR alone?",
-      "owner": {
-        "title": "Overwhelmed owner",
-        "description": "You're handling recruitment, conflicts, and evaluations on top of everything else. It works... until it doesn't."
-      },
-      "manager": {
-        "title": "Manager without HR training",
-        "description": "Your managers are winging difficult conversations and performance reviews. Talent is walking out."
-      },
-      "growing": {
-        "title": "Growing SMB",
-        "description": "Your ad-hoc processes can't keep up. What worked at 10 employees breaks at 30."
-      }
+      "badge": "Multidisciplinary clinic in Sherbrooke",
+      "title": "Your well-being, our shared mission.",
+      "subtitle": "Physiotherapy, osteopathy, massage therapy and nutrition — four disciplines united under one roof for comprehensive care.",
+      "cta": "Book an appointment",
+      "stat1_value": "4",
+      "stat1_label": "Complementary disciplines",
+      "stat2_value": "15+",
+      "stat2_label": "Years of combined experience",
+      "stat3_value": "2000+",
+      "stat3_label": "Patients supported"
     },
     "services": {
-      "title": "A three-step approach",
-      "diagnostic": {
-        "title": "Diagnostic",
-        "description": "We take stock. I analyze your current HR situation — processes, challenges, opportunities.",
-        "duration": "2-3 weeks"
+      "title": "Our services",
+      "subtitle": "Four complementary disciplines for comprehensive care of your health.",
+      "physio": {
+        "title": "Physiotherapy",
+        "description": "Assessment and treatment of musculoskeletal disorders. Functional rehabilitation, manual therapy and personalized exercises."
       },
-      "implementation": {
-        "title": "Implementation",
-        "description": "We build together. I put in place lasting HR processes, adapted to your reality.",
-        "duration": "8-12 weeks"
+      "osteo": {
+        "title": "Osteopathy",
+        "description": "A holistic manual approach to restore the body's balance. Treatment of tensions, mobility restrictions and chronic pain."
       },
-      "coaching": {
-        "title": "Coaching",
-        "description": "We ensure the handoff. I train your managers to maintain these gains autonomously.",
-        "duration": "3-6 months"
+      "massage": {
+        "title": "Massage Therapy",
+        "description": "Therapeutic and relaxation massage to relieve muscle tension, reduce stress and promote recovery."
+      },
+      "nutrition": {
+        "title": "Nutrition / Dietetics",
+        "description": "Personalized nutritional advice to optimize your health, manage your weight and prevent chronic diseases."
       }
+    },
+    "symptom_navigator": {
+      "title": "Find the right care for your symptoms",
+      "subtitle": "Click on a body area to discover common symptoms and recommended treatments.",
+      "zones": {
+        "head": {
+          "name": "Head",
+          "symptoms": ["Recurring headaches", "Migraines", "Cranial tension", "Jaw pain (TMJ)"],
+          "treatments": ["Cranial osteopathy", "Cervical massage therapy", "TMJ physiotherapy"]
+        },
+        "neck": {
+          "name": "Neck",
+          "symptoms": ["Torticollis", "Cervical stiffness", "Pain radiating to the shoulder", "Arm numbness"],
+          "treatments": ["Cervical physiotherapy", "Osteopathy", "Deep tissue massage"]
+        },
+        "shoulders": {
+          "name": "Shoulders",
+          "symptoms": ["Rotator cuff tendinitis", "Bursitis", "Frozen shoulder", "Joint instability"],
+          "treatments": ["Shoulder physiotherapy", "Structural osteopathy", "Strengthening exercises"]
+        },
+        "back": {
+          "name": "Back",
+          "symptoms": ["Chronic low back pain", "Herniated disc", "Sciatica", "Poor posture"],
+          "treatments": ["Spinal physiotherapy", "Visceral osteopathy", "Deep tissue massage", "Postural advice"]
+        },
+        "arms": {
+          "name": "Arms / Elbows / Wrists",
+          "symptoms": ["Epicondylitis (tennis elbow)", "Carpal tunnel syndrome", "Tendinitis", "Wrist pain"],
+          "treatments": ["Upper limb physiotherapy", "Osteopathy", "Targeted massage therapy"]
+        },
+        "hips": {
+          "name": "Hips / Pelvis",
+          "symptoms": ["Hip pain", "Trochanteric bursitis", "Sacroiliac dysfunction", "Pelvic pain"],
+          "treatments": ["Pelvic physiotherapy", "Pelvic osteopathy", "Stabilization exercises"]
+        },
+        "legs": {
+          "name": "Legs / Knees",
+          "symptoms": ["Knee sprain", "Patellofemoral syndrome", "Meniscus pain", "Muscle cramps"],
+          "treatments": ["Knee physiotherapy", "Lower limb osteopathy", "Sports massage"]
+        },
+        "feet": {
+          "name": "Feet / Ankles",
+          "symptoms": ["Plantar fasciitis", "Ankle sprain", "Achilles tendinitis", "Heel pain"],
+          "treatments": ["Foot physiotherapy", "Osteopathy", "Plantar massage therapy"]
+        }
+      },
+      "cta": "Book an assessment appointment"
+    },
+    "practitioners": {
+      "title": "Our team",
+      "subtitle": "Passionate professionals dedicated to your recovery.",
+      "members": [
+        {
+          "name": "Dr. Sophie Lafleur",
+          "title": "Physiotherapist, Founder",
+          "specialty": "Musculoskeletal physiotherapy",
+          "bio": "Founder of Clinique Aura, Dr. Lafleur has over 12 years of experience in physiotherapy. Passionate about the multidisciplinary approach, she firmly believes that collaboration between professionals is the key to optimal recovery."
+        },
+        {
+          "name": "Marc-Andre Tremblay",
+          "title": "Osteopath D.O.",
+          "specialty": "Structural and cranial osteopathy",
+          "bio": "A graduate of the College of Osteopathic Studies of Montreal, Marc-Andre practices comprehensive osteopathy integrating structural, visceral and cranial approaches. He treats patients of all ages with particular attention to chronic pain."
+        },
+        {
+          "name": "Camille Bergeron",
+          "title": "Registered Massage Therapist",
+          "specialty": "Therapeutic and sports massage",
+          "bio": "Camille has expertise in therapeutic, sports and relaxation massage. Trained in kinesiotherapy and myofascial release techniques, she adapts each session to the specific needs of the patient."
+        },
+        {
+          "name": "Nadia Khoury",
+          "title": "Registered Dietitian",
+          "specialty": "Clinical and sports nutrition",
+          "bio": "A member of the Ordre professionnel des dietetistes du Quebec, Nadia helps her patients adopt healthy eating habits. She has a particular interest in anti-inflammatory nutrition and sports performance."
+        }
+      ]
     },
     "testimonials": {
-      "title": "What my clients say"
+      "title": "What our patients say",
+      "items": [
+        {
+          "name": "Marie-Claude T.",
+          "text": "After months of lower back pain, the Clinique Aura team gave me a treatment plan combining physiotherapy and massage therapy. Within 6 weeks, I regained my mobility. The multidisciplinary approach makes all the difference.",
+          "service": "Physiotherapy + Massage Therapy"
+        },
+        {
+          "name": "Jean-Francois R.",
+          "text": "Osteopathy at Clinique Aura transformed my quality of life. Marc-Andre identified tensions I had been carrying for years. Combined with Nadia's nutritional advice, I feel better than ever.",
+          "service": "Osteopathy + Nutrition"
+        },
+        {
+          "name": "Stephanie L.",
+          "text": "As a runner, I needed comprehensive care. Physiotherapy for rehabilitation, massage therapy for recovery, nutrition for performance. Clinique Aura offers everything under one roof. Highly recommended!",
+          "service": "Physiotherapy + Massage Therapy + Nutrition"
+        }
+      ]
     },
-    "cta_final": {
-      "title": "Ready to structure your HR?",
-      "subtitle": "No sales pitch. Just a straight conversation about what we can do together.",
-      "button": "Book a free discovery call"
-    }
-  },
-  "quiz": {
-    "title": "Assess your HR maturity",
-    "subtitle": "5 quick questions to find out where you stand",
-    "q1": {
-      "question": "How do you handle recruitment?",
-      "a": "By gut feeling, when it's urgent",
-      "b": "We have a process, but informal",
-      "c": "Structured process with interview guide"
-    },
-    "q2": {
-      "question": "How are performance reviews handled?",
-      "a": "We don't really do them",
-      "b": "Once a year, when we remember",
-      "c": "Regular reviews with clear objectives"
-    },
-    "q3": {
-      "question": "Your HR policies are...",
-      "a": "Non-existent or in my head",
-      "b": "Written but outdated",
-      "c": "Documented and communicated"
-    },
-    "q4": {
-      "question": "Conflict management is done...",
-      "a": "In firefighter mode when things blow up",
-      "b": "We try to resolve, but without method",
-      "c": "With a clear resolution process"
-    },
-    "q5": {
-      "question": "New employee onboarding...",
-      "a": "It's 'welcome, here's your desk'",
-      "b": "We have a basic first-week plan",
-      "c": "Structured 90-day program"
-    },
-    "score": "Your score",
-    "next_step": "Recommended next step",
-    "restart": "Start over",
-    "results": {
-      "low": {
-        "title": "Red zone — HR Emergency",
-        "description": "Your HR processes are minimal. That's normal for a growing SMB, but it's costing you in turnover and time. A quick diagnostic could change everything.",
-        "cta": "Book your diagnostic"
-      },
-      "mid": {
-        "title": "Yellow zone — Foundations to strengthen",
-        "description": "You have basics, but they're not solid. A few well-implemented key processes could transform your daily management.",
-        "cta": "Discover implementation"
-      },
-      "high": {
-        "title": "Green zone — Optimization",
-        "description": "Congrats! You have good HR foundations. Management coaching could bring your team to the next level.",
-        "cta": "Explore coaching"
-      }
-    }
-  },
-  "calculator": {
-    "title": "How much is HR chaos costing you?",
-    "subtitle": "Estimate the financial impact of employee turnover",
-    "employees_label": "Number of employees",
-    "salary_label": "Average annual salary",
-    "turnover_label": "Annual turnover rate",
-    "result_title": "Estimated annual turnover cost",
-    "formula": "Turnover costs on average 33% of annual salary per departure",
-    "departures": "estimated departures / year",
-    "cost_per": "cost per departure",
-    "cta": "Let's reduce that number together"
-  },
-  "myths": {
-    "title": "HR Myths — What we often hear",
-    "subtitle": "Click to discover the reality",
-    "m1": {
-      "myth": "HR is only for big companies",
-      "reality": "Starting at 15 employees, HR issues really cost. A flawed recruitment process can cost you $50,000 per bad hire."
-    },
-    "m2": {
-      "myth": "A good salary is enough to retain employees",
-      "reality": "Salary ranks 4th in reasons for leaving. Lack of recognition, development and bad management come first."
-    },
-    "m3": {
-      "myth": "Performance reviews are useless",
-      "reality": "Done badly, yes. Done well, they reduce turnover by 14.9% and boost engagement. It's the most underrated tool."
-    },
-    "m4": {
-      "myth": "I know my people, no need for processes",
-      "reality": "It works at 10 employees. At 30, it's impossible to track everything. Without processes, good intentions become blind spots."
-    }
-  },
-  "testimonials": {
-    "title": "Concrete transformations",
-    "subtitle": "Real results, names changed for confidentiality",
-    "c1": {
-      "industry": "Manufacturing — 35 employees",
-      "before_title": "Before",
-      "before": "40% turnover. No onboarding process. Managers avoided difficult conversations.",
-      "after_title": "After 6 months",
-      "after": "Turnover reduced to 18%. 90-day onboarding program. Managers trained in constructive feedback.",
-      "metric": "-55% turnover"
-    },
-    "c2": {
-      "industry": "Professional services — 22 employees",
-      "before_title": "Before",
-      "before": "Gut-feeling recruitment. 3 months to fill a position. Frequent bad hires.",
-      "after_title": "After 3 months",
-      "after": "Structured process. Fill time reduced to 5 weeks. Standardized interview guide.",
-      "metric": "-60% fill time"
-    },
-    "c3": {
-      "industry": "Construction — 48 employees",
-      "before_title": "Before",
-      "before": "No written policies. Conflicts managed case by case. Owner exhausted by HR emergencies.",
-      "after_title": "After 4 months",
-      "after": "Complete employee handbook. Conflict management process. Managers autonomous for 80% of situations.",
-      "metric": "80% autonomy"
+    "booking": {
+      "title": "Start taking care of yourself today",
+      "subtitle": "Book your first consultation and begin your journey toward holistic well-being.",
+      "phone": "(819) 555-0200",
+      "cta": "Book an appointment"
     }
   },
   "services": {
     "meta": {
-      "title": "Services — Diagnostic, Implementation, HR Coaching",
-      "description": "Discover my three HR support pillars for SMBs: organizational diagnostic, process implementation and management coaching."
+      "title": "Services — Physiotherapy, Osteopathy, Massage Therapy, Nutrition",
+      "description": "Discover the four disciplines offered by Clinique Aura in Sherbrooke: physiotherapy, osteopathy, massage therapy and nutrition/dietetics."
     },
     "hero": {
-      "title": "Services",
-      "subtitle": "Three pillars to structure, implement and sustain HR that holds up."
+      "title": "Our services",
+      "subtitle": "Four complementary disciplines for comprehensive care of your health and well-being."
     },
-    "diagnostic": {
-      "title": "Organizational diagnostic",
-      "description": "Understanding where you stand — no judgment.",
+    "physio": {
+      "title": "Physiotherapy",
+      "description": "Assessment and treatment of musculoskeletal injuries through an evidence-based approach. Personalized rehabilitation to help you reach your full functional potential.",
       "includes": "What's included",
-      "item1": "Confidential interviews with key stakeholders",
-      "item2": "Audit of current HR policies, processes and practices",
-      "item3": "Prioritized recommendations report",
-      "duration": "2-3 weeks",
-      "result": "You know exactly what's holding you back — and how to fix it."
+      "item1": "Complete biomechanical assessment and physiotherapy diagnosis",
+      "item2": "Manual therapy and joint mobilizations",
+      "item3": "Personalized therapeutic exercise program",
+      "item4": "Electrotherapy, ultrasound and complementary modalities",
+      "duration": "45-60 minutes per session",
+      "result": "Pain reduction, mobility restoration and return to activities."
     },
-    "implementation": {
-      "title": "HR process implementation",
-      "description": "Building processes that last — not just a document gathering dust.",
-      "includes": "Process examples",
-      "item1": "Recruitment: from sourcing to 90-day onboarding",
-      "item2": "Performance reviews: goals, feedback, development",
-      "item3": "Retention: compensation, culture, career paths",
-      "item4": "Compliance: labor standards, internal policies",
-      "duration": "8-12 weeks",
-      "result": "Documented processes, your team trained to maintain them."
+    "osteo": {
+      "title": "Osteopathy",
+      "description": "A holistic approach through gentle manual manipulations aimed at restoring the body's overall balance. The osteopath treats mobility restrictions and their compensations.",
+      "includes": "Approaches used",
+      "item1": "Structural techniques (joints, muscles)",
+      "item2": "Craniosacral and visceral approach",
+      "item3": "Fascial and tissue rebalancing",
+      "item4": "Treatment adapted for pregnant women and children",
+      "duration": "50-60 minutes per session",
+      "result": "Relief of deep tensions and improved overall mobility."
     },
-    "coaching": {
-      "title": "Management coaching",
-      "description": "Turning your managers into confident HR leaders.",
-      "includes": "Popular topics",
-      "item1": "Difficult conversations (performance, discipline)",
-      "item2": "Delegation and constructive feedback",
-      "item3": "Team conflict management",
-      "item4": "Leadership and company culture",
-      "duration": "3-6 months",
-      "result": "Autonomous managers who know how to lead their teams."
+    "massage": {
+      "title": "Massage Therapy",
+      "description": "Therapeutic massage adapted to your needs: relief of chronic tensions, sports recovery or simply deep relaxation to restore body-mind balance.",
+      "includes": "Techniques offered",
+      "item1": "Swedish relaxation massage and therapeutic massage",
+      "item2": "Myofascial release and trigger point therapy",
+      "item3": "Pre and post-workout sports massage",
+      "item4": "Lymphatic drainage and prenatal massage",
+      "duration": "30, 60 or 90 minutes of your choice",
+      "result": "Reduced muscle tension, improved circulation and deep relaxation."
+    },
+    "nutrition": {
+      "title": "Nutrition / Dietetics",
+      "description": "Personalized nutritional guidance from a registered dietitian. Meal plans tailored to your health goals, intolerances and lifestyle.",
+      "includes": "Services offered",
+      "item1": "Complete nutritional assessment and dietary review",
+      "item2": "Personalized meal plan based on your goals",
+      "item3": "Weight management, diabetes, allergies and intolerances",
+      "item4": "Sports nutrition and performance optimization",
+      "duration": "60 minutes (initial assessment), 30 minutes (follow-ups)",
+      "result": "Sustainable eating habits and measurable improvement in your health."
     },
     "faq": {
       "title": "Frequently asked questions",
-      "q1": "How much does it cost?",
-      "a1": "A full diagnostic ranges from $2,000 to $4,000. Process implementation from $8,000 to $15,000. I can narrow it down after our first conversation — no pricing surprises.",
-      "q2": "Is my company too small?",
-      "a2": "My sweet spot is SMBs with 10 to 50 employees — industrial, manufacturing, construction and services sectors. Big enough for HR issues to really cost you, not big enough for a full-time HR department.",
-      "q3": "How long does it take?",
-      "a3": "Diagnostic: 2-3 weeks. Implementation: 8-12 weeks. Coaching: 3-6 months. It all depends on scope and your availability.",
-      "q4": "Do you offer support after the engagement?",
-      "a4": "Yes, optionally. Monthly check-ins, ad-hoc support, or quarterly reviews — whatever suits your needs.",
-      "q5": "What's the difference between a coach and an HR consultant?",
-      "a5": "A coach focuses on the leader's personal development. I go further: I diagnose, implement concrete processes, AND coach. It's a complete approach.",
-      "q6": "Do you work in French too?",
-      "a6": "Absolutely. I'm fully bilingual — consultations, coaching and documentation in both French and English."
+      "q1": "Do I need a medical referral?",
+      "a1": "No, no medical referral is needed to consult in physiotherapy, osteopathy, massage therapy or nutrition. You can book an appointment directly with the professional of your choice.",
+      "q2": "Are treatments covered by insurance?",
+      "a2": "Most private insurance plans cover physiotherapy, osteopathy, massage therapy and nutrition. We recommend checking your coverage with your insurer. Receipts are issued for each consultation.",
+      "q3": "How many sessions will I need?",
+      "a3": "It depends on your condition. During the first consultation, your therapist will establish a treatment plan with an estimate of the recommended number of sessions. On average, 4 to 8 sessions are sufficient for most conditions.",
+      "q4": "Can I combine multiple services?",
+      "a4": "Absolutely! That's the strength of Clinique Aura. Our multidisciplinary approach allows you to combine physiotherapy and massage therapy, osteopathy and nutrition, or any other combination adapted to your needs.",
+      "q5": "What are your rates?",
+      "a5": "Rates vary by service and duration: physiotherapy ($85-$110/session), osteopathy ($95-$120/session), massage therapy ($65-$120/session), nutrition ($85-$110/session). Contact us for more details.",
+      "q6": "What happens during a first visit?",
+      "a6": "The first visit includes a complete assessment of your condition, establishing a diagnosis and a personalized treatment plan. Allow 60 minutes for this first appointment. Bring your insurance card if applicable."
     }
   },
   "about": {
     "meta": {
-      "title": "About — HR Factory",
-      "description": "12 years in corporate HR leadership, 3 years as an HR consultant for industrial SMBs in Quebec. Learn about my journey and philosophy."
+      "title": "About — Clinique Aura, Sherbrooke",
+      "description": "Discover the history, values and team of Clinique Aura. A multidisciplinary clinic dedicated to holistic well-being in Sherbrooke."
     },
     "hero": {
-      "title": "About",
-      "subtitle": "12 years in HR leadership. 3 years as an HR consultant for industrial SMBs."
+      "title": "About Clinique Aura",
+      "subtitle": "A holistic vision of health, carried by a passionate team since 2018."
     },
     "story": {
-      "title": "Why I left the corporate world",
-      "p1": "For 12 years, I was HR Director in the manufacturing sector in Quebec City. I saw firsthand: owners burning out, managers winging it, talent leaving for lack of structure.",
-      "p2": "I was done with corporate. I wanted real impact — not just filling boxes in a system. In an SMB, when you change something, you see the difference the following week.",
-      "p3": "I launched my practice to offer SMBs what big firms charge $50,000 a year for — but in an accessible, concrete and lasting way."
-    },
-    "philosophy": {
-      "title": "My philosophy",
-      "p1": "My goal is to make you autonomous. Not to create dependency. After 6 months, your team knows how to maintain the processes. You don't need me anymore — and that's exactly what I aim for."
+      "title": "Our story",
+      "p1": "Clinique Aura was born from a simple conviction: the human body functions as a whole. In 2018, Dr. Sophie Lafleur founded the clinic with the ambition of bringing together professionals from different disciplines under one roof to offer truly comprehensive care.",
+      "p2": "Too often, patients navigate between multiple clinics, repeating their story at each consultation. At Clinique Aura, our professionals communicate with each other, coordinate treatments and share a common goal: your optimal recovery.",
+      "p3": "Today, our team of four professionals supports over 2,000 patients per year in a warm and welcoming environment in the heart of Sherbrooke."
     },
     "values": {
-      "empathy": {
-        "title": "Pragmatism",
-        "description": "I understand the reality of industrial SMB owners. No theory, just solutions that hold up.",
-        "example": "When an owner tells me they're doing payroll at midnight, I don't judge — I help them break that cycle."
+      "title": "Our values",
+      "wellness": {
+        "title": "Holistic well-being",
+        "description": "We believe that health goes beyond the absence of pain. Our approach integrates movement, nutrition and emotional balance for lasting well-being."
       },
-      "transparency": {
-        "title": "Transparency",
-        "description": "You know upfront what it costs, how long it takes, and what you'll get.",
-        "example": "My service proposals always include a detailed timeline, fixed budget and clear deliverables. No grey areas."
+      "excellence": {
+        "title": "Clinical excellence",
+        "description": "Our professionals continuously train in the latest advances in their discipline. Every treatment plan is evidence-based and adapted to your reality."
       },
-      "autonomy": {
-        "title": "Empowerment",
-        "description": "I leave when you're ready. My success is measured by your autonomy.",
-        "example": "After 6 months, your managers handle performance reviews on their own. You don't need me anymore — mission accomplished."
+      "holistic": {
+        "title": "Holistic approach",
+        "description": "By bringing four disciplines under one roof, we offer coordinated care that treats the root cause, not just the symptoms."
       }
+    },
+    "team": {
+      "title": "Meet our team",
+      "subtitle": "Complementary professionals, united by a shared passion for your health."
+    },
+    "cta": {
+      "title": "Ready to take care of yourself?",
+      "button": "Book an appointment"
     }
   },
   "contact": {
     "meta": {
-      "title": "Contact — Book a Free Discovery Call",
-      "description": "Contact HR Factory for a free discovery consultation. SMBs of 10 to 50 employees — industrial, manufacturing, construction sectors in Quebec."
+      "title": "Contact — Clinique Aura, Sherbrooke",
+      "description": "Contact Clinique Aura to book an appointment in physiotherapy, osteopathy, massage therapy or nutrition in Sherbrooke."
     },
     "hero": {
-      "title": "Let's talk about your situation",
-      "subtitle": "No sales pitch. Just a straight conversation about what we can do together."
+      "title": "Contact us",
+      "subtitle": "Book an appointment or send us your questions. Our team will get back to you as soon as possible."
     },
     "form": {
-      "name": "Your name",
+      "name": "Your full name",
       "email": "Email",
-      "company": "Company",
-      "employees": "Number of employees",
-      "challenge": "Your main HR challenge",
-      "challenge_placeholder": "Briefly describe your situation...",
-      "submit": "Send",
-      "response_time": "I respond within 24 hours. Usually sooner."
+      "phone": "Phone",
+      "service": "Desired service",
+      "service_options": {
+        "physio": "Physiotherapy",
+        "osteo": "Osteopathy",
+        "massage": "Massage Therapy",
+        "nutrition": "Nutrition / Dietetics",
+        "other": "Other / Not sure"
+      },
+      "message": "Your message",
+      "consent": "I agree that my data may be used to process my request.",
+      "consent_notice": "Your personal information is processed in accordance with Quebec's Law 25.",
+      "consent_link": "Privacy Policy",
+      "loi25_notice": "In accordance with Quebec's Law 25, your personal information will only be used to respond to your request and will not be shared with third parties without your explicit consent.",
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We will respond within 24 hours.",
+      "error": "An error occurred. Please try again or call us directly.",
+      "errors": {
+        "name_min": "Name must be at least 2 characters.",
+        "email": "Please enter a valid email address.",
+        "phone": "Please enter a valid phone number.",
+        "service": "Please select a service.",
+        "message_min": "Message must be at least 10 characters.",
+        "message_max": "Message cannot exceed 2000 characters.",
+        "consent": "You must agree to data processing to submit the form."
+      }
     },
     "info": {
-      "email_label": "Email",
-      "phone_label": "Phone",
-      "location_label": "Location",
-      "location": "Quebec City, QC",
-      "linkedin": "LinkedIn"
+      "title": "Our contact information",
+      "address": "2500 King Street West, Suite 300, Sherbrooke QC J1J 2E8",
+      "phone": "(819) 555-0200",
+      "email": "info@clinique-aura.ca",
+      "hours": "Business hours",
+      "hours_weekday": "Monday to Friday: 8:00 AM - 6:00 PM",
+      "hours_saturday": "Saturday: 9:00 AM - 1:00 PM"
     }
   },
   "footer": {
-    "copyright": "HR Factory — Émilie Poirier. All rights reserved.",
-    "tagline": "Forging your HR.",
-    "cta": "Ready to structure your HR?",
-    "cta_button": "Free consultation",
-    "blog": "Blog"
+    "description": "Multidisciplinary clinic offering physiotherapy, osteopathy, massage therapy and nutrition in Sherbrooke.",
+    "nav_title": "Navigation",
+    "legal_title": "Legal",
+    "mentions": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "contact_title": "Contact",
+    "address": "2500 King Street West, Suite 300, Sherbrooke QC J1J 2E8",
+    "phone": "(819) 555-0200",
+    "email": "info@clinique-aura.ca",
+    "rpp": "Person responsible for privacy: Dr. Sophie Lafleur — rpp@clinique-aura.ca",
+    "copyright": "Clinique Aura Inc. All rights reserved."
   },
-  "chatbot": {
-    "toggle": "Open chat",
-    "title": "HR Factory",
-    "subtitle": "Virtual assistant",
-    "close": "Close",
-    "placeholder": "Type your message...",
-    "send": "Send"
-  },
-  "common": {
-    "duration": "Duration",
-    "learn_more": "Learn more",
-    "back_home": "Back to home"
+  "cookie": {
+    "title": "Cookie Management",
+    "description": "We use cookies to improve your experience. In accordance with Quebec's Law 25, only essential cookies are active by default. You may accept or decline optional cookies.",
+    "essential": "Essential",
+    "analytics": "Analytics",
+    "marketing": "Marketing",
+    "accept": "Accept all",
+    "reject": "Reject all",
+    "customize": "Customize"
   }
 }

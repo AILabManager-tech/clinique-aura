@@ -5,13 +5,13 @@ type Variant = "primary" | "secondary" | "outline" | "ghost";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-terracotta-500 text-white hover:bg-terracotta-600 hover:scale-[1.02]",
+    "bg-sky-600 text-white hover:bg-sky-700 hover:scale-[1.02]",
   secondary:
     "bg-sage-500 text-white hover:bg-sage-600 hover:scale-[1.02]",
   outline:
-    "border-2 border-sage-500 text-sage-600 hover:bg-sage-50",
+    "border-2 border-sky-600 text-sky-600 hover:bg-sky-50",
   ghost:
-    "text-sage-600 hover:bg-sage-50",
+    "text-sky-600 hover:bg-sky-50",
 };
 
 interface BaseProps {

@@ -43,6 +43,7 @@ vi.mock("framer-motion", () => ({
   AnimatePresence: ({ children }: { children: React.ReactNode }) => (
     <>{children}</>
   ),
+  useReducedMotion: () => false,
 }));
 
 vi.mock("next/image", () => ({
@@ -67,19 +68,30 @@ vi.mock("@/components/animations/LineReveal", () => ({
   LineReveal: () => <div data-testid="line-reveal" />,
 }));
 
-vi.mock("@/components/animations/CountUp", () => ({
-  CountUp: ({ to, suffix }: { to: number; suffix: string }) => (
-    <span>
-      {to}
-      {suffix}
-    </span>
-  ),
+vi.mock("@/components/animations/MagneticButton", () => ({
+  MagneticButton: ({
+    children,
+    href,
+  }: {
+    children: React.ReactNode;
+    href: string;
+  }) => <a href={href}>{children}</a>,
 }));
 
 vi.mock("@/components/ui/AnimatedSection", () => ({
   AnimatedSection: ({ children }: { children: React.ReactNode }) => (
     <div>{children}</div>
   ),
+}));
+
+vi.mock("@/components/interactive/PractitionerCards", () => ({
+  PractitionerCards: () => <div data-testid="practitioner-cards" />,
+}));
+
+vi.mock("lucide-react", () => ({
+  ShieldCheck: () => <span data-testid="icon-shieldcheck" />,
+  Award: () => <span data-testid="icon-award" />,
+  Sparkles: () => <span data-testid="icon-sparkles" />,
 }));
 
 import { AboutContent } from "@/components/pages/AboutContent";
@@ -97,28 +109,51 @@ describe("AboutContent", () => {
     expect(screen.getByText("hero.title")).toBeInTheDocument();
   });
 
+  it("renders hero subtitle", () => {
+    render(<AboutContent />);
+    expect(screen.getByText("hero.subtitle")).toBeInTheDocument();
+  });
+
   it("renders story section", () => {
     render(<AboutContent />);
     expect(screen.getByText("story.title")).toBeInTheDocument();
     expect(screen.getByText("story.p1")).toBeInTheDocument();
+    expect(screen.getByText("story.p2")).toBeInTheDocument();
+    expect(screen.getByText("story.p3")).toBeInTheDocument();
   });
 
-  it("renders philosophy section", () => {
+  it("renders values section title", () => {
     render(<AboutContent />);
-    expect(screen.getByText("philosophy.title")).toBeInTheDocument();
+    expect(screen.getByText("values.title")).toBeInTheDocument();
   });
 
-  it("renders value cards", () => {
+  it("renders value cards (benevolence, excellence, holistic)", () => {
     render(<AboutContent />);
-    expect(screen.getByText("empathy.title")).toBeInTheDocument();
-    expect(screen.getByText("transparency.title")).toBeInTheDocument();
-    expect(screen.getByText("autonomy.title")).toBeInTheDocument();
+    expect(screen.getByText("benevolence.title")).toBeInTheDocument();
+    expect(screen.getByText("excellence.title")).toBeInTheDocument();
+    expect(screen.getByText("holistic.title")).toBeInTheDocument();
   });
 
-  it("renders stats section", () => {
+  it("renders PractitionerCards component", () => {
     render(<AboutContent />);
-    expect(screen.getByText("12 ans")).toBeInTheDocument();
-    expect(screen.getByText("3 ans")).toBeInTheDocument();
-    expect(screen.getByText("100%")).toBeInTheDocument();
+    expect(screen.getByTestId("practitioner-cards")).toBeInTheDocument();
+  });
+
+  it("renders CTA section with booking button", () => {
+    render(<AboutContent />);
+    expect(screen.getByText("cta.title")).toBeInTheDocument();
+    expect(screen.getByText("cta.button")).toBeInTheDocument();
+  });
+
+  it("renders AuroraBackground in hero", () => {
+    render(<AboutContent />);
+    const auroras = screen.getAllByTestId("aurora");
+    expect(auroras.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("renders multiple sections", () => {
+    render(<AboutContent />);
+    const sections = document.querySelectorAll("section");
+    expect(sections.length).toBeGreaterThanOrEqual(3);
   });
 });

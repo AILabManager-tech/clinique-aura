@@ -37,6 +37,7 @@ vi.mock("framer-motion", () => ({
   AnimatePresence: ({ children }: { children: React.ReactNode }) => (
     <>{children}</>
   ),
+  useReducedMotion: () => false,
 }));
 
 vi.mock("next/image", () => ({
@@ -87,6 +88,13 @@ vi.mock("@/components/ui/FaqAccordion", () => ({
   ),
 }));
 
+vi.mock("lucide-react", () => ({
+  Activity: () => <span data-testid="icon-activity" />,
+  Bone: () => <span data-testid="icon-bone" />,
+  Heart: () => <span data-testid="icon-heart" />,
+  Apple: () => <span data-testid="icon-apple" />,
+}));
+
 import { ServicesContent } from "@/components/pages/ServicesContent";
 
 afterEach(cleanup);
@@ -102,11 +110,25 @@ describe("ServicesContent", () => {
     expect(screen.getByText("hero.title")).toBeInTheDocument();
   });
 
-  it("renders service sections", () => {
+  it("renders hero subtitle", () => {
     render(<ServicesContent />);
-    expect(screen.getByText("diagnostic.title")).toBeInTheDocument();
-    expect(screen.getByText("implementation.title")).toBeInTheDocument();
-    expect(screen.getByText("coaching.title")).toBeInTheDocument();
+    expect(screen.getByText("hero.subtitle")).toBeInTheDocument();
+  });
+
+  it("renders four service sections (physio, osteo, massage, nutrition)", () => {
+    render(<ServicesContent />);
+    expect(screen.getByText("physio.title")).toBeInTheDocument();
+    expect(screen.getByText("osteo.title")).toBeInTheDocument();
+    expect(screen.getByText("massage.title")).toBeInTheDocument();
+    expect(screen.getByText("nutrition.title")).toBeInTheDocument();
+  });
+
+  it("renders service descriptions", () => {
+    render(<ServicesContent />);
+    expect(screen.getByText("physio.description")).toBeInTheDocument();
+    expect(screen.getByText("osteo.description")).toBeInTheDocument();
+    expect(screen.getByText("massage.description")).toBeInTheDocument();
+    expect(screen.getByText("nutrition.description")).toBeInTheDocument();
   });
 
   it("renders FAQ section", () => {
@@ -115,9 +137,22 @@ describe("ServicesContent", () => {
     expect(screen.getByTestId("faq-accordion")).toBeInTheDocument();
   });
 
-  it("renders service images", () => {
+  it("renders FAQ items (6 questions)", () => {
     render(<ServicesContent />);
-    const images = document.querySelectorAll("img");
-    expect(images.length).toBeGreaterThanOrEqual(3);
+    const faqAccordion = screen.getByTestId("faq-accordion");
+    // The mock renders all 6 FAQ question keys
+    expect(faqAccordion.children.length).toBe(6);
+  });
+
+  it("renders duration info for services", () => {
+    render(<ServicesContent />);
+    expect(screen.getByText("physio.duration")).toBeInTheDocument();
+    expect(screen.getByText("osteo.duration")).toBeInTheDocument();
+  });
+
+  it("renders multiple sections", () => {
+    render(<ServicesContent />);
+    const sections = document.querySelectorAll("section");
+    expect(sections.length).toBeGreaterThanOrEqual(4);
   });
 });

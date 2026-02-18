@@ -24,7 +24,7 @@ describe("sitemap", () => {
 
   it("homepage has priority 1", () => {
     const homeFr = entries.find(
-      (e) => e.url === "https://emiliepoirierrh.ca/fr"
+      (e) => e.url === "https://clinique-aura.vercel.app/fr"
     );
     expect(homeFr).toBeDefined();
     expect(homeFr!.priority).toBe(1);

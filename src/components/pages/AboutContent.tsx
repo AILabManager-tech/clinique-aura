@@ -1,143 +1,140 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { ShieldCheck, Award, Sparkles } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
+import { AuroraBackground } from "@/components/animations/AuroraBackground";
 import { TextReveal } from "@/components/animations/TextReveal";
 import { LineReveal } from "@/components/animations/LineReveal";
-import { CountUp } from "@/components/animations/CountUp";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { AuroraBackground } from "@/components/animations/AuroraBackground";
+import { MagneticButton } from "@/components/animations/MagneticButton";
+import { PractitionerCards } from "@/components/interactive/PractitionerCards";
 
-const values = ["empathy", "transparency", "autonomy"] as const;
-const valueIcons = ["💛", "🔍", "🚀"];
+/* ------------------------------------------------------------------ */
+/*  Values definition                                                  */
+/* ------------------------------------------------------------------ */
 
-function ValueCard({ valueKey, icon, index }: { valueKey: string; icon: string; index: number }) {
+interface ValueDef {
+  key: string;
+  Icon: LucideIcon;
+  accentBg: string;
+  accentText: string;
+}
+
+const valuesDefs: ValueDef[] = [
+  {
+    key: "benevolence",
+    Icon: ShieldCheck,
+    accentBg: "bg-sky-50",
+    accentText: "text-sky-600",
+  },
+  {
+    key: "excellence",
+    Icon: Award,
+    accentBg: "bg-sage-50",
+    accentText: "text-sage-600",
+  },
+  {
+    key: "holistic",
+    Icon: Sparkles,
+    accentBg: "bg-peach-50",
+    accentText: "text-peach-600",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Value card                                                         */
+/* ------------------------------------------------------------------ */
+
+interface ValueCardProps {
+  def: ValueDef;
+  index: number;
+  prefersReduced: boolean;
+}
+
+function ValueCard({ def, index, prefersReduced }: ValueCardProps) {
   const t = useTranslations("about.values");
-  const [expanded, setExpanded] = useState(false);
+  const { key, Icon, accentBg, accentText } = def;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
+      whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.15 }}
+      transition={{ duration: 0.5, delay: index * 0.15, ease: "easeInOut" as const }}
       className="group"
     >
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full card-elevated text-left"
-        aria-expanded={expanded}
-      >
-        <div className="mb-4 flex items-center gap-3">
-          <span className="text-2xl">{icon}</span>
-          <h3 className="text-sage-600 transition-colors group-hover:text-terracotta-500">
-            {t(`${valueKey}.title`)}
-          </h3>
-          <motion.span
-            className="ml-auto text-taupe"
-            animate={{ rotate: expanded ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            ▾
-          </motion.span>
+      <div className="card-elevated flex flex-col items-start h-full">
+        <div
+          className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${accentBg} ${accentText} transition-transform group-hover:scale-110`}
+        >
+          <Icon className="h-7 w-7" strokeWidth={1.5} />
         </div>
-        <p className="text-taupe">{t(`${valueKey}.description`)}</p>
-
-        <AnimatePresence>
-          {expanded && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
-            >
-              <div className="mt-4 rounded-xl bg-sage-50 p-4 border border-sage-100">
-                <p className="text-sm italic text-sage-700">
-                  {t(`${valueKey}.example`)}
-                </p>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </button>
+        <h3 className={`mb-2 ${accentText} transition-colors group-hover:text-sky-600`}>
+          {t(`${key}.title`)}
+        </h3>
+        <p className="text-charcoal-light leading-relaxed">
+          {t(`${key}.description`)}
+        </p>
+      </div>
     </motion.div>
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Main export                                                        */
+/* ------------------------------------------------------------------ */
+
 /**
- * About page content with story, philosophy, stats, and expandable value cards.
+ * AboutContent — About page for Clinique Aura featuring the clinic
+ * story (founded 2009), three core values (Bienveillance, Excellence,
+ * Approche globale), a team section with PractitionerCards, and a
+ * closing CTA to book an appointment.
  *
  * @component
  * @example
+ * ```tsx
  * <AboutContent />
+ * ```
  */
 export function AboutContent() {
   const t = useTranslations("about");
+  const prefersReduced = useReducedMotion() ?? false;
 
   return (
     <main>
-      {/* Hero with image */}
-      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1920&q=80&auto=format"
-          alt="Consultante RH souriante en milieu professionnel"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 hero-image-overlay" />
+      {/* ============================================================ */}
+      {/*  1. Hero — sky gradient bg                                    */}
+      {/* ============================================================ */}
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden bg-gradient-to-br from-sky-700 via-sky-600 to-sage-500">
         <AuroraBackground />
+        <div className="absolute inset-0 grid-overlay opacity-20" />
         <div className="container-narrow text-center relative z-10 section-padding">
           <TextReveal className="mb-4 !text-white">{t("hero.title")}</TextReveal>
           <AnimatedSection delay={0.4} direction="none">
-            <p className="text-lg text-cream-300/90 md:text-xl">{t("hero.subtitle")}</p>
+            <p className="text-lg text-pearl-300/90 md:text-xl">
+              {t("hero.subtitle")}
+            </p>
           </AnimatedSection>
           <LineReveal className="mx-auto mt-8 w-24" delay={0.6} />
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="relative -mt-12 z-20">
-        <div className="container-wide px-6">
-          <div className="glass rounded-2xl p-8">
-            <div className="grid grid-cols-3 gap-8 text-center">
-              <div>
-                <p className="font-heading text-3xl font-bold text-sage-600 md:text-4xl">
-                  <CountUp to={12} suffix=" ans" />
-                </p>
-                <p className="mt-1 text-sm text-taupe">Direction RH</p>
-              </div>
-              <div>
-                <p className="font-heading text-3xl font-bold text-terracotta-500 md:text-4xl">
-                  <CountUp to={3} suffix=" ans" />
-                </p>
-                <p className="mt-1 text-sm text-taupe">Consultante PME</p>
-              </div>
-              <div>
-                <p className="font-heading text-3xl font-bold text-gold-600 md:text-4xl">
-                  <CountUp to={100} suffix="%" />
-                </p>
-                <p className="mt-1 text-sm text-taupe">Autonomie visée</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Story */}
+      {/* ============================================================ */}
+      {/*  2. Story — Founded in 2009                                   */}
+      {/* ============================================================ */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh-bg" />
         <div className="container-narrow relative z-10">
           <AnimatedSection>
-            <TextReveal as="h2" className="mb-4">{t("story.title")}</TextReveal>
+            <TextReveal as="h2" className="mb-4">
+              {t("story.title")}
+            </TextReveal>
           </AnimatedSection>
           <LineReveal className="mb-8 w-16" delay={0.3} />
           <AnimatedSection delay={0.2}>
-            <div className="space-y-5 text-lg leading-relaxed text-taupe">
+            <div className="space-y-5 text-lg leading-relaxed text-charcoal-light">
               <p>{t("story.p1")}</p>
               <p>{t("story.p2")}</p>
               <p>{t("story.p3")}</p>
@@ -146,41 +143,67 @@ export function AboutContent() {
         </div>
       </section>
 
-      {/* Philosophy — with image */}
-      <section className="relative overflow-hidden">
-        <div className="grid md:grid-cols-2">
-          <div className="relative min-h-[400px]">
-            <Image
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format"
-              alt="Collaboration d'équipe"
-              fill
-              className="object-cover"
-              sizes="50vw"
-            />
-          </div>
-          <div className="section-padding flex items-center bg-cream-300/50">
-            <div className="max-w-lg">
-              <AnimatedSection>
-                <TextReveal as="h2" className="mb-4">{t("philosophy.title")}</TextReveal>
-              </AnimatedSection>
-              <LineReveal className="mb-6 w-16" color="bg-sage-400" delay={0.3} />
-              <AnimatedSection delay={0.2}>
-                <p className="text-lg leading-relaxed text-taupe">{t("philosophy.p1")}</p>
-              </AnimatedSection>
-            </div>
+      <div className="section-divider" />
+
+      {/* ============================================================ */}
+      {/*  3. Values — Bienveillance, Excellence, Approche globale      */}
+      {/* ============================================================ */}
+      <section className="section-padding relative overflow-hidden">
+        <div className="absolute inset-0 gradient-mesh-bg" />
+        <div className="container-wide relative z-10">
+          <AnimatedSection>
+            <TextReveal as="h2" className="mb-4 text-center">
+              {t("values.title")}
+            </TextReveal>
+          </AnimatedSection>
+          <LineReveal className="mx-auto mb-12 w-24" color="bg-sage-400" delay={0.3} />
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {valuesDefs.map((def, i) => (
+              <ValueCard
+                key={def.key}
+                def={def}
+                index={i}
+                prefersReduced={prefersReduced}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="section-padding relative overflow-hidden">
-        <div className="absolute inset-0 gradient-mesh-bg" />
-        <div className="container-wide relative z-10">
-          <div className="grid gap-6 md:grid-cols-3">
-            {values.map((key, i) => (
-              <ValueCard key={key} valueKey={key} icon={valueIcons[i] ?? ""} index={i} />
-            ))}
-          </div>
+      <div className="section-divider" />
+
+      {/* ============================================================ */}
+      {/*  4. Team — PractitionerCards                                  */}
+      {/* ============================================================ */}
+      <PractitionerCards />
+
+      {/* ============================================================ */}
+      {/*  5. CTA — Join us / book appointment                          */}
+      {/* ============================================================ */}
+      <section className="relative overflow-hidden bg-sky-800">
+        <AuroraBackground />
+        <div className="absolute inset-0 grid-overlay opacity-15" />
+        <div className="container-narrow relative z-10 text-center section-padding">
+          <AnimatedSection>
+            <TextReveal as="h2" className="mb-4 !text-white">
+              {t("cta.title")}
+            </TextReveal>
+          </AnimatedSection>
+          <AnimatedSection delay={0.3}>
+            <p className="mb-10 text-lg text-pearl-300/90">
+              {t("cta.subtitle")}
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.5}>
+            <MagneticButton
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-xl bg-peach-400 px-10 py-5 text-lg font-medium text-charcoal transition-all hover:bg-peach-500 hover:shadow-xl hover:shadow-peach-400/25"
+              strength={0.4}
+            >
+              {t("cta.button")}
+            </MagneticButton>
+          </AnimatedSection>
         </div>
       </section>
     </main>

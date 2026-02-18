@@ -16,6 +16,6 @@ describe("robots", () => {
   });
 
   it("includes sitemap URL", () => {
-    expect(config.sitemap).toBe("https://emiliepoirierrh.ca/sitemap.xml");
+    expect(config.sitemap).toBe("https://clinique-aura.vercel.app/sitemap.xml");
   });
 });

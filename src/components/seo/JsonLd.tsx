@@ -21,26 +21,50 @@ export function JsonLd({ data }: JsonLdProps) {
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "L'Usine RH",
+  "@type": "MedicalBusiness",
+  name: "Clinique Aura",
   description:
-    "Consultante RH pour PME de 15 à 50 employés au Québec. Diagnostic organisationnel, implantation de processus RH et coaching de gestionnaires.",
-  url: "https://emiliepoirierrh.ca",
+    "Clinique multidisciplinaire offrant physiothérapie, ostéopathie, massothérapie et nutrition à Sherbrooke.",
+  url: "https://clinique-aura.vercel.app",
+  telephone: "(819) 555-0200",
+  email: "info@clinique-aura.ca",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Québec",
+    streetAddress: "2500, rue King Ouest, bureau 300",
+    addressLocality: "Sherbrooke",
     addressRegion: "QC",
+    postalCode: "J1J 2E8",
     addressCountry: "CA",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 45.4042,
+    longitude: -71.9329,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "13:00",
+    },
+  ],
   areaServed: {
-    "@type": "AdministrativeArea",
-    name: "Québec",
+    "@type": "City",
+    name: "Sherbrooke",
   },
   priceRange: "$$",
   serviceType: [
-    "Diagnostic organisationnel",
-    "Implantation de processus RH",
-    "Coaching de gestionnaires",
+    "Physiothérapie",
+    "Ostéopathie",
+    "Massothérapie",
+    "Nutrition et diététique",
   ],
   knowsLanguage: ["fr", "en"],
 };
@@ -51,46 +75,57 @@ export function buildServiceSchema(locale: string) {
     "@context": "https://schema.org",
     "@type": "Service",
     provider: {
-      "@type": "LocalBusiness",
-      name: isFr ? "L'Usine RH" : "HR Factory",
+      "@type": "MedicalBusiness",
+      name: "Clinique Aura",
+      url: "https://clinique-aura.vercel.app",
     },
-    serviceType: isFr ? "Consultation RH" : "HR Consulting",
+    serviceType: isFr ? "Soins multidisciplinaires" : "Multidisciplinary Care",
     areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Québec, Canada",
+      "@type": "City",
+      name: "Sherbrooke, Québec, Canada",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: isFr ? "Services RH" : "HR Services",
+      name: isFr ? "Services de santé" : "Health Services",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: isFr ? "Diagnostic organisationnel" : "Organizational Diagnostic",
+            name: isFr ? "Physiothérapie" : "Physiotherapy",
             description: isFr
-              ? "Analyse complète de la situation RH : entretiens, audit des processus, rapport de recommandations."
-              : "Complete HR situation analysis: interviews, process audit, recommendations report.",
+              ? "Évaluation et traitement des troubles musculosquelettiques. Réadaptation fonctionnelle, thérapie manuelle et exercices personnalisés."
+              : "Assessment and treatment of musculoskeletal disorders. Functional rehabilitation, manual therapy and personalized exercises.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: isFr ? "Implantation de processus RH" : "HR Process Implementation",
+            name: isFr ? "Ostéopathie" : "Osteopathy",
             description: isFr
-              ? "Mise en place de processus durables : recrutement, évaluation, rétention, conformité."
-              : "Implementation of lasting processes: recruitment, evaluation, retention, compliance.",
+              ? "Approche manuelle globale visant à rétablir l'équilibre du corps. Traitement des tensions et restrictions de mobilité."
+              : "A holistic manual approach to restore the body's balance. Treatment of tensions and mobility restrictions.",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: isFr ? "Coaching de gestionnaires" : "Management Coaching",
+            name: isFr ? "Massothérapie" : "Massage Therapy",
             description: isFr
-              ? "Formation des gestionnaires en conversations difficiles, délégation, leadership."
-              : "Training managers in difficult conversations, delegation, leadership.",
+              ? "Massage thérapeutique et de détente pour soulager les tensions musculaires et favoriser la récupération."
+              : "Therapeutic and relaxation massage to relieve muscle tension and promote recovery.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: isFr ? "Nutrition / Diététique" : "Nutrition / Dietetics",
+            description: isFr
+              ? "Conseils nutritionnels personnalisés pour optimiser votre santé et prévenir les maladies chroniques."
+              : "Personalized nutritional advice to optimize your health and prevent chronic diseases.",
           },
         },
       ],

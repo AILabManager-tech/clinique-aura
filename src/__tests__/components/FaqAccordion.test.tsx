@@ -3,9 +3,9 @@ import { describe, it, expect, afterEach } from "vitest";
 import { FaqAccordion } from "@/components/ui/FaqAccordion";
 
 const mockItems = [
-  { question: "Question 1?", answer: "Answer 1" },
-  { question: "Question 2?", answer: "Answer 2" },
-  { question: "Question 3?", answer: "Answer 3" },
+  { question: "Ai-je besoin d'une référence médicale?", answer: "Non, aucune référence n'est nécessaire." },
+  { question: "Mes traitements sont-ils couverts par les assurances?", answer: "La plupart des régimes couvrent nos services." },
+  { question: "Combien de séances seront nécessaires?", answer: "En moyenne, 4 à 8 séances suffisent." },
 ];
 
 afterEach(cleanup);
@@ -13,15 +13,15 @@ afterEach(cleanup);
 describe("FaqAccordion", () => {
   it("renders all questions", () => {
     render(<FaqAccordion items={mockItems} />);
-    expect(screen.getByText("Question 1?")).toBeInTheDocument();
-    expect(screen.getByText("Question 2?")).toBeInTheDocument();
-    expect(screen.getByText("Question 3?")).toBeInTheDocument();
+    expect(screen.getByText("Ai-je besoin d'une référence médicale?")).toBeInTheDocument();
+    expect(screen.getByText("Mes traitements sont-ils couverts par les assurances?")).toBeInTheDocument();
+    expect(screen.getByText("Combien de séances seront nécessaires?")).toBeInTheDocument();
   });
 
   it("renders all answers in DOM", () => {
     render(<FaqAccordion items={mockItems} />);
-    expect(screen.getByText("Answer 1")).toBeInTheDocument();
-    expect(screen.getByText("Answer 2")).toBeInTheDocument();
+    expect(screen.getByText("Non, aucune référence n'est nécessaire.")).toBeInTheDocument();
+    expect(screen.getByText("La plupart des régimes couvrent nos services.")).toBeInTheDocument();
   });
 
   it("all items start collapsed (aria-expanded=false)", () => {

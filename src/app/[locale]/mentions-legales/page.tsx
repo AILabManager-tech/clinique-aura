@@ -11,13 +11,13 @@ export async function generateMetadata({
     title: locale === "fr" ? "Mentions légales" : "Legal Notice",
     description:
       locale === "fr"
-        ? "Mentions légales de L'Usine RH — identification, hébergement, propriété intellectuelle."
-        : "HR Factory legal notice — identification, hosting, intellectual property.",
+        ? "Mentions légales de Clinique Aura inc. — identification, hébergement, propriété intellectuelle."
+        : "Clinique Aura Inc. legal notice — identification, hosting, intellectual property.",
     alternates: {
-      canonical: `https://emiliepoirierrh.ca/${locale}/mentions-legales`,
+      canonical: `https://clinique-aura.vercel.app/${locale}/mentions-legales`,
       languages: {
-        fr: "https://emiliepoirierrh.ca/fr/mentions-legales",
-        en: "https://emiliepoirierrh.ca/en/mentions-legales",
+        fr: "https://clinique-aura.vercel.app/fr/mentions-legales",
+        en: "https://clinique-aura.vercel.app/en/mentions-legales",
       },
     },
   };
@@ -42,15 +42,22 @@ export default function LegalNoticePage() {
           <ul className="list-none space-y-1 pl-0">
             <li>
               <strong>{isFr ? "Dénomination sociale" : "Legal name"} :</strong>{" "}
-              {isFr ? "L'Usine RH" : "HR Factory"} — Émilie Poirier
+              Clinique Aura inc.
             </li>
             <li>
-              <strong>{isFr ? "Adresse" : "Address"} :</strong> Québec, QC, Canada
+              <strong>NEQ :</strong> 1234567890
+            </li>
+            <li>
+              <strong>{isFr ? "Adresse" : "Address"} :</strong>{" "}
+              2500, rue King Ouest, bureau 300, Sherbrooke QC J1J 2E8
+            </li>
+            <li>
+              <strong>{isFr ? "Téléphone" : "Phone"} :</strong> (819) 555-0200
             </li>
             <li>
               <strong>{isFr ? "Courriel" : "Email"} :</strong>{" "}
-              <a href="mailto:info@emiliepoirierrh.ca" className="text-sage-600 underline">
-                info@emiliepoirierrh.ca
+              <a href="mailto:info@clinique-aura.ca" className="text-sky-600 underline">
+                info@clinique-aura.ca
               </a>
             </li>
           </ul>
@@ -71,12 +78,24 @@ export default function LegalNoticePage() {
           </ul>
         </section>
 
-        {/* 3. RPP */}
+        {/* 3. Organisme de réglementation */}
+        <section>
+          <h2 className="font-heading text-xl font-semibold text-charcoal">
+            {isFr ? "3. Organisme de réglementation" : "3. Regulatory body"}
+          </h2>
+          <p>
+            {isFr
+              ? "Les services de physiothérapie, ostéopathie, massothérapie et nutrition sont régis par les ordres professionnels et organismes compétents du Québec, notamment l'Ordre professionnel de la physiothérapie du Québec, l'Ordre professionnel des diététistes du Québec et les associations professionnelles applicables."
+              : "Physiotherapy, osteopathy, massage therapy and nutrition services are governed by the relevant professional orders and regulatory bodies of Quebec, including the Ordre professionnel de la physiothérapie du Québec, the Ordre professionnel des diététistes du Québec and applicable professional associations."}
+          </p>
+        </section>
+
+        {/* 4. RPP */}
         <section>
           <h2 className="font-heading text-xl font-semibold text-charcoal">
             {isFr
-              ? "3. Responsable de la protection des renseignements personnels"
-              : "3. Person responsible for the protection of personal information"}
+              ? "4. Responsable de la protection des renseignements personnels"
+              : "4. Person responsible for the protection of personal information"}
           </h2>
           <p>
             {isFr
@@ -85,83 +104,85 @@ export default function LegalNoticePage() {
           </p>
           <ul className="list-none space-y-1 pl-0">
             <li>
-              <strong>{isFr ? "Nom" : "Name"} :</strong> Émilie Poirier
+              <strong>{isFr ? "Nom" : "Name"} :</strong> Dre Sophie Lafleur
             </li>
             <li>
               <strong>{isFr ? "Titre" : "Title"} :</strong>{" "}
-              {isFr ? "Propriétaire et consultante RH" : "Owner and HR Consultant"}
+              {isFr ? "Physiothérapeute, fondatrice" : "Physiotherapist, Founder"}
             </li>
             <li>
               <strong>{isFr ? "Courriel" : "Email"} :</strong>{" "}
-              <a href="mailto:info@emiliepoirierrh.ca" className="text-sage-600 underline">
-                info@emiliepoirierrh.ca
+              <a href="mailto:rpp@clinique-aura.ca" className="text-sky-600 underline">
+                rpp@clinique-aura.ca
               </a>
             </li>
           </ul>
         </section>
 
-        {/* 4. Propriété intellectuelle */}
+        {/* 5. Propriété intellectuelle */}
         <section>
           <h2 className="font-heading text-xl font-semibold text-charcoal">
-            {isFr ? "4. Propriété intellectuelle" : "4. Intellectual property"}
+            {isFr ? "5. Propriété intellectuelle" : "5. Intellectual property"}
           </h2>
           <p>
             {isFr
-              ? "L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété de L'Usine RH ou de ses partenaires et est protégé par les lois applicables en matière de propriété intellectuelle. Toute reproduction, représentation, modification ou exploitation non autorisée est interdite."
-              : "All content on this website (texts, images, graphics, logo, icons, etc.) is the property of HR Factory or its partners and is protected by applicable intellectual property laws. Any unauthorized reproduction, representation, modification or exploitation is prohibited."}
+              ? "L'ensemble du contenu de ce site (textes, images, graphismes, logo, icônes, etc.) est la propriété de Clinique Aura inc. ou de ses partenaires et est protégé par les lois applicables en matière de propriété intellectuelle. Toute reproduction, représentation, modification ou exploitation non autorisée est interdite."
+              : "All content on this website (texts, images, graphics, logo, icons, etc.) is the property of Clinique Aura Inc. or its partners and is protected by applicable intellectual property laws. Any unauthorized reproduction, representation, modification or exploitation is prohibited."}
           </p>
         </section>
 
-        {/* 5. Limitation de responsabilité */}
+        {/* 6. Limitation de responsabilité */}
         <section>
           <h2 className="font-heading text-xl font-semibold text-charcoal">
-            {isFr ? "5. Limitation de responsabilité" : "5. Limitation of liability"}
+            {isFr ? "6. Limitation de responsabilité" : "6. Limitation of liability"}
           </h2>
           <p>
             {isFr
-              ? "L'Usine RH s'efforce de fournir des informations exactes et à jour sur ce site. Toutefois, nous ne pouvons garantir l'exactitude, la complétude ou l'actualité des informations présentées. L'Usine RH ne peut être tenue responsable des dommages directs ou indirects résultant de l'utilisation de ce site."
-              : "HR Factory strives to provide accurate and up-to-date information on this site. However, we cannot guarantee the accuracy, completeness or timeliness of the information presented. HR Factory cannot be held liable for direct or indirect damages resulting from the use of this site."}
+              ? "Les informations présentées sur ce site sont fournies à titre informatif uniquement et ne constituent pas un avis médical. Clinique Aura inc. s'efforce de fournir des informations exactes et à jour, mais ne peut garantir l'exactitude, la complétude ou l'actualité des informations présentées. Pour tout problème de santé, consultez un professionnel qualifié."
+              : "The information presented on this site is provided for informational purposes only and does not constitute medical advice. Clinique Aura Inc. strives to provide accurate and up-to-date information, but cannot guarantee the accuracy, completeness or timeliness of the information presented. For any health concern, consult a qualified professional."}
           </p>
         </section>
 
-        {/* 6. Liens externes */}
+        {/* 7. Liens externes */}
         <section>
           <h2 className="font-heading text-xl font-semibold text-charcoal">
-            {isFr ? "6. Liens externes" : "6. External links"}
+            {isFr ? "7. Liens externes" : "7. External links"}
           </h2>
           <p>
             {isFr
-              ? "Ce site peut contenir des liens vers des sites externes. L'Usine RH n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu."
-              : "This site may contain links to external websites. HR Factory has no control over these sites and disclaims all responsibility for their content."}
+              ? "Ce site peut contenir des liens vers des sites externes. Clinique Aura inc. n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu."
+              : "This site may contain links to external websites. Clinique Aura Inc. has no control over these sites and disclaims all responsibility for their content."}
           </p>
         </section>
 
-        {/* 7. Droit applicable */}
+        {/* 8. Droit applicable */}
         <section>
           <h2 className="font-heading text-xl font-semibold text-charcoal">
-            {isFr ? "7. Droit applicable" : "7. Applicable law"}
+            {isFr ? "8. Droit applicable" : "8. Applicable law"}
           </h2>
           <p>
             {isFr
-              ? "Les présentes mentions légales sont régies par les lois du Québec et du Canada. Tout litige relatif à l'utilisation de ce site sera soumis aux tribunaux compétents du district judiciaire de Québec."
-              : "These legal notices are governed by the laws of Quebec and Canada. Any dispute relating to the use of this site shall be submitted to the competent courts of the judicial district of Quebec."}
+              ? "Les présentes mentions légales sont régies par les lois du Québec et du Canada. Tout litige relatif à l'utilisation de ce site sera soumis aux tribunaux compétents du district judiciaire de Saint-François (Sherbrooke)."
+              : "These legal notices are governed by the laws of Quebec and Canada. Any dispute relating to the use of this site shall be submitted to the competent courts of the judicial district of Saint-François (Sherbrooke)."}
           </p>
         </section>
 
-        {/* 8. Contact */}
+        {/* 9. Contact */}
         <section>
           <h2 className="font-heading text-xl font-semibold text-charcoal">
-            {isFr ? "8. Contact" : "8. Contact"}
+            {isFr ? "9. Contact" : "9. Contact"}
           </h2>
           <p>
-            <strong>{isFr ? "L'Usine RH" : "HR Factory"}</strong>
+            <strong>Clinique Aura inc.</strong>
             <br />
-            Émilie Poirier
+            2500, rue King Ouest, bureau 300
             <br />
-            Québec, QC
+            Sherbrooke, QC J1J 2E8
             <br />
-            <a href="mailto:info@emiliepoirierrh.ca" className="text-sage-600 underline">
-              info@emiliepoirierrh.ca
+            (819) 555-0200
+            <br />
+            <a href="mailto:info@clinique-aura.ca" className="text-sky-600 underline">
+              info@clinique-aura.ca
             </a>
           </p>
         </section>

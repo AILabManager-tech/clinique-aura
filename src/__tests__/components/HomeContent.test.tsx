@@ -39,15 +39,38 @@ vi.mock("framer-motion", () => ({
     }: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
       <button {...props}>{children}</button>
     ),
+    blockquote: ({
+      children,
+      ...props
+    }: React.HTMLAttributes<HTMLQuoteElement>) => (
+      <blockquote {...props}>{children}</blockquote>
+    ),
   },
   AnimatePresence: ({ children }: { children: React.ReactNode }) => (
     <>{children}</>
   ),
+  useReducedMotion: () => false,
 }));
 
 vi.mock("next/image", () => ({
   default: (props: { alt: string; src: string }) => (
     <img alt={props.alt} src={props.src} />
+  ),
+}));
+
+vi.mock("next/link", () => ({
+  default: ({
+    children,
+    href,
+    ...props
+  }: {
+    children: React.ReactNode;
+    href: string;
+    [key: string]: unknown;
+  }) => (
+    <a href={href} {...props}>
+      {children}
+    </a>
   ),
 }));
 
@@ -76,7 +99,7 @@ vi.mock("@/components/animations/AuroraBackground", () => ({
 }));
 
 vi.mock("@/components/animations/CountUp", () => ({
-  CountUp: ({ to, suffix }: { to: number; suffix: string }) => (
+  CountUp: ({ to, suffix }: { to: number; suffix?: string }) => (
     <span>
       {to}
       {suffix}
@@ -100,26 +123,6 @@ vi.mock("@/components/ui/AnimatedSection", () => ({
   ),
 }));
 
-vi.mock("@/components/interactive/ScrollTimeline", () => ({
-  ScrollTimeline: () => <div data-testid="scroll-timeline" />,
-}));
-
-vi.mock("@/components/interactive/DiagnosticQuiz", () => ({
-  DiagnosticQuiz: () => <div data-testid="diagnostic-quiz" />,
-}));
-
-vi.mock("@/components/interactive/CostCalculator", () => ({
-  CostCalculator: () => <div data-testid="cost-calculator" />,
-}));
-
-vi.mock("@/components/interactive/FlipCards", () => ({
-  FlipCards: () => <div data-testid="flip-cards" />,
-}));
-
-vi.mock("@/components/interactive/TestimonialsCarousel", () => ({
-  TestimonialsCarousel: () => <div data-testid="testimonials" />,
-}));
-
 vi.mock("@/components/animations/StaggerGrid", () => ({
   StaggerGrid: ({
     children,
@@ -128,6 +131,25 @@ vi.mock("@/components/animations/StaggerGrid", () => ({
     children: React.ReactNode;
     className?: string;
   }) => <div className={className}>{children}</div>,
+}));
+
+vi.mock("@/components/interactive/SymptomNavigator", () => ({
+  SymptomNavigator: () => <div data-testid="symptom-navigator" />,
+}));
+
+vi.mock("@/components/interactive/PractitionerCards", () => ({
+  PractitionerCards: () => <div data-testid="practitioner-cards" />,
+}));
+
+vi.mock("@/components/interactive/BookingCTA", () => ({
+  BookingCTA: () => <div data-testid="booking-cta" />,
+}));
+
+vi.mock("lucide-react", () => ({
+  Activity: () => <span data-testid="icon-activity" />,
+  Bone: () => <span data-testid="icon-bone" />,
+  Heart: () => <span data-testid="icon-heart" />,
+  Apple: () => <span data-testid="icon-apple" />,
 }));
 
 import { HomeContent } from "@/components/pages/HomeContent";
@@ -159,13 +181,42 @@ describe("HomeContent", () => {
   it("renders stats section", () => {
     render(<HomeContent />);
     expect(screen.getByText("stats.experience")).toBeInTheDocument();
-    expect(screen.getByText("stats.clients")).toBeInTheDocument();
-    expect(screen.getByText("stats.employees")).toBeInTheDocument();
+    expect(screen.getByText("stats.disciplines")).toBeInTheDocument();
+    expect(screen.getByText("stats.patients")).toBeInTheDocument();
   });
 
-  it("renders pain points section", () => {
+  it("renders services section with title", () => {
     render(<HomeContent />);
-    expect(screen.getByText("pain.title")).toBeInTheDocument();
+    expect(screen.getByText("services.title")).toBeInTheDocument();
+    expect(screen.getByText("services.subtitle")).toBeInTheDocument();
+  });
+
+  it("renders four service cards (physio, osteo, massage, nutrition)", () => {
+    render(<HomeContent />);
+    expect(screen.getByText("services.physio.title")).toBeInTheDocument();
+    expect(screen.getByText("services.osteo.title")).toBeInTheDocument();
+    expect(screen.getByText("services.massage.title")).toBeInTheDocument();
+    expect(screen.getByText("services.nutrition.title")).toBeInTheDocument();
+  });
+
+  it("renders SymptomNavigator component", () => {
+    render(<HomeContent />);
+    expect(screen.getByTestId("symptom-navigator")).toBeInTheDocument();
+  });
+
+  it("renders PractitionerCards component", () => {
+    render(<HomeContent />);
+    expect(screen.getByTestId("practitioner-cards")).toBeInTheDocument();
+  });
+
+  it("renders testimonials section", () => {
+    render(<HomeContent />);
+    expect(screen.getByText("testimonials.title")).toBeInTheDocument();
+  });
+
+  it("renders BookingCTA component", () => {
+    render(<HomeContent />);
+    expect(screen.getByTestId("booking-cta")).toBeInTheDocument();
   });
 
   it("renders multiple content sections", () => {
@@ -174,9 +225,8 @@ describe("HomeContent", () => {
     expect(sections.length).toBeGreaterThanOrEqual(3);
   });
 
-  it("renders final CTA", () => {
+  it("renders hero badge", () => {
     render(<HomeContent />);
-    expect(screen.getByText("cta_final.title")).toBeInTheDocument();
-    expect(screen.getByText("cta_final.button")).toBeInTheDocument();
+    expect(screen.getByText("hero.badge")).toBeInTheDocument();
   });
 });

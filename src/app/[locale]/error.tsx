@@ -1,7 +1,6 @@
 "use client";
 
 export default function Error({
-  error,
   reset,
 }: {
   error: Error & { digest?: string };
@@ -10,9 +9,9 @@ export default function Error({
   return (
     <main className="flex min-h-[60vh] items-center justify-center px-6">
       <div className="text-center max-w-md">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-terracotta-100">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-peach-100">
           <svg
-            className="h-8 w-8 text-terracotta-500"
+            className="h-8 w-8 text-peach-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -28,13 +27,13 @@ export default function Error({
         <h1 className="mb-2 font-heading text-2xl font-semibold text-charcoal">
           Une erreur est survenue
         </h1>
-        <p className="mb-6 text-taupe">
+        <p className="mb-6 text-pearl-600">
           Nous nous excusons pour ce d&eacute;sagr&eacute;ment. Veuillez
           r&eacute;essayer.
         </p>
         <button
           onClick={reset}
-          className="rounded-xl bg-sage-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sage-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sage-400 focus:ring-offset-2"
+          className="rounded-xl bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
         >
           R&eacute;essayer
         </button>

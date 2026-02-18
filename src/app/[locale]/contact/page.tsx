@@ -13,10 +13,10 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     alternates: {
-      canonical: `https://emiliepoirierrh.ca/${locale}/contact`,
+      canonical: `https://clinique-aura.vercel.app/${locale}/contact`,
       languages: {
-        fr: "https://emiliepoirierrh.ca/fr/contact",
-        en: "https://emiliepoirierrh.ca/en/contact",
+        fr: "https://clinique-aura.vercel.app/fr/contact",
+        en: "https://clinique-aura.vercel.app/en/contact",
       },
     },
   };

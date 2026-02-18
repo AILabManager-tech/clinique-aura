@@ -22,7 +22,7 @@ describe("Button", () => {
   it("applies primary variant classes by default", () => {
     render(<Button>Primary</Button>);
     const btn = screen.getByRole("button", { name: "Primary" });
-    expect(btn.className).toContain("bg-terracotta-500");
+    expect(btn.className).toContain("bg-sky-600");
   });
 
   it("applies secondary variant classes", () => {
@@ -34,7 +34,7 @@ describe("Button", () => {
   it("applies outline variant classes", () => {
     render(<Button variant="outline">Outline</Button>);
     const btn = screen.getByRole("button", { name: "Outline" });
-    expect(btn.className).toContain("border-sage-500");
+    expect(btn.className).toContain("border-sky-600");
   });
 
   it("applies size classes", () => {

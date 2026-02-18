@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { getMessages, getTranslations } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
-import { Oswald, Barlow } from "next/font/google";
+import { Outfit, Nunito } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -11,18 +11,18 @@ import { JsonLd, localBusinessSchema } from "@/components/seo/JsonLd";
 import type { Metadata } from "next";
 import "../globals.css";
 
-// NEXOS: Typographie industrielle — HR Factory / L'Usine RH
-const oswald = Oswald({
+// NEXOS: Typographie sereine et lumineuse — Clinique Aura
+const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-oswald",
+  variable: "--font-outfit",
   display: "swap",
 });
 
-const barlow = Barlow({
+const nunito = Nunito({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-barlow",
+  variable: "--font-nunito",
   display: "swap",
 });
 
@@ -35,28 +35,28 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
 
   return {
-    metadataBase: new URL("https://emiliepoirierrh.ca"),
+    metadataBase: new URL("https://clinique-aura.vercel.app"),
     title: {
       default: t("title"),
-      template: "%s | HR Factory / L'Usine RH",
+      template: "%s | Clinique Aura",
     },
     description: t("description"),
     openGraph: {
       type: "website",
       locale: locale === "fr" ? "fr_CA" : "en_CA",
       alternateLocale: locale === "fr" ? "en_CA" : "fr_CA",
-      siteName: "L'Usine RH",
+      siteName: "Clinique Aura",
       title: t("title"),
       description: t("description"),
     },
     alternates: {
-      canonical: `https://emiliepoirierrh.ca/${locale}`,
+      canonical: `https://clinique-aura.vercel.app/${locale}`,
       languages: {
-        fr: "https://emiliepoirierrh.ca/fr",
-        en: "https://emiliepoirierrh.ca/en",
+        fr: "https://clinique-aura.vercel.app/fr",
+        en: "https://clinique-aura.vercel.app/en",
       },
     },
-    themeColor: "#5a7a64",
+    themeColor: "#5BA4C9",
     icons: { icon: "/favicon.ico" },
   };
 }
@@ -78,11 +78,11 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${oswald.variable} ${barlow.variable}`}>
-      <body className="font-body bg-cream-200 text-charcoal antialiased">
+    <html lang={locale} className={`${outfit.variable} ${nunito.variable}`}>
+      <body className="font-body bg-pearl-200 text-charcoal antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-sage-600 focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-sky-600 focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to main content
         </a>

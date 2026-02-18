@@ -1,322 +1,330 @@
 {
   "meta": {
-    "title": "L'Usine RH — Consultante RH pour PME industrielles",
-    "description": "On diagnostique. On implante. On coache. Processus RH durables pour PME de 10 à 50 employés — secteurs industriel, manufacturier, construction."
+    "title": "Clinique Aura — Clinique multidisciplinaire, Sherbrooke",
+    "description": "Clinique Aura : physiothérapie, ostéopathie, massothérapie et nutrition à Sherbrooke. Une approche globale pour votre bien-être, en un seul lieu."
   },
   "nav": {
     "home": "Accueil",
     "services": "Services",
     "about": "À propos",
-    "contact": "Contact",
-    "cta": "Réservez une consultation"
+    "contact": "Contact"
   },
   "home": {
     "hero": {
-      "title": "Vos RH, forgées pour durer.",
-      "subtitle": "Je diagnostique. J'implante. Je coache. Pour que votre équipe tienne le coup.",
-      "cta": "Réservez une consultation découverte",
-      "cta_secondary": "Découvrir mes services"
-    },
-    "stats": {
-      "experience": "Ans d'expérience",
-      "clients": "PME accompagnées",
-      "employees": "Employés / entreprise"
-    },
-    "pain": {
-      "title": "Vous naviguez seul dans la RH?",
-      "owner": {
-        "title": "Propriétaire débordé",
-        "description": "Vous gérez le recrutement, les conflits et les évaluations en plus de tout le reste. Ça marche... jusqu'à ce que ça marche plus."
-      },
-      "manager": {
-        "title": "Gestionnaire sans formation RH",
-        "description": "Vos gestionnaires improvisent les conversations difficiles et les évaluations de performance. Les talents partent."
-      },
-      "growing": {
-        "title": "PME en croissance",
-        "description": "Vos processus ad-hoc ne suivent plus. Ce qui fonctionnait à 10 employés ne fonctionne plus à 30."
-      }
+      "badge": "Clinique multidisciplinaire à Sherbrooke",
+      "title": "Votre bien-être, notre mission commune.",
+      "subtitle": "Physiothérapie, ostéopathie, massothérapie et nutrition — quatre disciplines réunies sous un même toit pour une prise en charge globale.",
+      "cta": "Prendre rendez-vous",
+      "stat1_value": "4",
+      "stat1_label": "Disciplines complémentaires",
+      "stat2_value": "15+",
+      "stat2_label": "Années d'expérience combinée",
+      "stat3_value": "2000+",
+      "stat3_label": "Patients accompagnés"
     },
     "services": {
-      "title": "Une approche en trois temps",
-      "diagnostic": {
-        "title": "Diagnostic",
-        "description": "On fait le point. J'analyse votre situation RH actuelle — processus, défis, opportunités.",
-        "duration": "2-3 semaines"
+      "title": "Nos services",
+      "subtitle": "Quatre disciplines complémentaires pour une prise en charge globale de votre santé.",
+      "physio": {
+        "title": "Physiothérapie",
+        "description": "Évaluation et traitement des troubles musculosquelettiques. Réadaptation fonctionnelle, thérapie manuelle et exercices personnalisés."
       },
-      "implementation": {
-        "title": "Implantation",
-        "description": "On construit ensemble. Je mets en place des processus RH durables, adaptés à votre réalité.",
-        "duration": "8-12 semaines"
+      "osteo": {
+        "title": "Ostéopathie",
+        "description": "Approche manuelle globale visant à rétablir l'équilibre du corps. Traitement des tensions, restrictions de mobilité et douleurs chroniques."
       },
-      "coaching": {
-        "title": "Coaching",
-        "description": "On assure la relève. Je forme vos gestionnaires pour qu'ils maintiennent ces acquis de façon autonome.",
-        "duration": "3-6 mois"
+      "massage": {
+        "title": "Massothérapie",
+        "description": "Massage thérapeutique et de détente pour soulager les tensions musculaires, réduire le stress et favoriser la récupération."
+      },
+      "nutrition": {
+        "title": "Nutrition / Diététique",
+        "description": "Conseils nutritionnels personnalisés pour optimiser votre santé, gérer votre poids et prévenir les maladies chroniques."
       }
+    },
+    "symptom_navigator": {
+      "title": "Trouvez le soin adapté à vos symptômes",
+      "subtitle": "Cliquez sur une zone du corps pour découvrir les symptômes courants et les traitements recommandés.",
+      "zones": {
+        "head": {
+          "name": "Tête",
+          "symptoms": ["Maux de tête récurrents", "Migraines", "Tension crânienne", "Douleur à la mâchoire (ATM)"],
+          "treatments": ["Ostéopathie crânienne", "Massothérapie cervicale", "Physiothérapie ATM"]
+        },
+        "neck": {
+          "name": "Cou",
+          "symptoms": ["Torticolis", "Raideur cervicale", "Douleur irradiante vers l'épaule", "Engourdissements dans les bras"],
+          "treatments": ["Physiothérapie cervicale", "Ostéopathie", "Massothérapie des tissus profonds"]
+        },
+        "shoulders": {
+          "name": "Épaules",
+          "symptoms": ["Tendinite de la coiffe", "Bursite", "Épaule gelée", "Instabilité articulaire"],
+          "treatments": ["Physiothérapie de l'épaule", "Ostéopathie structurelle", "Exercices de renforcement"]
+        },
+        "back": {
+          "name": "Dos",
+          "symptoms": ["Lombalgie chronique", "Hernie discale", "Sciatalgie", "Posture inadéquate"],
+          "treatments": ["Physiothérapie rachidienne", "Ostéopathie viscérale", "Massothérapie profonde", "Conseils posturaux"]
+        },
+        "arms": {
+          "name": "Bras / Coudes / Poignets",
+          "symptoms": ["Épicondylite (tennis elbow)", "Syndrome du canal carpien", "Tendinite", "Douleur au poignet"],
+          "treatments": ["Physiothérapie des membres supérieurs", "Ostéopathie", "Massothérapie ciblée"]
+        },
+        "hips": {
+          "name": "Hanches / Bassin",
+          "symptoms": ["Douleur à la hanche", "Bursite trochantérienne", "Dysfonction sacro-iliaque", "Douleur pelvienne"],
+          "treatments": ["Physiothérapie du bassin", "Ostéopathie pelvienne", "Exercices de stabilisation"]
+        },
+        "legs": {
+          "name": "Jambes / Genoux",
+          "symptoms": ["Entorse du genou", "Syndrome fémoro-patellaire", "Douleur au ménisque", "Crampes musculaires"],
+          "treatments": ["Physiothérapie du genou", "Ostéopathie des membres inférieurs", "Massothérapie sportive"]
+        },
+        "feet": {
+          "name": "Pieds / Chevilles",
+          "symptoms": ["Fasciite plantaire", "Entorse de la cheville", "Tendinite d'Achille", "Douleur au talon"],
+          "treatments": ["Physiothérapie du pied", "Ostéopathie", "Massothérapie plantaire"]
+        }
+      },
+      "cta": "Prendre rendez-vous pour une évaluation"
+    },
+    "practitioners": {
+      "title": "Notre équipe",
+      "subtitle": "Des professionnels passionnés, dédiés à votre rétablissement.",
+      "members": [
+        {
+          "name": "Dre Sophie Lafleur",
+          "title": "Physiothérapeute, fondatrice",
+          "specialty": "Physiothérapie musculosquelettique",
+          "bio": "Fondatrice de Clinique Aura, Dre Lafleur cumule plus de 12 ans d'expérience en physiothérapie. Passionnée par l'approche multidisciplinaire, elle croit fermement que la collaboration entre professionnels est la clé d'un rétablissement optimal."
+        },
+        {
+          "name": "Marc-André Tremblay",
+          "title": "Ostéopathe D.O.",
+          "specialty": "Ostéopathie structurelle et crânienne",
+          "bio": "Diplômé du Collège d'Études Ostéopathiques de Montréal, Marc-André pratique une ostéopathie globale intégrant les approches structurelle, viscérale et crânienne. Il traite les patients de tous âges avec une attention particulière aux douleurs chroniques."
+        },
+        {
+          "name": "Camille Bergeron",
+          "title": "Massothérapeute agréée",
+          "specialty": "Massage thérapeutique et sportif",
+          "bio": "Camille possède une expertise en massage thérapeutique, sportif et de détente. Formée en kinésithérapie et en techniques de relâchement myofascial, elle adapte chaque séance aux besoins spécifiques du patient."
+        },
+        {
+          "name": "Nadia Khoury",
+          "title": "Nutritionniste Dt.P.",
+          "specialty": "Nutrition clinique et sportive",
+          "bio": "Membre de l'Ordre professionnel des diététistes du Québec, Nadia accompagne ses patients dans l'adoption de saines habitudes alimentaires. Elle s'intéresse particulièrement à la nutrition anti-inflammatoire et à la performance sportive."
+        }
+      ]
     },
     "testimonials": {
-      "title": "Ce que mes clients en disent"
+      "title": "Ce que nos patients en disent",
+      "items": [
+        {
+          "name": "Marie-Claude T.",
+          "text": "Après des mois de douleurs lombaires, l'équipe de Clinique Aura m'a offert un plan de traitement combinant physiothérapie et massothérapie. En 6 semaines, j'ai retrouvé ma mobilité. L'approche multidisciplinaire fait toute la différence.",
+          "service": "Physiothérapie + Massothérapie"
+        },
+        {
+          "name": "Jean-François R.",
+          "text": "L'ostéopathie chez Clinique Aura a transformé ma qualité de vie. Marc-André a identifié des tensions que je traînais depuis des années. Combiné aux conseils nutritionnels de Nadia, je me sens mieux que jamais.",
+          "service": "Ostéopathie + Nutrition"
+        },
+        {
+          "name": "Stéphanie L.",
+          "text": "En tant que coureuse, j'avais besoin d'un suivi complet. Physiothérapie pour la rééducation, massothérapie pour la récupération, nutrition pour la performance. Clinique Aura offre tout sous un même toit. Recommandé sans hésitation!",
+          "service": "Physiothérapie + Massothérapie + Nutrition"
+        }
+      ]
     },
-    "cta_final": {
-      "title": "Prêt à structurer votre RH?",
-      "subtitle": "Pas de cirque commercial. Juste une discussion franche sur ce qu'on peut faire ensemble.",
-      "button": "Réservez une consultation découverte"
-    }
-  },
-  "quiz": {
-    "title": "Évaluez votre maturité RH",
-    "subtitle": "5 questions rapides pour savoir où vous en êtes",
-    "q1": {
-      "question": "Comment gérez-vous le recrutement?",
-      "a": "Au feeling, quand c'est urgent",
-      "b": "On a un processus, mais informel",
-      "c": "Processus structuré avec guide d'entrevue"
-    },
-    "q2": {
-      "question": "Comment se font les évaluations de performance?",
-      "a": "On n'en fait pas vraiment",
-      "b": "Une fois par an, quand on y pense",
-      "c": "Régulières avec objectifs clairs"
-    },
-    "q3": {
-      "question": "Vos politiques RH sont...",
-      "a": "Inexistantes ou dans ma tête",
-      "b": "Écrites mais pas à jour",
-      "c": "Documentées et communiquées"
-    },
-    "q4": {
-      "question": "La gestion des conflits se fait...",
-      "a": "En mode pompier quand ça explose",
-      "b": "On essaie de régler, mais sans méthode",
-      "c": "Avec un processus clair de résolution"
-    },
-    "q5": {
-      "question": "L'intégration des nouveaux employés...",
-      "a": "C'est 'bienvenue, voici ton bureau'",
-      "b": "On a un plan sommaire de première semaine",
-      "c": "Programme structuré de 90 jours"
-    },
-    "score": "Votre score",
-    "next_step": "Prochaine étape recommandée",
-    "restart": "Recommencer",
-    "results": {
-      "low": {
-        "title": "Zone rouge — Urgence RH",
-        "description": "Vos processus RH sont minimaux. C'est normal pour une PME en croissance, mais ça vous coûte cher en roulement et en temps. Un diagnostic rapide pourrait tout changer.",
-        "cta": "Réservez votre diagnostic"
-      },
-      "mid": {
-        "title": "Zone jaune — Fondations à consolider",
-        "description": "Vous avez des bases, mais elles ne sont pas solides. Quelques processus clés bien implantés pourraient transformer votre quotidien de gestionnaire.",
-        "cta": "Découvrez l'implantation"
-      },
-      "high": {
-        "title": "Zone verte — Optimisation",
-        "description": "Bravo! Vous avez de bonnes bases RH. Le coaching de gestionnaires pourrait amener votre équipe au niveau supérieur.",
-        "cta": "Explorez le coaching"
-      }
-    }
-  },
-  "calculator": {
-    "title": "Combien vous coûte le chaos RH?",
-    "subtitle": "Estimez l'impact financier du roulement de personnel",
-    "employees_label": "Nombre d'employés",
-    "salary_label": "Salaire moyen annuel",
-    "turnover_label": "Taux de roulement annuel",
-    "result_title": "Coût annuel estimé du roulement",
-    "formula": "Le roulement coûte en moyenne 33% du salaire annuel par départ",
-    "departures": "départs estimés / année",
-    "cost_per": "coût par départ",
-    "cta": "Réduisons ce chiffre ensemble"
-  },
-  "myths": {
-    "title": "Mythes RH — Ce qu'on entend souvent",
-    "subtitle": "Cliquez pour découvrir la réalité",
-    "m1": {
-      "myth": "La RH, c'est juste pour les grandes entreprises",
-      "reality": "Dès 15 employés, les enjeux RH coûtent réellement. Un processus de recrutement défaillant peut vous coûter 50 000 $ par mauvaise embauche."
-    },
-    "m2": {
-      "myth": "Un bon salaire suffit pour garder les employés",
-      "reality": "Le salaire arrive 4e dans les raisons de départ. Le manque de reconnaissance, de développement et un mauvais gestionnaire passent avant."
-    },
-    "m3": {
-      "myth": "Les évaluations de performance, ça sert à rien",
-      "reality": "Mal faites, oui. Bien faites, elles réduisent le roulement de 14.9% et augmentent l'engagement. C'est l'outil le plus sous-estimé."
-    },
-    "m4": {
-      "myth": "Je connais mon monde, pas besoin de processus",
-      "reality": "Ça marche à 10 employés. À 30, c'est impossible de tout suivre. Sans processus, les bonnes intentions deviennent des angles morts."
-    }
-  },
-  "testimonials": {
-    "title": "Transformations concrètes",
-    "subtitle": "Résultats réels, noms changés pour confidentialité",
-    "c1": {
-      "industry": "Manufacturier — 35 employés",
-      "before_title": "Avant",
-      "before": "Roulement de 40%. Aucun processus d'intégration. Les gestionnaires évitaient les conversations difficiles.",
-      "after_title": "Après 6 mois",
-      "after": "Roulement réduit à 18%. Programme d'intégration 90 jours. Gestionnaires formés au feedback constructif.",
-      "metric": "-55% roulement"
-    },
-    "c2": {
-      "industry": "Services professionnels — 22 employés",
-      "before_title": "Avant",
-      "before": "Recrutement au feeling. 3 mois pour combler un poste. Mauvaises embauches fréquentes.",
-      "after_title": "Après 3 mois",
-      "after": "Processus structuré. Temps de comblement réduit à 5 semaines. Guide d'entrevue standardisé.",
-      "metric": "-60% temps recrutement"
-    },
-    "c3": {
-      "industry": "Construction — 48 employés",
-      "before_title": "Avant",
-      "before": "Aucune politique écrite. Conflits gérés au cas par cas. Propriétaire épuisé par les urgences RH.",
-      "after_title": "Après 4 mois",
-      "after": "Manuel employé complet. Processus de gestion des conflits. Gestionnaires autonomes pour 80% des situations.",
-      "metric": "80% autonomie"
+    "booking": {
+      "title": "Prenez soin de vous dès aujourd'hui",
+      "subtitle": "Réservez votre première consultation et commencez votre parcours vers un mieux-être global.",
+      "phone": "(819) 555-0200",
+      "cta": "Prendre rendez-vous"
     }
   },
   "services": {
     "meta": {
-      "title": "Services — Diagnostic, Implantation, Coaching RH",
-      "description": "Découvrez mes trois volets d'accompagnement RH pour PME : diagnostic organisationnel, implantation de processus et coaching de gestionnaires."
+      "title": "Services — Physiothérapie, Ostéopathie, Massothérapie, Nutrition",
+      "description": "Découvrez les quatre disciplines offertes par Clinique Aura à Sherbrooke : physiothérapie, ostéopathie, massothérapie et nutrition/diététique."
     },
     "hero": {
-      "title": "Services",
-      "subtitle": "Trois volets pour structurer, implanter et maintenir une RH qui tient la route."
+      "title": "Nos services",
+      "subtitle": "Quatre disciplines complémentaires pour une prise en charge complète de votre santé et de votre bien-être."
     },
-    "diagnostic": {
-      "title": "Diagnostic organisationnel",
-      "description": "Comprendre où vous en êtes — sans jugement.",
+    "physio": {
+      "title": "Physiothérapie",
+      "description": "Évaluation et traitement des blessures musculosquelettiques par une approche fondée sur les données probantes. Réadaptation personnalisée pour retrouver votre plein potentiel fonctionnel.",
       "includes": "Ce que ça inclut",
-      "item1": "Entretiens confidentiels avec les parties prenantes",
-      "item2": "Audit des politiques, processus et pratiques RH actuels",
-      "item3": "Rapport de recommandations priorisées",
-      "duration": "2-3 semaines",
-      "result": "Vous savez exactement ce qui bloque — et comment le fixer."
+      "item1": "Évaluation biomécanique complète et diagnostic physio",
+      "item2": "Thérapie manuelle et mobilisations articulaires",
+      "item3": "Programme d'exercices thérapeutiques personnalisé",
+      "item4": "Électrothérapie, ultrasons et modalités complémentaires",
+      "duration": "45-60 minutes par séance",
+      "result": "Réduction de la douleur, restauration de la mobilité et retour aux activités."
     },
-    "implementation": {
-      "title": "Implantation de processus RH",
-      "description": "Construire des processus qui durent — pas juste un document sur une tablette.",
-      "includes": "Exemples de processus",
-      "item1": "Recrutement : du sourcing à l'intégration 90 jours",
-      "item2": "Évaluation de performance : objectifs, feedback, développement",
-      "item3": "Rétention : compensation, culture, parcours de carrière",
-      "item4": "Conformité : normes du travail, politiques internes",
-      "duration": "8-12 semaines",
-      "result": "Des processus documentés, votre équipe formée pour les maintenir."
+    "osteo": {
+      "title": "Ostéopathie",
+      "description": "Approche holistique par manipulations manuelles douces visant à rétablir l'équilibre global du corps. L'ostéopathe traite les restrictions de mobilité et leurs compensations.",
+      "includes": "Approches utilisées",
+      "item1": "Techniques structurelles (articulations, muscles)",
+      "item2": "Approche crânio-sacrée et viscérale",
+      "item3": "Rééquilibrage fascial et tissulaire",
+      "item4": "Traitement adapté aux femmes enceintes et aux enfants",
+      "duration": "50-60 minutes par séance",
+      "result": "Soulagement des tensions profondes et amélioration de la mobilité globale."
     },
-    "coaching": {
-      "title": "Coaching de gestionnaires",
-      "description": "Transformer vos gestionnaires en leaders RH confiants.",
-      "includes": "Sujets populaires",
-      "item1": "Conversations difficiles (performance, discipline)",
-      "item2": "Délégation et feedback constructif",
-      "item3": "Gestion de conflits d'équipe",
-      "item4": "Leadership et culture d'entreprise",
-      "duration": "3-6 mois",
-      "result": "Des gestionnaires autonomes qui savent gérer leur monde."
+    "massage": {
+      "title": "Massothérapie",
+      "description": "Massage thérapeutique adapté à vos besoins : soulagement des tensions chroniques, récupération sportive ou simplement détente profonde pour rétablir l'équilibre corps-esprit.",
+      "includes": "Techniques offertes",
+      "item1": "Massage suédois de détente et massage thérapeutique",
+      "item2": "Relâchement myofascial et points gâchettes (trigger points)",
+      "item3": "Massage sportif pré et post-entraînement",
+      "item4": "Drainage lymphatique et massage prénatal",
+      "duration": "30, 60 ou 90 minutes au choix",
+      "result": "Diminution des tensions musculaires, meilleure circulation et relaxation profonde."
+    },
+    "nutrition": {
+      "title": "Nutrition / Diététique",
+      "description": "Accompagnement nutritionnel personnalisé par une diététiste membre de l'Ordre. Plans alimentaires adaptés à vos objectifs de santé, vos intolérances et votre mode de vie.",
+      "includes": "Services offerts",
+      "item1": "Évaluation nutritionnelle complète et bilan alimentaire",
+      "item2": "Plan alimentaire personnalisé selon vos objectifs",
+      "item3": "Gestion du poids, diabète, allergies et intolérances",
+      "item4": "Nutrition sportive et optimisation de la performance",
+      "duration": "60 minutes (évaluation initiale), 30 minutes (suivis)",
+      "result": "Habitudes alimentaires durables et amélioration mesurable de votre santé."
     },
     "faq": {
       "title": "Questions fréquentes",
-      "q1": "Combien ça coûte?",
-      "a1": "Un diagnostic complet se situe entre 2 000 $ et 4 000 $. L'implantation de processus entre 8 000 $ et 15 000 $. Je peux affiner après notre première conversation — pas de surprises tarifaires.",
-      "q2": "Mon entreprise est-elle trop petite?",
-      "a2": "Mon créneau, c'est les PME de 10 à 50 employés — secteurs industriel, manufacturier, construction et services. Assez pour que les enjeux RH coûtent réellement, pas assez gros pour un département RH à temps plein.",
-      "q3": "Combien de temps ça prend?",
-      "a3": "Diagnostic : 2-3 semaines. Implantation : 8-12 semaines. Coaching : 3-6 mois. Tout dépend de l'ampleur et de votre disponibilité.",
-      "q4": "Offrez-vous du support après le mandat?",
-      "a4": "Oui, en option. Suivi mensuel, accompagnement ad-hoc, ou point trimestriel — selon vos besoins.",
-      "q5": "Quelle est la différence entre un coach et une consultante RH?",
-      "a5": "Un coach se concentre sur le développement personnel du leader. Moi, je vais plus loin : je diagnostique, j'implante des processus concrets, ET je coache. C'est une approche complète.",
-      "q6": "Travaillez-vous en anglais aussi?",
-      "a6": "Absolument. Je suis bilingue — consultations, coaching et documentation en français et en anglais."
+      "q1": "Ai-je besoin d'une référence médicale?",
+      "a1": "Non, aucune référence médicale n'est nécessaire pour consulter en physiothérapie, ostéopathie, massothérapie ou nutrition. Vous pouvez prendre rendez-vous directement avec le professionnel de votre choix.",
+      "q2": "Mes traitements sont-ils couverts par les assurances?",
+      "a2": "La plupart des régimes d'assurance privée couvrent la physiothérapie, l'ostéopathie, la massothérapie et la nutrition. Nous vous recommandons de vérifier votre couverture auprès de votre assureur. Des reçus sont émis pour chaque consultation.",
+      "q3": "Combien de séances seront nécessaires?",
+      "a3": "Cela dépend de votre condition. Lors de la première consultation, votre thérapeute établira un plan de traitement avec une estimation du nombre de séances recommandées. En moyenne, 4 à 8 séances suffisent pour la majorité des conditions.",
+      "q4": "Puis-je combiner plusieurs services?",
+      "a4": "Absolument! C'est même la force de Clinique Aura. Notre approche multidisciplinaire permet de combiner physiothérapie et massothérapie, ostéopathie et nutrition, ou toute autre combinaison adaptée à vos besoins.",
+      "q5": "Quels sont vos tarifs?",
+      "a5": "Les tarifs varient selon le service et la durée : physiothérapie (85-110$/séance), ostéopathie (95-120$/séance), massothérapie (65-120$/séance), nutrition (85-110$/séance). Contactez-nous pour plus de détails.",
+      "q6": "Comment se déroule une première visite?",
+      "a6": "La première visite comprend une évaluation complète de votre condition, l'établissement d'un diagnostic et d'un plan de traitement personnalisé. Prévoyez 60 minutes pour cette première rencontre. Apportez votre carte d'assurance si applicable."
     }
   },
   "about": {
     "meta": {
-      "title": "À propos — L'Usine RH",
-      "description": "12 ans en direction RH corporative, 3 ans comme consultante RH pour PME industrielles au Québec. Découvrez mon parcours et ma philosophie."
+      "title": "À propos — Clinique Aura, Sherbrooke",
+      "description": "Découvrez l'histoire, les valeurs et l'équipe de Clinique Aura. Une clinique multidisciplinaire dédiée au bien-être global à Sherbrooke."
     },
     "hero": {
-      "title": "À propos",
-      "subtitle": "12 ans en direction RH. 3 ans comme consultante RH pour PME industrielles."
+      "title": "À propos de Clinique Aura",
+      "subtitle": "Une vision holistique de la santé, portée par une équipe passionnée depuis 2018."
     },
     "story": {
-      "title": "Pourquoi j'ai quitté le corporate",
-      "p1": "Pendant 12 ans, j'ai été directrice RH dans le secteur manufacturier à Québec. J'ai vu de près : des propriétaires qui s'épuisent, des gestionnaires qui improvisent, des talents qui partent faute de structure.",
-      "p2": "J'en pouvais plus du corporate. Je voulais avoir un vrai impact — pas juste remplir des cases dans un système. Dans une PME, quand tu changes quelque chose, tu vois la différence la semaine d'après.",
-      "p3": "J'ai lancé ma pratique pour offrir aux PME ce que les grandes firmes facturent 50 000 $ par an — mais de façon accessible, concrète et durable."
-    },
-    "philosophy": {
-      "title": "Ma philosophie",
-      "p1": "Mon but, c'est de vous rendre autonome. Pas de créer une dépendance. Après 6 mois, votre équipe sait maintenir les processus. Vous n'avez plus besoin de moi — et c'est exactement ce que je vise."
+      "title": "Notre histoire",
+      "p1": "Clinique Aura est née d'une conviction simple : le corps humain fonctionne comme un tout. En 2018, Dre Sophie Lafleur a fondé la clinique avec l'ambition de réunir sous un même toit des professionnels de différentes disciplines pour offrir une prise en charge véritablement globale.",
+      "p2": "Trop souvent, les patients naviguent entre plusieurs cliniques, répétant leur histoire à chaque consultation. Chez Clinique Aura, nos professionnels communiquent entre eux, coordonnent les traitements et partagent un objectif commun : votre rétablissement optimal.",
+      "p3": "Aujourd'hui, notre équipe de quatre professionnels accompagne plus de 2 000 patients par année dans un environnement chaleureux et accueillant, au cœur de Sherbrooke."
     },
     "values": {
-      "empathy": {
-        "title": "Pragmatisme",
-        "description": "Je comprends la réalité des propriétaires de PME industrielles. Pas de théorie, juste des solutions qui tiennent la route.",
-        "example": "Quand un propriétaire me dit qu'il fait les paies à minuit, je ne le juge pas — je l'aide à sortir de ce cycle."
+      "title": "Nos valeurs",
+      "wellness": {
+        "title": "Bien-être global",
+        "description": "Nous croyons que la santé ne se limite pas à l'absence de douleur. Notre approche intègre le mouvement, l'alimentation et l'équilibre émotionnel pour un mieux-être durable."
       },
-      "transparency": {
-        "title": "Transparence",
-        "description": "Vous savez d'avance ce que ça coûte, combien de temps ça prend, et ce que vous allez avoir.",
-        "example": "Mon offre de service inclut toujours un échéancier détaillé, un budget fixe et des livrables clairs. Pas de zone grise."
+      "excellence": {
+        "title": "Excellence clinique",
+        "description": "Nos professionnels se forment continuellement aux dernières avancées de leur discipline. Chaque plan de traitement est fondé sur les données probantes et adapté à votre réalité."
       },
-      "autonomy": {
-        "title": "Autonomisation",
-        "description": "Je pars quand vous êtes prêts. Mon succès se mesure à votre autonomie.",
-        "example": "Après 6 mois, vos gestionnaires gèrent les évaluations de performance seuls. Vous n'avez plus besoin de moi — mission accomplie."
+      "holistic": {
+        "title": "Approche holistique",
+        "description": "En réunissant quatre disciplines sous un même toit, nous offrons une prise en charge coordonnée qui traite la cause profonde, pas seulement les symptômes."
       }
+    },
+    "team": {
+      "title": "Rencontrez notre équipe",
+      "subtitle": "Des professionnels complémentaires, unis par une passion commune pour votre santé."
+    },
+    "cta": {
+      "title": "Prêt à prendre soin de vous?",
+      "button": "Prendre rendez-vous"
     }
   },
   "contact": {
     "meta": {
-      "title": "Contact — Réservez une consultation découverte",
-      "description": "Contactez L'Usine RH pour une consultation découverte gratuite. PME de 10 à 50 employés — secteurs industriel, manufacturier, construction au Québec."
+      "title": "Contact — Clinique Aura, Sherbrooke",
+      "description": "Contactez Clinique Aura pour prendre rendez-vous en physiothérapie, ostéopathie, massothérapie ou nutrition à Sherbrooke."
     },
     "hero": {
-      "title": "Parlons de votre situation",
-      "subtitle": "Pas de cirque commercial. Juste une discussion franche sur ce qu'on peut faire ensemble."
+      "title": "Contactez-nous",
+      "subtitle": "Prenez rendez-vous ou envoyez-nous vos questions. Notre équipe vous répondra dans les plus brefs délais."
     },
     "form": {
-      "name": "Votre nom",
+      "name": "Votre nom complet",
       "email": "Courriel",
-      "company": "Entreprise",
-      "employees": "Nombre d'employés",
-      "challenge": "Votre défi RH principal",
-      "challenge_placeholder": "Décrivez brièvement votre situation...",
-      "submit": "Envoyer",
-      "response_time": "Je réponds sous 24h. Généralement plus tôt."
+      "phone": "Téléphone",
+      "service": "Service souhaité",
+      "service_options": {
+        "physio": "Physiothérapie",
+        "osteo": "Ostéopathie",
+        "massage": "Massothérapie",
+        "nutrition": "Nutrition / Diététique",
+        "other": "Autre / Je ne sais pas"
+      },
+      "message": "Votre message",
+      "consent": "J'accepte que mes données soient utilisées pour traiter ma demande.",
+      "consent_notice": "Vos renseignements personnels sont traités conformément à la Loi 25 du Québec.",
+      "consent_link": "Politique de confidentialité",
+      "loi25_notice": "Conformément à la Loi 25 du Québec, vos renseignements personnels ne seront utilisés que pour répondre à votre demande et ne seront pas partagés avec des tiers sans votre consentement explicite.",
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès! Nous vous répondrons sous 24 heures.",
+      "error": "Une erreur est survenue. Veuillez réessayer ou nous appeler directement.",
+      "errors": {
+        "name_min": "Le nom doit contenir au moins 2 caractères.",
+        "email": "Veuillez entrer une adresse courriel valide.",
+        "phone": "Veuillez entrer un numéro de téléphone valide.",
+        "service": "Veuillez sélectionner un service.",
+        "message_min": "Le message doit contenir au moins 10 caractères.",
+        "message_max": "Le message ne peut pas dépasser 2000 caractères.",
+        "consent": "Vous devez accepter le traitement de vos données pour envoyer le formulaire."
+      }
     },
     "info": {
-      "email_label": "Courriel",
-      "phone_label": "Téléphone",
-      "location_label": "Localisation",
-      "location": "Québec, QC",
-      "linkedin": "LinkedIn"
+      "title": "Nos coordonnées",
+      "address": "2500, rue King Ouest, bureau 300, Sherbrooke QC J1J 2E8",
+      "phone": "(819) 555-0200",
+      "email": "info@clinique-aura.ca",
+      "hours": "Heures d'ouverture",
+      "hours_weekday": "Lundi au vendredi : 8h00 - 18h00",
+      "hours_saturday": "Samedi : 9h00 - 13h00"
     }
   },
   "footer": {
-    "copyright": "L'Usine RH — Émilie Poirier. Tous droits réservés.",
-    "tagline": "On forge vos RH.",
-    "cta": "Prêt à structurer votre RH?",
-    "cta_button": "Consultation gratuite",
-    "blog": "Blogue"
+    "description": "Clinique multidisciplinaire offrant physiothérapie, ostéopathie, massothérapie et nutrition à Sherbrooke.",
+    "nav_title": "Navigation",
+    "legal_title": "Légal",
+    "mentions": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "contact_title": "Contact",
+    "address": "2500, rue King Ouest, bureau 300, Sherbrooke QC J1J 2E8",
+    "phone": "(819) 555-0200",
+    "email": "info@clinique-aura.ca",
+    "rpp": "Responsable de la protection des renseignements personnels : Dre Sophie Lafleur — rpp@clinique-aura.ca",
+    "copyright": "Clinique Aura inc. Tous droits réservés."
   },
-  "chatbot": {
-    "toggle": "Ouvrir le clavardage",
-    "title": "L'Usine RH",
-    "subtitle": "Assistante virtuelle",
-    "close": "Fermer",
-    "placeholder": "Écrivez votre message...",
-    "send": "Envoyer"
-  },
-  "common": {
-    "duration": "Durée",
-    "learn_more": "En savoir plus",
-    "back_home": "Retour à l'accueil"
+  "cookie": {
+    "title": "Gestion des témoins (cookies)",
+    "description": "Nous utilisons des témoins pour améliorer votre expérience. Conformément à la Loi 25 du Québec, seuls les témoins essentiels sont actifs par défaut. Vous pouvez accepter ou refuser les témoins optionnels.",
+    "essential": "Essentiels",
+    "analytics": "Analytiques",
+    "marketing": "Marketing",
+    "accept": "Tout accepter",
+    "reject": "Tout refuser",
+    "customize": "Personnaliser"
   }
 }

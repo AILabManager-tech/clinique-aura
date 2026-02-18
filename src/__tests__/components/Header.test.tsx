@@ -32,9 +32,10 @@ import { Header } from "@/components/layout/Header";
 afterEach(cleanup);
 
 describe("Header", () => {
-  it("renders the logo", () => {
+  it("renders the Clinique Aura logo", () => {
     render(<Header />);
-    expect(screen.getByText(/L'Usine/)).toBeInTheDocument();
+    expect(screen.getByText("Clinique")).toBeInTheDocument();
+    expect(screen.getByText("Aura")).toBeInTheDocument();
   });
 
   it("renders navigation links", () => {
@@ -47,7 +48,7 @@ describe("Header", () => {
 
   it("renders language switcher", () => {
     render(<Header />);
-    const langBtn = screen.getByLabelText("Passer à l'anglais");
+    const langBtn = screen.getByLabelText("Passer \u00e0 l\u2019anglais");
     expect(langBtn).toBeInTheDocument();
     expect(langBtn).toHaveTextContent("EN");
   });
@@ -60,7 +61,7 @@ describe("Header", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "true");
   });
 
-  it("renders CTA link", () => {
+  it("renders CTA link (Prendre rendez-vous)", () => {
     render(<Header />);
     const ctas = screen.getAllByText("cta");
     expect(ctas.length).toBeGreaterThanOrEqual(1);
@@ -68,7 +69,7 @@ describe("Header", () => {
 
   it("calls router.replace on locale switch", () => {
     render(<Header />);
-    fireEvent.click(screen.getByLabelText("Passer à l'anglais"));
+    fireEvent.click(screen.getByLabelText("Passer \u00e0 l\u2019anglais"));
     expect(mockReplace).toHaveBeenCalledWith("/", { locale: "en" });
   });
 });

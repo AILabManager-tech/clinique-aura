@@ -36,9 +36,10 @@ describe("Footer", () => {
     expect(document.querySelector("footer")).toBeInTheDocument();
   });
 
-  it("renders the brand name", () => {
+  it("renders the brand name Clinique Aura", () => {
     render(<Footer />);
-    expect(screen.getByText(/L'Usine/)).toBeInTheDocument();
+    expect(screen.getByText("Clinique")).toBeInTheDocument();
+    expect(screen.getByText("Aura")).toBeInTheDocument();
   });
 
   it("renders navigation links", () => {
@@ -74,14 +75,25 @@ describe("Footer", () => {
     expect(screen.getByText("cta_button")).toBeInTheDocument();
   });
 
-  it("renders contact info", () => {
+  it("renders contact info with Sherbrooke address", () => {
     render(<Footer />);
-    expect(screen.getByText("Quebec, QC")).toBeInTheDocument();
-    expect(screen.getByText("LinkedIn")).toBeInTheDocument();
+    expect(screen.getByText(/Sherbrooke/)).toBeInTheDocument();
+    expect(screen.getByText("info@clinique-aura.ca")).toBeInTheDocument();
+  });
+
+  it("renders phone number", () => {
+    render(<Footer />);
+    expect(screen.getByText(/555-0200/)).toBeInTheDocument();
   });
 
   it("renders copyright", () => {
     render(<Footer />);
-    expect(screen.getByText(/copyright/)).toBeInTheDocument();
+    expect(screen.getByText(/Clinique Aura/)).toBeInTheDocument();
+  });
+
+  it("renders RPP information", () => {
+    render(<Footer />);
+    expect(screen.getByText(/Dre Sophie Lafleur/)).toBeInTheDocument();
+    expect(screen.getByText("rpp@clinique-aura.ca")).toBeInTheDocument();
   });
 });
