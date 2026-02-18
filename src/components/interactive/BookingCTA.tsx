@@ -66,7 +66,7 @@ export function BookingCTA() {
   return (
     <section
       id="booking"
-      className="relative isolate overflow-hidden bg-gradient-to-br from-sky-600 to-sage-600 py-20 lg:py-28"
+      className="relative isolate overflow-hidden bg-gradient-to-br from-sky-700 to-sage-600 py-20 lg:py-28"
     >
       {/* Decorative floating shapes */}
       <FloatingElement

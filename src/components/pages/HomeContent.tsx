@@ -28,7 +28,7 @@ const services = [
 ] as const;
 
 const accentMap: Record<string, { bg: string; text: string; border: string }> = {
-  sky: { bg: "bg-sky-50", text: "text-sky-600", border: "border-sky-200/50" },
+  sky: { bg: "bg-sky-50", text: "text-sky-700", border: "border-sky-200/50" },
   sage: { bg: "bg-sage-50", text: "text-sage-600", border: "border-sage-200/50" },
   peach: { bg: "bg-peach-50", text: "text-peach-600", border: "border-peach-200/50" },
   "sky-700": { bg: "bg-sky-100", text: "text-sky-700", border: "border-sky-300/50" },
@@ -68,7 +68,7 @@ function TestimonialCard({ index, prefersReduced }: TestimonialCardProps) {
       </p>
 
       <footer className="flex items-center gap-3 border-t border-pearl-300 pt-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 font-heading text-sm font-bold text-sky-600">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-100 font-heading text-sm font-bold text-sky-700">
           {t(`${index}.name`).charAt(0)}
         </div>
         <div>
@@ -173,7 +173,7 @@ export function HomeContent() {
           <div className="glass rounded-2xl p-8 glow-sky">
             <div className="grid grid-cols-3 gap-8 text-center">
               <div>
-                <p className="font-heading text-3xl font-bold text-sky-600 md:text-4xl">
+                <p className="font-heading text-3xl font-bold text-sky-700 md:text-4xl">
                   <CountUp to={15} suffix="+" />
                 </p>
                 <p className="mt-1 text-sm text-charcoal-light">{t("stats.experience")}</p>
@@ -215,7 +215,7 @@ export function HomeContent() {
 
           <StaggerGrid className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.12}>
             {services.map(({ key, Icon, accent }) => {
-              const colors = accentMap[accent] ?? { bg: "bg-sky-50", text: "text-sky-600", border: "border-sky-200/50" };
+              const colors = accentMap[accent] ?? { bg: "bg-sky-50", text: "text-sky-700", border: "border-sky-200/50" };
               return (
                 <Link
                   key={key}
@@ -223,11 +223,11 @@ export function HomeContent() {
                   className="group card-elevated flex flex-col items-start"
                 >
                   <div
-                    className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${colors.bg} ${colors.text} transition-colors group-hover:bg-sky-100 group-hover:text-sky-600`}
+                    className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${colors.bg} ${colors.text} transition-colors group-hover:bg-sky-100 group-hover:text-sky-700`}
                   >
                     <Icon className="h-7 w-7" strokeWidth={1.5} />
                   </div>
-                  <h3 className={`mb-2 text-lg ${colors.text} transition-colors group-hover:text-sky-600`}>
+                  <h3 className={`mb-2 text-lg ${colors.text} transition-colors group-hover:text-sky-700`}>
                     {t(`services.${key}.title`)}
                   </h3>
                   <p className="text-sm text-charcoal-light leading-relaxed">

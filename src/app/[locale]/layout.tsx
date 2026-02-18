@@ -11,9 +11,11 @@ import { JsonLd, localBusinessSchema } from "@/components/seo/JsonLd";
 import type { Metadata, Viewport } from "next";
 import "../globals.css";
 
-export const viewport: Viewport = {
-  themeColor: "#5BA4C9",
-};
+export async function generateViewport(): Promise<Viewport> {
+  return {
+    themeColor: "#5BA4C9",
+  };
+}
 
 // NEXOS: Typographie sereine et lumineuse — Clinique Aura
 const outfit = Outfit({
@@ -85,7 +87,7 @@ export default async function RootLayout({
       <body className="font-body bg-pearl-200 text-charcoal antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-sky-600 focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-sky-700 focus:px-4 focus:py-2 focus:text-white"
         >
           Skip to main content
         </a>

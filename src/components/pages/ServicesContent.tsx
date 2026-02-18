@@ -28,7 +28,7 @@ const serviceDefs: ServiceDef[] = [
     key: "physio",
     Icon: Activity,
     accentBg: "bg-sky-50",
-    accentText: "text-sky-600",
+    accentText: "text-sky-700",
     accentBorder: "border-sky-200",
     inclusions: 5,
   },

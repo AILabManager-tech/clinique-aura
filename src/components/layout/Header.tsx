@@ -14,7 +14,7 @@ const navLinks = [
 
 /**
  * Header navigation component for Clinique Aura with locale-aware links and mobile menu.
- * Serene, calming design with sky-600 primary and sage accents.
+ * Serene, calming design with sky-700 primary and sage accents.
  *
  * @component
  * @example
@@ -59,7 +59,7 @@ export function Header() {
           className="flex items-center gap-2 font-heading text-xl font-semibold text-charcoal transition-colors"
         >
           <svg
-            className="h-7 w-7 text-sky-600"
+            className="h-7 w-7 text-sky-700"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -78,7 +78,7 @@ export function Header() {
             />
           </svg>
           <span>
-            Clinique <span className="text-sky-600">Aura</span>
+            Clinique <span className="text-sky-700">Aura</span>
           </span>
         </Link>
 
@@ -88,9 +88,9 @@ export function Header() {
             <Link
               key={key}
               href={href}
-              className={`relative text-sm font-medium transition-colors hover:text-sky-600 ${
+              className={`relative text-sm font-medium transition-colors hover:text-sky-700 ${
                 pathname === href
-                  ? "text-sky-600"
+                  ? "text-sky-700"
                   : "text-charcoal/70"
               }`}
             >
@@ -104,7 +104,7 @@ export function Header() {
           {/* Language switcher */}
           <button
             onClick={switchLocale}
-            className="rounded-lg border border-sky-200/60 bg-white/50 px-3 py-1.5 text-xs font-medium text-charcoal/60 transition-all hover:border-sky-400 hover:text-sky-600 hover:bg-sky-50 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+            className="rounded-lg border border-sky-200/60 bg-white/50 px-3 py-1.5 text-xs font-medium text-charcoal/60 transition-all hover:border-sky-400 hover:text-sky-700 hover:bg-sky-50 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
             aria-label={locale === "fr" ? "Passer \u00e0 l\u2019anglais" : "Switch to French"}
           >
             {locale === "fr" ? "EN" : "FR"}
@@ -113,7 +113,7 @@ export function Header() {
           {/* CTA */}
           <Link
             href="/contact"
-            className="rounded-xl bg-sky-600 px-5 py-2 text-sm font-medium text-white transition-all hover:bg-sky-700 hover:scale-[1.02] hover:shadow-lg hover:shadow-sky-600/20"
+            className="rounded-xl bg-sky-700 px-5 py-2 text-sm font-medium text-white transition-all hover:bg-sky-800 hover:scale-[1.02] hover:shadow-lg hover:shadow-sky-700/20"
           >
             {t("cta")}
           </Link>
@@ -159,8 +159,8 @@ export function Header() {
                 onClick={() => setMobileOpen(false)}
                 className={`text-base font-medium transition-colors ${
                   pathname === href
-                    ? "text-sky-600"
-                    : "text-charcoal/70 hover:text-sky-600"
+                    ? "text-sky-700"
+                    : "text-charcoal/70 hover:text-sky-700"
                 }`}
               >
                 {t(key)}
@@ -169,7 +169,7 @@ export function Header() {
             <div className="flex items-center gap-4 pt-2">
               <button
                 onClick={switchLocale}
-                className="rounded-lg border border-sky-200 px-3 py-1.5 text-sm text-charcoal/60 hover:text-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+                className="rounded-lg border border-sky-200 px-3 py-1.5 text-sm text-charcoal/60 hover:text-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
                 aria-label={locale === "fr" ? "Switch to English" : "Passer au fran\u00e7ais"}
               >
                 {locale === "fr" ? "English" : "Fran\u00e7ais"}
@@ -177,7 +177,7 @@ export function Header() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-xl bg-sky-600 px-5 py-2 text-sm font-medium text-white hover:bg-sky-700"
+                className="rounded-xl bg-sky-700 px-5 py-2 text-sm font-medium text-white hover:bg-sky-800"
               >
                 {t("cta")}
               </Link>

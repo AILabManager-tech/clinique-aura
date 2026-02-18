@@ -257,7 +257,7 @@ export function ContactContent() {
                     {t("form.consent_notice")}{" "}
                     <Link
                       href="/politique-confidentialite"
-                      className="text-sky-600 underline underline-offset-2 hover:text-sky-700"
+                      className="text-sky-700 underline underline-offset-2 hover:text-sky-800"
                     >
                       {t("form.privacy_link")}
                     </Link>
@@ -375,7 +375,7 @@ export function ContactContent() {
                   {t("loi25.notice")}{" "}
                   <Link
                     href="/politique-confidentialite"
-                    className="text-sky-600 underline underline-offset-2 hover:text-sky-700"
+                    className="text-sky-700 underline underline-offset-2 hover:text-sky-800"
                   >
                     {t("loi25.link")}
                   </Link>

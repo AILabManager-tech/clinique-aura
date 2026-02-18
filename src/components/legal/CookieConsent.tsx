@@ -112,7 +112,7 @@ export function CookieConsent() {
                 checked={true}
                 disabled
                 aria-label="Témoins essentiels (toujours actifs)"
-                className="h-4 w-4 accent-sky-600"
+                className="h-4 w-4 accent-sky-700"
               />
               <div>
                 <span className="font-medium text-charcoal">Essentiels</span>
@@ -129,7 +129,7 @@ export function CookieConsent() {
                 checked={preferences.analytics}
                 onChange={() => toggleCategory("analytics")}
                 aria-label="Témoins analytiques"
-                className="h-4 w-4 accent-sky-600"
+                className="h-4 w-4 accent-sky-700"
               />
               <div>
                 <span className="font-medium text-charcoal">Analytiques</span>
@@ -145,7 +145,7 @@ export function CookieConsent() {
                 checked={preferences.marketing}
                 onChange={() => toggleCategory("marketing")}
                 aria-label="Témoins marketing"
-                className="h-4 w-4 accent-sky-600"
+                className="h-4 w-4 accent-sky-700"
               />
               <div>
                 <span className="font-medium text-charcoal">Marketing</span>
@@ -169,7 +169,7 @@ export function CookieConsent() {
           {showDetails ? (
             <button
               onClick={handleSavePreferences}
-              className="flex-1 rounded-xl bg-sky-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+              className="flex-1 rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
               aria-label="Sauvegarder mes préférences de témoins"
             >
               Sauvegarder mes choix
@@ -186,7 +186,7 @@ export function CookieConsent() {
 
           <button
             onClick={handleAcceptAll}
-            className="flex-1 rounded-xl bg-sky-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+            className="flex-1 rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
             aria-label="Accepter tous les témoins"
           >
             Tout accepter

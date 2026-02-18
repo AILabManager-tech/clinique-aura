@@ -27,7 +27,7 @@ const valuesDefs: ValueDef[] = [
     key: "wellness",
     Icon: ShieldCheck,
     accentBg: "bg-sky-50",
-    accentText: "text-sky-600",
+    accentText: "text-sky-700",
   },
   {
     key: "excellence",
@@ -71,7 +71,7 @@ function ValueCard({ def, index, prefersReduced }: ValueCardProps) {
         >
           <Icon className="h-7 w-7" strokeWidth={1.5} />
         </div>
-        <h3 className={`mb-2 ${accentText} transition-colors group-hover:text-sky-600`}>
+        <h3 className={`mb-2 ${accentText} transition-colors group-hover:text-sky-700`}>
           {t(`${key}.title`)}
         </h3>
         <p className="text-charcoal-light leading-relaxed">
@@ -107,7 +107,7 @@ export function AboutContent() {
       {/* ============================================================ */}
       {/*  1. Hero — sky gradient bg                                    */}
       {/* ============================================================ */}
-      <section className="relative flex min-h-[50vh] items-center overflow-hidden bg-gradient-to-br from-sky-700 via-sky-600 to-sage-500">
+      <section className="relative flex min-h-[50vh] items-center overflow-hidden bg-gradient-to-br from-sky-700 via-sky-700 to-sage-500">
         <AuroraBackground />
         <div className="absolute inset-0 grid-overlay opacity-20" />
         <div className="container-narrow text-center relative z-10 section-padding">

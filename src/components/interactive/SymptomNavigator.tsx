@@ -69,7 +69,7 @@ function BodyZone({ zone, selected, onSelect, label }: BodyZoneProps) {
       d={paths[zone]}
       className={`cursor-pointer transition-colors duration-200 ${
         isSelected
-          ? "fill-sky-400 stroke-sky-600"
+          ? "fill-sky-400 stroke-sky-700"
           : "fill-pearl-300 stroke-pearl-500 hover:fill-sky-200"
       }`}
       strokeWidth={1.5}
@@ -143,7 +143,7 @@ function DetailPanel({ zone, onClose, prefersReduced }: DetailPanelProps) {
       <div className="mb-6 h-1 w-12 rounded-full bg-sky-400" />
 
       {/* Symptoms */}
-      <h4 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider text-sky-600">
+      <h4 className="mb-3 font-heading text-sm font-semibold uppercase tracking-wider text-sky-700">
         {t("symptoms_title")}
       </h4>
       <ul className="mb-6 space-y-2">
@@ -182,7 +182,7 @@ function DetailPanel({ zone, onClose, prefersReduced }: DetailPanelProps) {
       <div className="mt-auto">
         <Link
           href="/contact"
-          className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-sky-500 px-6 py-3 font-heading text-sm font-semibold text-white shadow-md transition-colors hover:bg-sky-600"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-sky-700 px-6 py-3 font-heading text-sm font-semibold text-white shadow-md transition-colors hover:bg-sky-800"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -25,7 +25,7 @@ const ACCENT: Record<PractitionerKey, {
   ring: string;
 }> = {
   sophie_lafleur: {
-    gradient: "from-sky-400 to-sky-600",
+    gradient: "from-sky-400 to-sky-700",
     tagBg: "bg-sky-100",
     tagText: "text-sky-700",
     ring: "ring-sky-300",

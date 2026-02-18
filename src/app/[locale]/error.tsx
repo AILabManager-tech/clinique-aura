@@ -33,7 +33,7 @@ export default function Error({
         </p>
         <button
           onClick={reset}
-          className="rounded-xl bg-sky-600 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+          className="rounded-xl bg-sky-700 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-sky-800 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
         >
           R&eacute;essayer
         </button>
