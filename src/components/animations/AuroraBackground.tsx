@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useAnimations";
 
 /**
  * AuroraBackground - Animated gradient blobs and geometric shapes overlay.
@@ -37,80 +37,52 @@ export function AuroraBackground() {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 grid-overlay opacity-50" />
 
-      {/* Large sky blob — top left */}
-      <motion.div
+      {/* Large sky blob -- top left */}
+      <div
         className="absolute -left-1/4 -top-1/4 h-[700px] w-[700px] rounded-full bg-sky-300/20 blur-[140px]"
-        animate={{
-          x: [0, 100, -50, 0],
-          y: [0, -80, 50, 0],
-          scale: [1, 1.2, 0.9, 1],
-        }}
-        transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-1 22s ease-in-out infinite" }}
       />
 
-      {/* Sage blob — right */}
-      <motion.div
+      {/* Sage blob -- right */}
+      <div
         className="absolute -right-1/4 top-1/4 h-[600px] w-[600px] rounded-full bg-sage-300/15 blur-[120px]"
-        animate={{
-          x: [0, -80, 60, 0],
-          y: [0, 90, -40, 0],
-          scale: [1, 0.85, 1.15, 1],
-        }}
-        transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-2 26s ease-in-out infinite" }}
       />
 
-      {/* Peach blob — bottom center */}
-      <motion.div
+      {/* Peach blob -- bottom center */}
+      <div
         className="absolute -bottom-1/4 left-1/3 h-[500px] w-[500px] rounded-full bg-peach-300/12 blur-[100px]"
-        animate={{
-          x: [0, 60, -70, 0],
-          y: [0, -50, 30, 0],
-          scale: [1, 1.25, 0.8, 1],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-3 20s ease-in-out infinite" }}
       />
 
-      {/* Sky accent — subtle top right */}
-      <motion.div
+      {/* Sky accent -- subtle top right */}
+      <div
         className="absolute right-1/4 top-0 h-[350px] w-[350px] rounded-full bg-sky-200/8 blur-[100px]"
-        animate={{
-          x: [0, -40, 30, 0],
-          y: [0, 40, -30, 0],
-          scale: [1, 1.1, 0.95, 1],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-4 18s ease-in-out infinite" }}
       />
 
-      {/* Sage whisper — bottom left */}
-      <motion.div
+      {/* Sage whisper -- bottom left */}
+      <div
         className="absolute -left-1/4 bottom-1/4 h-[300px] w-[300px] rounded-full bg-sage-200/6 blur-[80px]"
-        animate={{
-          x: [0, 50, -30, 0],
-          y: [0, -30, 40, 0],
-        }}
-        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-5 24s ease-in-out infinite" }}
       />
 
       {/* Floating geometric shapes */}
-      <motion.div
+      <div
         className="absolute right-[15%] top-[20%] h-16 w-16 rotate-45 rounded-lg border border-sky-300/20"
-        animate={{ rotate: [45, 90, 45], y: [0, -20, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-rotate 12s ease-in-out infinite" }}
       />
-      <motion.div
+      <div
         className="absolute left-[10%] bottom-[30%] h-10 w-10 rounded-full border border-peach-300/15"
-        animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-pulse 8s ease-in-out infinite" }}
       />
-      <motion.div
+      <div
         className="absolute left-[60%] top-[60%] h-24 w-px bg-gradient-to-b from-transparent via-sky-400/20 to-transparent"
-        animate={{ scaleY: [0.5, 1, 0.5], opacity: [0.2, 0.5, 0.2] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" as const }}
+        style={{ animation: "aurora-scaleY 6s ease-in-out infinite" }}
       />
-      <motion.div
+      <div
         className="absolute right-[30%] bottom-[15%] h-px w-24 bg-gradient-to-r from-transparent via-sage-400/25 to-transparent"
-        animate={{ scaleX: [0.5, 1.2, 0.5], opacity: [0.2, 0.5, 0.2] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" as const, delay: 2 }}
+        style={{ animation: "aurora-scaleX 7s ease-in-out 2s infinite" }}
       />
     </div>
   );

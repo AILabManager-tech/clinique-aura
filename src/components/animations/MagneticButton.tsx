@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
-import { useRef, type ReactNode, type MouseEvent } from "react";
+import { useRef, useState, type ReactNode, type MouseEvent } from "react";
+import { useReducedMotion } from "@/hooks/useAnimations";
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -33,21 +33,8 @@ export function MagneticButton({
 }: MagneticButtonProps) {
   const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springX = useSpring(x, { stiffness: 300, damping: 20 });
-  const springY = useSpring(y, { stiffness: 300, damping: 20 });
-
-  const glowOpacity = useTransform(
-    [springX, springY],
-    ([latestX, latestY]) => {
-      const dist = Math.sqrt(
-        (latestX as number) ** 2 + (latestY as number) ** 2
-      );
-      return Math.min(dist / 50, 0.6);
-    }
-  );
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const [glowOpacity, setGlowOpacity] = useState(0);
 
   function handleMouse(e: MouseEvent) {
     if (shouldReduceMotion) return;
@@ -56,13 +43,16 @@ export function MagneticButton({
     const rect = el.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) * strength);
-    y.set((e.clientY - centerY) * strength);
+    const dx = (e.clientX - centerX) * strength;
+    const dy = (e.clientY - centerY) * strength;
+    setOffset({ x: dx, y: dy });
+    const dist = Math.sqrt(dx ** 2 + dy ** 2);
+    setGlowOpacity(Math.min(dist / 50, 0.6));
   }
 
   function handleLeave() {
-    x.set(0);
-    y.set(0);
+    setOffset({ x: 0, y: 0 });
+    setGlowOpacity(0);
   }
 
   const Tag = href ? "a" : "button";
@@ -71,22 +61,32 @@ export function MagneticButton({
     : { type, onClick };
 
   return (
-    <motion.div
+    <div
       ref={ref}
       onMouseMove={handleMouse}
       onMouseLeave={handleLeave}
-      style={shouldReduceMotion ? undefined : { x: springX, y: springY }}
       className="inline-block"
+      style={
+        shouldReduceMotion
+          ? undefined
+          : {
+              transform: `translate(${offset.x}px, ${offset.y}px)`,
+              transition: "transform 0.15s cubic-bezier(0.33, 1, 0.68, 1)",
+            }
+      }
     >
       <Tag className={`relative overflow-hidden ${className ?? ""}`} {...linkProps}>
         {!shouldReduceMotion && (
-          <motion.span
+          <span
             className="pointer-events-none absolute inset-0 rounded-[inherit] bg-white/20"
-            style={{ opacity: glowOpacity }}
+            style={{
+              opacity: glowOpacity,
+              transition: "opacity 0.15s ease-out",
+            }}
           />
         )}
         <span className="relative z-10">{children}</span>
       </Tag>
-    </motion.div>
+    </div>
   );
 }

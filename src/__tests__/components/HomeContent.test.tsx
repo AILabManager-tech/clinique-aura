@@ -22,36 +22,6 @@ vi.mock("@/i18n/routing", () => ({
   ),
 }));
 
-vi.mock("framer-motion", () => ({
-  motion: {
-    div: ({
-      children,
-      className,
-      ...rest
-    }: React.HTMLAttributes<HTMLDivElement>) => (
-      <div className={className} {...rest}>
-        {children}
-      </div>
-    ),
-    button: ({
-      children,
-      ...props
-    }: React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-      <button {...props}>{children}</button>
-    ),
-    blockquote: ({
-      children,
-      ...props
-    }: React.HTMLAttributes<HTMLQuoteElement>) => (
-      <blockquote {...props}>{children}</blockquote>
-    ),
-  },
-  AnimatePresence: ({ children }: { children: React.ReactNode }) => (
-    <>{children}</>
-  ),
-  useReducedMotion: () => false,
-}));
-
 vi.mock("next/image", () => ({
   default: (props: { alt: string; src: string }) => (
     <img alt={props.alt} src={props.src} />
@@ -143,6 +113,11 @@ vi.mock("@/components/interactive/PractitionerCards", () => ({
 
 vi.mock("@/components/interactive/BookingCTA", () => ({
   BookingCTA: () => <div data-testid="booking-cta" />,
+}));
+
+vi.mock("@/hooks/useAnimations", () => ({
+  useReducedMotion: () => false,
+  useInView: () => true,
 }));
 
 vi.mock("lucide-react", () => ({

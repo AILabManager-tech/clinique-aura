@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { ShieldCheck, Award, Sparkles } from "lucide-react";
 import { type LucideIcon } from "lucide-react";
@@ -10,6 +10,7 @@ import { LineReveal } from "@/components/animations/LineReveal";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { MagneticButton } from "@/components/animations/MagneticButton";
 import { PractitionerCards } from "@/components/interactive/PractitionerCards";
+import { useReducedMotion, useInView } from "@/hooks/useAnimations";
 
 /* ------------------------------------------------------------------ */
 /*  Values definition                                                  */
@@ -56,14 +57,22 @@ interface ValueCardProps {
 function ValueCard({ def, index, prefersReduced }: ValueCardProps) {
   const t = useTranslations("about.values");
   const { key, Icon, accentBg, accentText } = def;
+  const cardRef = useRef<HTMLDivElement>(null);
+  const cardInView = useInView(cardRef, { once: true });
 
   return (
-    <motion.div
-      initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
-      whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.15, ease: "easeInOut" as const }}
+    <div
+      ref={cardRef}
       className="group"
+      style={
+        prefersReduced
+          ? undefined
+          : {
+              opacity: cardInView ? 1 : 0,
+              transform: cardInView ? "none" : "translateY(30px)",
+              transition: `opacity 0.5s ease-in-out ${index * 0.15}s, transform 0.5s ease-in-out ${index * 0.15}s`,
+            }
+      }
     >
       <div className="card-elevated flex flex-col items-start h-full">
         <div
@@ -78,7 +87,7 @@ function ValueCard({ def, index, prefersReduced }: ValueCardProps) {
           {t(`${key}.description`)}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -87,7 +96,7 @@ function ValueCard({ def, index, prefersReduced }: ValueCardProps) {
 /* ------------------------------------------------------------------ */
 
 /**
- * AboutContent — About page for Clinique Aura featuring the clinic
+ * AboutContent -- About page for Clinique Aura featuring the clinic
  * story (founded 2009), three core values (Bienveillance, Excellence,
  * Approche globale), a team section with PractitionerCards, and a
  * closing CTA to book an appointment.
@@ -100,12 +109,12 @@ function ValueCard({ def, index, prefersReduced }: ValueCardProps) {
  */
 export function AboutContent() {
   const t = useTranslations("about");
-  const prefersReduced = useReducedMotion() ?? false;
+  const prefersReduced = useReducedMotion();
 
   return (
     <main>
       {/* ============================================================ */}
-      {/*  1. Hero — sky gradient bg                                    */}
+      {/*  1. Hero -- sky gradient bg                                    */}
       {/* ============================================================ */}
       <section className="relative flex min-h-[50vh] items-center overflow-hidden bg-gradient-to-br from-sky-700 via-sky-700 to-sage-500">
         <AuroraBackground />
@@ -122,7 +131,7 @@ export function AboutContent() {
       </section>
 
       {/* ============================================================ */}
-      {/*  2. Story — Founded in 2009                                   */}
+      {/*  2. Story -- Founded in 2009                                   */}
       {/* ============================================================ */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh-bg" />
@@ -146,7 +155,7 @@ export function AboutContent() {
       <div className="section-divider" />
 
       {/* ============================================================ */}
-      {/*  3. Values — Bienveillance, Excellence, Approche globale      */}
+      {/*  3. Values -- Bienveillance, Excellence, Approche globale      */}
       {/* ============================================================ */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh-bg" />
@@ -174,12 +183,12 @@ export function AboutContent() {
       <div className="section-divider" />
 
       {/* ============================================================ */}
-      {/*  4. Team — PractitionerCards                                  */}
+      {/*  4. Team -- PractitionerCards                                  */}
       {/* ============================================================ */}
       <PractitionerCards />
 
       {/* ============================================================ */}
-      {/*  5. CTA — Join us / book appointment                          */}
+      {/*  5. CTA -- Join us / book appointment                          */}
       {/* ============================================================ */}
       <section className="relative overflow-hidden bg-sky-800">
         <AuroraBackground />

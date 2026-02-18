@@ -1,8 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useReducedMotion, useInView } from "@/hooks/useAnimations";
 
 /* ------------------------------------------------------------------ */
 /*  Practitioner data                                                  */
@@ -66,6 +67,8 @@ interface CardProps {
 function PractitionerCard({ practitionerKey, index, prefersReduced }: CardProps) {
   const t = useTranslations("home.practitioners");
   const accent = ACCENT[practitionerKey];
+  const cardRef = useRef<HTMLElement>(null);
+  const cardInView = useInView(cardRef, { once: true, margin: "-60px" });
 
   /** Extract initials from translated name */
   const fullName: string = t(`${practitionerKey}.name`);
@@ -77,21 +80,18 @@ function PractitionerCard({ practitionerKey, index, prefersReduced }: CardProps)
     .toUpperCase();
 
   return (
-    <motion.article
-      initial={
-        prefersReduced ? {} : { opacity: 0, y: 30 }
-      }
-      whileInView={
-        prefersReduced ? {} : { opacity: 1, y: 0 }
-      }
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.45,
-        delay: prefersReduced ? 0 : index * 0.1,
-        ease: "easeInOut" as const,
-      }}
-      whileHover={prefersReduced ? {} : { y: -6 }}
+    <article
+      ref={cardRef}
       className="group flex flex-col rounded-2xl bg-white p-6 shadow-md transition-shadow duration-300 hover:shadow-xl"
+      style={
+        prefersReduced
+          ? undefined
+          : {
+              opacity: cardInView ? 1 : 0,
+              transform: cardInView ? "translateY(0)" : "translateY(30px)",
+              transition: `opacity 0.45s ease-in-out ${index * 0.1}s, transform 0.45s ease-in-out ${index * 0.1}s`,
+            }
+      }
     >
       {/* Avatar circle with gradient + initials */}
       <div className="mb-5 flex justify-center">
@@ -152,7 +152,7 @@ function PractitionerCard({ practitionerKey, index, prefersReduced }: CardProps)
         </svg>
         {t(`${practitionerKey}.cta`)}
       </Link>
-    </motion.article>
+    </article>
   );
 }
 
@@ -161,7 +161,7 @@ function PractitionerCard({ practitionerKey, index, prefersReduced }: CardProps)
 /* ------------------------------------------------------------------ */
 
 /**
- * PractitionerCards — Responsive grid presenting the clinic team.
+ * PractitionerCards -- Responsive grid presenting the clinic team.
  *
  * Each card features a gradient avatar with initials, specialty tags
  * colour-coded by discipline, a short bio and a booking CTA.
@@ -175,18 +175,26 @@ function PractitionerCard({ practitionerKey, index, prefersReduced }: CardProps)
  */
 export function PractitionerCards() {
   const t = useTranslations("home.practitioners");
-  const prefersReduced = useReducedMotion() ?? false;
+  const prefersReduced = useReducedMotion();
+  const headerRef = useRef<HTMLDivElement>(null);
+  const headerInView = useInView(headerRef, { once: true });
 
   return (
     <section id="team" className="py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
-          initial={prefersReduced ? {} : { opacity: 0, y: 24 }}
-          whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeInOut" as const }}
+        <div
+          ref={headerRef}
           className="mb-12 text-center"
+          style={
+            prefersReduced
+              ? undefined
+              : {
+                  opacity: headerInView ? 1 : 0,
+                  transform: headerInView ? "none" : "translateY(24px)",
+                  transition: "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
+                }
+          }
         >
           <h2 className="mb-3 font-heading text-3xl font-bold text-charcoal lg:text-4xl">
             {t("title")}
@@ -194,7 +202,7 @@ export function PractitionerCards() {
           <p className="mx-auto max-w-xl font-body text-charcoal-light">
             {t("subtitle")}
           </p>
-        </motion.div>
+        </div>
 
         {/* Cards grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

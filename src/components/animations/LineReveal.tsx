@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
+import { useInView, useReducedMotion } from "@/hooks/useAnimations";
 
 interface LineRevealProps {
   className?: string;
@@ -23,23 +23,21 @@ export function LineReveal({
   color = "bg-sky-400",
   delay = 0,
 }: LineRevealProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: "-30px" });
 
   return (
     <div ref={ref} className={`overflow-hidden ${className ?? ""}`}>
-      <motion.div
+      <div
         className={`h-[3px] ${color} rounded-full`}
-        initial={shouldReduceMotion ? false : { scaleX: 0, originX: 0 }}
-        animate={shouldReduceMotion ? { scaleX: 1 } : isInView ? { scaleX: 1 } : { scaleX: 0 }}
-        transition={
+        style={
           shouldReduceMotion
-            ? { duration: 0 }
+            ? { transform: "scaleX(1)", transformOrigin: "left" }
             : {
-                duration: 0.8,
-                delay,
-                ease: [0.22, 1, 0.36, 1],
+                transform: isInView ? "scaleX(1)" : "scaleX(0)",
+                transformOrigin: "left",
+                transition: `transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}s`,
               }
         }
       />

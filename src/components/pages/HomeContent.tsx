@@ -1,8 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { motion, useReducedMotion } from "framer-motion";
 import { Activity, Bone, Heart, Apple } from "lucide-react";
 import { AuroraBackground } from "@/components/animations/AuroraBackground";
 import { TextReveal } from "@/components/animations/TextReveal";
@@ -15,6 +15,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SymptomNavigator } from "@/components/interactive/SymptomNavigator";
 import { PractitionerCards } from "@/components/interactive/PractitionerCards";
 import { BookingCTA } from "@/components/interactive/BookingCTA";
+import { useReducedMotion, useInView } from "@/hooks/useAnimations";
 
 /* ------------------------------------------------------------------ */
 /*  Service card data                                                  */
@@ -45,14 +46,22 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ index, prefersReduced }: TestimonialCardProps) {
   const t = useTranslations("home.testimonials");
+  const cardRef = useRef<HTMLQuoteElement>(null);
+  const cardInView = useInView(cardRef, { once: true });
 
   return (
-    <motion.blockquote
-      initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
-      whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.15, ease: "easeInOut" as const }}
+    <blockquote
+      ref={cardRef}
       className="card-elevated flex flex-col"
+      style={
+        prefersReduced
+          ? undefined
+          : {
+              opacity: cardInView ? 1 : 0,
+              transform: cardInView ? "none" : "translateY(30px)",
+              transition: `opacity 0.5s ease-in-out ${index * 0.15}s, transform 0.5s ease-in-out ${index * 0.15}s`,
+            }
+      }
     >
       {/* Stars */}
       <div className="mb-4 flex gap-1 text-peach-400" aria-hidden="true">
@@ -76,7 +85,7 @@ function TestimonialCard({ index, prefersReduced }: TestimonialCardProps) {
           <p className="text-xs text-charcoal-light">{t(`${index}.role`)}</p>
         </div>
       </footer>
-    </motion.blockquote>
+    </blockquote>
   );
 }
 
@@ -85,7 +94,7 @@ function TestimonialCard({ index, prefersReduced }: TestimonialCardProps) {
 /* ------------------------------------------------------------------ */
 
 /**
- * HomeContent — Landing page for Clinique Aura featuring a serene
+ * HomeContent -- Landing page for Clinique Aura featuring a serene
  * health-focused hero, service overview cards, interactive body map,
  * team preview, patient testimonials, and a final booking CTA.
  *
@@ -97,12 +106,12 @@ function TestimonialCard({ index, prefersReduced }: TestimonialCardProps) {
  */
 export function HomeContent() {
   const t = useTranslations("home");
-  const prefersReduced = useReducedMotion() ?? false;
+  const prefersReduced = useReducedMotion();
 
   return (
     <main>
       {/* ============================================================ */}
-      {/*  1. Hero — Serene health-focused with AuroraBackground       */}
+      {/*  1. Hero -- Serene health-focused with AuroraBackground       */}
       {/* ============================================================ */}
       <section className="relative flex min-h-screen items-center overflow-hidden bg-sky-800">
         <AuroraBackground />
@@ -149,7 +158,7 @@ export function HomeContent() {
             </AnimatedSection>
           </div>
 
-          {/* Floating elements — right side */}
+          {/* Floating elements -- right side */}
           <div className="pointer-events-none absolute right-0 top-1/4 hidden lg:block">
             <FloatingElement amplitude={15} duration={7}>
               <div className="h-20 w-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md" />
@@ -167,7 +176,7 @@ export function HomeContent() {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-pearl-200 to-transparent" />
       </section>
 
-      {/* Stats — glassmorphism bar */}
+      {/* Stats -- glassmorphism bar */}
       <section className="relative -mt-16 z-20">
         <div className="container-wide px-6">
           <div className="glass rounded-2xl p-8 glow-sky">
@@ -196,7 +205,7 @@ export function HomeContent() {
       </section>
 
       {/* ============================================================ */}
-      {/*  2. Services overview — 4 discipline cards                    */}
+      {/*  2. Services overview -- 4 discipline cards                    */}
       {/* ============================================================ */}
       <section id="services" className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh-bg" />
@@ -243,21 +252,21 @@ export function HomeContent() {
       <div className="section-divider" />
 
       {/* ============================================================ */}
-      {/*  3. SymptomNavigator — Interactive body map                   */}
+      {/*  3. SymptomNavigator -- Interactive body map                   */}
       {/* ============================================================ */}
       <SymptomNavigator />
 
       <div className="section-divider" />
 
       {/* ============================================================ */}
-      {/*  4. PractitionerCards — Team preview                          */}
+      {/*  4. PractitionerCards -- Team preview                          */}
       {/* ============================================================ */}
       <PractitionerCards />
 
       <div className="section-divider" />
 
       {/* ============================================================ */}
-      {/*  5. Testimonials — 3 patient testimonials                     */}
+      {/*  5. Testimonials -- 3 patient testimonials                     */}
       {/* ============================================================ */}
       <section className="section-padding relative overflow-hidden">
         <div className="absolute inset-0 gradient-mesh-bg" />
@@ -282,7 +291,7 @@ export function HomeContent() {
       </section>
 
       {/* ============================================================ */}
-      {/*  6. BookingCTA — Final CTA                                   */}
+      {/*  6. BookingCTA -- Final CTA                                   */}
       {/* ============================================================ */}
       <BookingCTA />
     </main>

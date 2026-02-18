@@ -26,44 +26,6 @@ vi.mock("@/i18n/routing", () => ({
   ),
 }));
 
-vi.mock("framer-motion", () => {
-  const mc = (Tag: string) => {
-    const FM_PROPS = new Set([
-      "initial", "animate", "exit", "transition", "whileInView",
-      "viewport", "variants", "whileHover", "whileTap", "layout",
-      "layoutId",
-    ]);
-    const C = ({ children, ...props }: Record<string, unknown>) => {
-      const safe: Record<string, unknown> = {};
-      for (const [k, v] of Object.entries(props)) {
-        if (!FM_PROPS.has(k)) {
-          safe[k] = v;
-        }
-      }
-      const El = Tag as unknown as React.ElementType;
-      return <El {...safe}>{children as React.ReactNode}</El>;
-    };
-    C.displayName = `motion.${Tag}`;
-    return C;
-  };
-  return {
-    motion: {
-      div: mc("div"), span: mc("span"), button: mc("button"),
-      section: mc("section"), a: mc("a"), h1: mc("h1"),
-      h2: mc("h2"), h3: mc("h3"), p: mc("p"),
-      create: (tag: string) => mc(tag),
-    },
-    animate: () => ({ stop: () => {} }),
-    useInView: () => true,
-    useScroll: () => ({ scrollYProgress: { get: () => 0.5 } }),
-    useTransform: () => 0,
-    useMotionValue: (v: number = 0) => ({ set: () => {}, get: () => v }),
-    useSpring: () => ({ set: () => {}, get: () => 0 }),
-    useReducedMotion: () => false,
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  };
-});
-
 vi.mock("next/image", () => ({
   default: (props: { alt: string; src: string }) => (
     <img alt={props.alt} src={props.src} />
@@ -166,7 +128,7 @@ describe("ContactContent", () => {
     // Select a service
     const select = screen.getByLabelText("form.service");
     fireEvent.change(select, { target: { value: "physio" } });
-    fireEvent.change(screen.getByLabelText(/form\.message/), { target: { value: "Besoin de physiothérapie pour mon dos" } });
+    fireEvent.change(screen.getByLabelText(/form\.message/), { target: { value: "Besoin de physiotherapie pour mon dos" } });
     const checkbox = document.querySelector('input[name="consent"]') as HTMLInputElement;
     fireEvent.click(checkbox);
 
@@ -192,7 +154,7 @@ describe("ContactContent", () => {
     fireEvent.change(screen.getByLabelText(/form\.email/), { target: { value: "marie@example.com" } });
     const select = screen.getByLabelText("form.service");
     fireEvent.change(select, { target: { value: "physio" } });
-    fireEvent.change(screen.getByLabelText(/form\.message/), { target: { value: "Besoin de physiothérapie pour mon dos" } });
+    fireEvent.change(screen.getByLabelText(/form\.message/), { target: { value: "Besoin de physiotherapie pour mon dos" } });
     const checkbox = document.querySelector('input[name="consent"]') as HTMLInputElement;
     fireEvent.click(checkbox);
 
@@ -216,7 +178,7 @@ describe("ContactContent", () => {
     fireEvent.change(screen.getByLabelText(/form\.email/), { target: { value: "marie@example.com" } });
     const select = screen.getByLabelText("form.service");
     fireEvent.change(select, { target: { value: "physio" } });
-    fireEvent.change(screen.getByLabelText(/form\.message/), { target: { value: "Besoin de physiothérapie pour mon dos" } });
+    fireEvent.change(screen.getByLabelText(/form\.message/), { target: { value: "Besoin de physiotherapie pour mon dos" } });
     const checkbox = document.querySelector('input[name="consent"]') as HTMLInputElement;
     fireEvent.click(checkbox);
 

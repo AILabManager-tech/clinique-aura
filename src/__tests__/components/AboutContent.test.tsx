@@ -22,30 +22,6 @@ vi.mock("@/i18n/routing", () => ({
   ),
 }));
 
-vi.mock("framer-motion", () => ({
-  motion: {
-    div: ({
-      children,
-      className,
-      ...rest
-    }: React.HTMLAttributes<HTMLDivElement>) => (
-      <div className={className} {...rest}>
-        {children}
-      </div>
-    ),
-    span: ({
-      children,
-      ...rest
-    }: React.HTMLAttributes<HTMLSpanElement>) => (
-      <span {...rest}>{children}</span>
-    ),
-  },
-  AnimatePresence: ({ children }: { children: React.ReactNode }) => (
-    <>{children}</>
-  ),
-  useReducedMotion: () => false,
-}));
-
 vi.mock("next/image", () => ({
   default: (props: { alt: string; src: string }) => (
     <img alt={props.alt} src={props.src} />
@@ -86,6 +62,11 @@ vi.mock("@/components/ui/AnimatedSection", () => ({
 
 vi.mock("@/components/interactive/PractitionerCards", () => ({
   PractitionerCards: () => <div data-testid="practitioner-cards" />,
+}));
+
+vi.mock("@/hooks/useAnimations", () => ({
+  useReducedMotion: () => false,
+  useInView: () => true,
 }));
 
 vi.mock("lucide-react", () => ({

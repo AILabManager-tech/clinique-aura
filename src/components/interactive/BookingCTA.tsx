@@ -1,43 +1,34 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useReducedMotion, useInView } from "@/hooks/useAnimations";
 
 /* ------------------------------------------------------------------ */
 /*  Decorative floating shapes                                         */
 /* ------------------------------------------------------------------ */
 
-interface FloatingElementProps {
+interface FloatingShapeProps {
   className: string;
   delay: number;
   prefersReduced: boolean;
 }
 
-function FloatingElement({ className, delay, prefersReduced }: FloatingElementProps) {
+function FloatingShape({ className, delay, prefersReduced }: FloatingShapeProps) {
   return (
-    <motion.div
+    <div
       aria-hidden="true"
-      initial={prefersReduced ? {} : { y: 0, opacity: 0.15 }}
-      animate={
+      className={className}
+      style={
         prefersReduced
           ? { opacity: 0.12 }
           : {
-              y: [0, -18, 0],
-              opacity: [0.12, 0.22, 0.12],
+              animation: `float 6s ease-in-out ${delay}s infinite`,
+              opacity: 0.12,
+              ["--float-y" as string]: "18px",
             }
       }
-      transition={
-        prefersReduced
-          ? { duration: 0 }
-          : {
-              duration: 6,
-              delay,
-              repeat: Infinity,
-              ease: "easeInOut" as const,
-            }
-      }
-      className={className}
     />
   );
 }
@@ -47,7 +38,7 @@ function FloatingElement({ className, delay, prefersReduced }: FloatingElementPr
 /* ------------------------------------------------------------------ */
 
 /**
- * BookingCTA — Prominent call-to-action section for booking appointments.
+ * BookingCTA -- Prominent call-to-action section for booking appointments.
  *
  * Features a sky-to-sage gradient background, organic floating decorative
  * shapes, a heading with subtext, a click-to-call phone link and a
@@ -61,7 +52,11 @@ function FloatingElement({ className, delay, prefersReduced }: FloatingElementPr
  */
 export function BookingCTA() {
   const t = useTranslations("home.booking");
-  const prefersReduced = useReducedMotion() ?? false;
+  const prefersReduced = useReducedMotion();
+  const headingRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
+  const headingInView = useInView(headingRef, { once: true });
+  const ctaInView = useInView(ctaRef, { once: true });
 
   return (
     <section
@@ -69,27 +64,27 @@ export function BookingCTA() {
       className="relative isolate overflow-hidden bg-gradient-to-br from-sky-700 to-sage-600 py-20 lg:py-28"
     >
       {/* Decorative floating shapes */}
-      <FloatingElement
+      <FloatingShape
         className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-white/10"
         delay={0}
         prefersReduced={prefersReduced}
       />
-      <FloatingElement
+      <FloatingShape
         className="absolute -right-6 bottom-16 h-28 w-28 rounded-full bg-white/10"
         delay={1.5}
         prefersReduced={prefersReduced}
       />
-      <FloatingElement
+      <FloatingShape
         className="absolute left-1/3 -top-8 h-20 w-20 rotate-45 rounded-2xl bg-white/[0.07]"
         delay={0.8}
         prefersReduced={prefersReduced}
       />
-      <FloatingElement
+      <FloatingShape
         className="absolute right-1/4 bottom-6 h-16 w-16 rounded-full bg-white/[0.08]"
         delay={2.2}
         prefersReduced={prefersReduced}
       />
-      <FloatingElement
+      <FloatingShape
         className="absolute left-2/3 top-1/2 h-24 w-24 -translate-y-1/2 rounded-full bg-white/[0.06]"
         delay={3}
         prefersReduced={prefersReduced}
@@ -97,11 +92,17 @@ export function BookingCTA() {
 
       {/* Content */}
       <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-        <motion.div
-          initial={prefersReduced ? {} : { opacity: 0, y: 20 }}
-          whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeInOut" as const }}
+        <div
+          ref={headingRef}
+          style={
+            prefersReduced
+              ? undefined
+              : {
+                  opacity: headingInView ? 1 : 0,
+                  transform: headingInView ? "none" : "translateY(20px)",
+                  transition: "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
+                }
+          }
         >
           <h2 className="mb-4 font-heading text-3xl font-bold text-white lg:text-4xl">
             {t("title")}
@@ -109,19 +110,21 @@ export function BookingCTA() {
           <p className="mx-auto mb-8 max-w-lg font-body text-lg leading-relaxed text-white/85">
             {t("subtitle")}
           </p>
-        </motion.div>
+        </div>
 
         {/* Phone + CTA */}
-        <motion.div
-          initial={prefersReduced ? {} : { opacity: 0, y: 16 }}
-          whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.45,
-            delay: prefersReduced ? 0 : 0.2,
-            ease: "easeInOut" as const,
-          }}
+        <div
+          ref={ctaRef}
           className="flex flex-col items-center gap-5 sm:flex-row sm:justify-center"
+          style={
+            prefersReduced
+              ? undefined
+              : {
+                  opacity: ctaInView ? 1 : 0,
+                  transform: ctaInView ? "none" : "translateY(16px)",
+                  transition: "opacity 0.45s ease-in-out 0.2s, transform 0.45s ease-in-out 0.2s",
+                }
+          }
         >
           {/* Click-to-call */}
           <a
@@ -168,7 +171,7 @@ export function BookingCTA() {
             </svg>
             {t("cta")}
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

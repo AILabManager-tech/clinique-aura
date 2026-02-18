@@ -123,3 +123,25 @@
     box-shadow: 0 0 40px rgba(168,197,160,0.3), 0 0 80px rgba(168,197,160,0.1);
   }
 }
+
+/* === CSS Animation keyframes (replaces framer-motion) === */
+@keyframes aurora-1 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(100px, -80px) scale(1.2); } 66% { transform: translate(-50px, 50px) scale(0.9); } }
+@keyframes aurora-2 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(-80px, 90px) scale(0.85); } 66% { transform: translate(60px, -40px) scale(1.15); } }
+@keyframes aurora-3 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(60px, -50px) scale(1.25); } 66% { transform: translate(-70px, 30px) scale(0.8); } }
+@keyframes aurora-4 { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(-40px, 40px) scale(1.1); } 66% { transform: translate(30px, -30px) scale(0.95); } }
+@keyframes aurora-5 { 0%, 100% { transform: translate(0, 0); } 33% { transform: translate(50px, -30px); } 66% { transform: translate(-30px, 40px); } }
+@keyframes aurora-rotate { 0%, 100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(90deg) translateY(-20px); } }
+@keyframes aurora-pulse { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.3); opacity: 0.6; } }
+@keyframes aurora-scaleY { 0%, 100% { transform: scaleY(0.5); opacity: 0.2; } 50% { transform: scaleY(1); opacity: 0.5; } }
+@keyframes aurora-scaleX { 0%, 100% { transform: scaleX(0.5); opacity: 0.2; } 50% { transform: scaleX(1.2); opacity: 0.5; } }
+@keyframes float { 0%, 100% { transform: translateY(calc(-1 * var(--float-y, 12px))) rotate(-1.5deg); } 50% { transform: translateY(var(--float-y, 12px)) rotate(1.5deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora, .animate-float, [style*="animation"] {
+    animation: none !important;
+    transition: none !important;
+  }
+}

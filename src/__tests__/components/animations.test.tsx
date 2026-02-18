@@ -6,54 +6,29 @@ vi.mock("next-intl", () => ({
   useLocale: () => "fr",
 }));
 
-vi.mock("framer-motion", () => {
-  const mc = (Tag: string) => {
-    const C = ({ children, ...props }: Record<string, unknown>) => {
-      const safe: Record<string, unknown> = {};
-      for (const [k, v] of Object.entries(props)) {
-        if (
-          typeof v !== "object" &&
-          typeof v !== "function" &&
-          !["initial", "animate", "exit", "transition", "whileInView",
-            "viewport", "variants", "whileHover", "whileTap", "layout",
-            "layoutId"].includes(k)
-        ) {
-          safe[k] = v;
-        }
-      }
-      const El = Tag as unknown as React.ElementType;
-      return <El {...safe}>{children as React.ReactNode}</El>;
-    };
-    C.displayName = `motion.${Tag}`;
-    return C;
-  };
-  return {
-    motion: {
-      div: mc("div"),
-      span: mc("span"),
-      button: mc("button"),
-      section: mc("section"),
-      a: mc("a"),
-      h1: mc("h1"),
-      h2: mc("h2"),
-      h3: mc("h3"),
-      p: mc("p"),
-      create: (tag: string) => mc(tag),
-    },
-    animate: () => ({ stop: () => {} }),
-    useInView: () => true,
-    useScroll: () => ({ scrollYProgress: { get: () => 0.5 } }),
-    useTransform: () => 0,
-    useMotionValue: (v: number = 0) => ({ set: () => {}, get: () => v }),
-    useSpring: () => ({ set: () => {}, get: () => 0 }),
-    useReducedMotion: () => false,
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <>{children}</>,
-  };
-});
-
 vi.mock("next/image", () => ({
   default: (props: { alt: string; src: string }) => <img alt={props.alt} src={props.src} />,
 }));
+
+// Mock IntersectionObserver as a proper class for useInView hook
+class MockIntersectionObserver {
+  callback: IntersectionObserverCallback;
+  constructor(cb: IntersectionObserverCallback) {
+    this.callback = cb;
+    setTimeout(() => cb([{ isIntersecting: true } as IntersectionObserverEntry], this as unknown as IntersectionObserver), 0);
+  }
+  observe = vi.fn();
+  disconnect = vi.fn();
+  unobserve = vi.fn();
+}
+vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
+
+// Mock matchMedia for useReducedMotion hook
+vi.stubGlobal("matchMedia", vi.fn(() => ({
+  matches: false,
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn(),
+})));
 
 afterEach(cleanup);
 

@@ -1,16 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useReducedMotion,
-} from "framer-motion";
+import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useReducedMotion, useInView } from "@/hooks/useAnimations";
 
 /* ------------------------------------------------------------------ */
-/*  Zone definitions — each maps to a clickable SVG region            */
+/*  Zone definitions -- each maps to a clickable SVG region            */
 /* ------------------------------------------------------------------ */
 
 const ZONE_KEYS = [
@@ -105,14 +101,17 @@ function DetailPanel({ zone, onClose, prefersReduced }: DetailPanelProps) {
   const treatmentKeys = [0, 1] as const;
 
   return (
-    <motion.aside
-      initial={prefersReduced ? { opacity: 0 } : { x: 60, opacity: 0 }}
-      animate={prefersReduced ? { opacity: 1 } : { x: 0, opacity: 1 }}
-      exit={prefersReduced ? { opacity: 0 } : { x: 60, opacity: 0 }}
-      transition={{ duration: 0.35, ease: "easeInOut" as const }}
+    <aside
       className="flex h-full flex-col overflow-y-auto rounded-2xl bg-white p-6 shadow-xl lg:p-8"
       role="region"
       aria-label={t(`zones.${zone}.name`)}
+      style={
+        prefersReduced
+          ? undefined
+          : {
+              animation: "fadeIn 0.35s ease-in-out both",
+            }
+      }
     >
       {/* Close button */}
       <button
@@ -203,7 +202,7 @@ function DetailPanel({ zone, onClose, prefersReduced }: DetailPanelProps) {
           {t("cta")}
         </Link>
       </div>
-    </motion.aside>
+    </aside>
   );
 }
 
@@ -212,7 +211,7 @@ function DetailPanel({ zone, onClose, prefersReduced }: DetailPanelProps) {
 /* ------------------------------------------------------------------ */
 
 /**
- * SymptomNavigator — Interactive body map with clickable anatomical zones.
+ * SymptomNavigator -- Interactive body map with clickable anatomical zones.
  *
  * Clicking a zone reveals a sliding detail panel showing common symptoms,
  * recommended treatments and a CTA to book an appointment.
@@ -225,8 +224,12 @@ function DetailPanel({ zone, onClose, prefersReduced }: DetailPanelProps) {
  */
 export function SymptomNavigator() {
   const t = useTranslations("home.symptom_navigator");
-  const prefersReduced = useReducedMotion() ?? false;
+  const prefersReduced = useReducedMotion();
   const [selectedZone, setSelectedZone] = useState<ZoneKey | null>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const bodyMapRef = useRef<HTMLDivElement>(null);
+  const headerInView = useInView(headerRef, { once: true });
+  const bodyMapInView = useInView(bodyMapRef, { once: true });
 
   function handleSelect(zone: ZoneKey) {
     setSelectedZone((prev) => (prev === zone ? null : zone));
@@ -236,12 +239,18 @@ export function SymptomNavigator() {
     <section id="symptom-navigator" className="py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
-          initial={prefersReduced ? {} : { opacity: 0, y: 24 }}
-          whileInView={prefersReduced ? {} : { opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeInOut" as const }}
+        <div
+          ref={headerRef}
           className="mb-12 text-center"
+          style={
+            prefersReduced
+              ? undefined
+              : {
+                  opacity: headerInView ? 1 : 0,
+                  transform: headerInView ? "none" : "translateY(24px)",
+                  transition: "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
+                }
+          }
         >
           <h2 className="mb-3 font-heading text-3xl font-bold text-charcoal lg:text-4xl">
             {t("title")}
@@ -249,17 +258,23 @@ export function SymptomNavigator() {
           <p className="mx-auto max-w-xl font-body text-charcoal-light">
             {t("subtitle")}
           </p>
-        </motion.div>
+        </div>
 
         {/* Body map + panel grid */}
         <div className="grid items-start gap-8 lg:grid-cols-2">
           {/* SVG body map */}
-          <motion.div
-            initial={prefersReduced ? {} : { opacity: 0, scale: 0.96 }}
-            whileInView={prefersReduced ? {} : { opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15, ease: "easeInOut" as const }}
+          <div
+            ref={bodyMapRef}
             className="relative mx-auto w-full max-w-xs lg:max-w-sm"
+            style={
+              prefersReduced
+                ? undefined
+                : {
+                    opacity: bodyMapInView ? 1 : 0,
+                    transform: bodyMapInView ? "none" : "scale(0.96)",
+                    transition: "opacity 0.5s ease-in-out 0.15s, transform 0.5s ease-in-out 0.15s",
+                  }
+            }
           >
             <svg
               viewBox="0 0 240 340"
@@ -305,51 +320,51 @@ export function SymptomNavigator() {
                 </button>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Detail panel area */}
           <div className="min-h-[420px]">
-            <AnimatePresence mode="wait">
-              {selectedZone ? (
-                <DetailPanel
-                  key={selectedZone}
-                  zone={selectedZone}
-                  onClose={() => setSelectedZone(null)}
-                  prefersReduced={prefersReduced}
-                />
-              ) : (
-                <motion.div
-                  key="placeholder"
-                  initial={prefersReduced ? {} : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.25, ease: "easeInOut" as const }}
-                  className="flex h-full min-h-[420px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-pearl-400 p-8 text-center"
+            {selectedZone ? (
+              <DetailPanel
+                key={selectedZone}
+                zone={selectedZone}
+                onClose={() => setSelectedZone(null)}
+                prefersReduced={prefersReduced}
+              />
+            ) : (
+              <div
+                className="flex h-full min-h-[420px] flex-col items-center justify-center rounded-2xl border-2 border-dashed border-pearl-400 p-8 text-center"
+                style={
+                  prefersReduced
+                    ? undefined
+                    : {
+                        animation: "fadeInScale 0.25s ease-in-out both",
+                      }
+                }
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mb-4 text-pearl-500"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="48"
-                    height="48"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="mb-4 text-pearl-500"
-                  >
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                  </svg>
-                  <p className="font-heading text-lg font-semibold text-charcoal">
-                    {t("placeholder_title")}
-                  </p>
-                  <p className="mt-1 text-sm text-charcoal-light">
-                    {t("placeholder_subtitle")}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <p className="font-heading text-lg font-semibold text-charcoal">
+                  {t("placeholder_title")}
+                </p>
+                <p className="mt-1 text-sm text-charcoal-light">
+                  {t("placeholder_subtitle")}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -56,13 +56,13 @@ describe("CookieConsent", () => {
   it("has reject, customize, and accept buttons", () => {
     render(<CookieConsent />);
     expect(
-      screen.getByLabelText("Refuser tous les témoins optionnels")
+      screen.getByRole("button", { name: /tout refuser/i })
     ).toBeInTheDocument();
     expect(
-      screen.getByLabelText("Personnaliser les préférences de témoins")
+      screen.getByRole("button", { name: /personnaliser/i })
     ).toBeInTheDocument();
     expect(
-      screen.getByLabelText("Accepter tous les témoins")
+      screen.getByRole("button", { name: /tout accepter/i })
     ).toBeInTheDocument();
   });
 

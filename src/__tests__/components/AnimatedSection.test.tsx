@@ -1,20 +1,26 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import { describe, it, expect, afterEach, vi } from "vitest";
 
-vi.mock("framer-motion", () => ({
-  motion: {
-    div: ({
-      children,
-      className,
-      ...rest
-    }: React.HTMLAttributes<HTMLDivElement>) => (
-      <div className={className} data-testid="animated" {...rest}>
-        {children}
-      </div>
-    ),
-  },
-  useReducedMotion: () => false,
-}));
+// Mock IntersectionObserver as a proper class for useInView hook
+class MockIntersectionObserver {
+  callback: IntersectionObserverCallback;
+  constructor(cb: IntersectionObserverCallback) {
+    this.callback = cb;
+    // Immediately trigger as intersecting
+    setTimeout(() => cb([{ isIntersecting: true } as IntersectionObserverEntry], this as unknown as IntersectionObserver), 0);
+  }
+  observe = vi.fn();
+  disconnect = vi.fn();
+  unobserve = vi.fn();
+}
+vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
+
+// Mock matchMedia for useReducedMotion hook
+vi.stubGlobal("matchMedia", vi.fn(() => ({
+  matches: false,
+  addEventListener: vi.fn(),
+  removeEventListener: vi.fn(),
+})));
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
@@ -31,12 +37,12 @@ describe("AnimatedSection", () => {
   });
 
   it("applies className prop", () => {
-    render(
+    const { container } = render(
       <AnimatedSection className="my-class">
         <p>Test</p>
       </AnimatedSection>
     );
-    expect(screen.getByTestId("animated")).toHaveClass("my-class");
+    expect(container.firstChild).toHaveClass("my-class");
   });
 
   it("renders with direction=left", () => {

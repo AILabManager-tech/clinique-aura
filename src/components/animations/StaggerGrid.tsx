@@ -1,33 +1,13 @@
 "use client";
 
-import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, type ReactNode } from "react";
+import { useInView, useReducedMotion } from "@/hooks/useAnimations";
 
 interface StaggerGridProps {
   children: ReactNode[];
   className?: string;
   stagger?: number;
 }
-
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-    scale: 0.92,
-    filter: "blur(8px)",
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    filter: "blur(0px)",
-    transition: {
-      type: "spring" as const,
-      damping: 25,
-      stiffness: 120,
-    },
-  },
-};
 
 /**
  * StaggerGrid - Renders children in a grid with staggered reveal animations on scroll.
@@ -45,7 +25,7 @@ export function StaggerGrid({
   className,
   stagger = 0.12,
 }: StaggerGridProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
@@ -60,21 +40,20 @@ export function StaggerGrid({
   }
 
   return (
-    <motion.div
-      ref={ref}
-      className={className}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={{
-        hidden: {},
-        visible: { transition: { staggerChildren: stagger } },
-      }}
-    >
+    <div ref={ref} className={className}>
       {children.map((child, i) => (
-        <motion.div key={i} variants={itemVariants}>
+        <div
+          key={i}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transform: isInView ? "translateY(0) scale(1)" : "translateY(40px) scale(0.92)",
+            filter: isInView ? "blur(0px)" : "blur(8px)",
+            transition: `all 0.5s ease-out ${i * stagger}s`,
+          }}
+        >
           {child}
-        </motion.div>
+        </div>
       ))}
-    </motion.div>
+    </div>
   );
 }
