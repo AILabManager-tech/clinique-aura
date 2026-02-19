@@ -43,9 +43,9 @@ export function TextReveal({
   }
 
   return (
-    <Tag ref={ref as React.RefObject<HTMLHeadingElement>} className={className}>
+    <Tag ref={ref as React.RefObject<HTMLHeadingElement>} className={className} aria-label={children}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden">
+        <span key={i} className="inline-block overflow-hidden" aria-hidden="true">
           <span
             className="inline-block"
             style={{
