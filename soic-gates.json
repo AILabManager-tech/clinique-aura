@@ -1,0 +1,21 @@
+{
+  "version": "3.0",
+  "client": "clinique-aura",
+  "date": "2026-02-18",
+  "evaluator": "NEXOS Ph5 QA Orchestrator",
+  "dimensions": {
+    "D1": { "name": "Architecture", "score": 10.0, "weight": 1.0 },
+    "D2": { "name": "Documentation", "score": 7.0, "weight": 0.8 },
+    "D3": { "name": "Tests", "score": 10.0, "weight": 0.9 },
+    "D4": { "name": "Sécurité", "score": 9.5, "weight": 1.2 },
+    "D5": { "name": "Performance", "score": 9.6, "weight": 1.0 },
+    "D6": { "name": "Accessibilité", "score": 10.0, "weight": 1.1 },
+    "D7": { "name": "SEO", "score": 9.5, "weight": 1.0 },
+    "D8": { "name": "Conformité légale", "score": 10.0, "weight": 1.1 },
+    "D9": { "name": "Code Quality", "score": 9.0, "weight": 0.9 }
+  },
+  "mu": 9.47,
+  "threshold": 8.5,
+  "status": "PASS",
+  "gate": "ph5→deploy"
+}
