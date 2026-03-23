@@ -84,10 +84,8 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${outfit.variable} ${nunito.variable}`}>
-      <head>
-        <title>Clinique Aura — Physiothérapie et bien-être à Sherbrooke</title>
-        <meta name="description" content={locale === 'fr' ? 'Clinique Aura : physiothérapie, ostéopathie, massothérapie et nutrition à Sherbrooke. Une approche globale pour votre bien-être, en un seul lieu.' : 'Clinique Aura: physiotherapy, osteopathy, massage therapy and nutrition in Sherbrooke. A holistic approach to your well-being, all under one roof.'} />
-      </head>
+      <head />
+
       <body className="font-body bg-pearl-200 text-charcoal antialiased">
         <a
           href="#main-content"
